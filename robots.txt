@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dusa89.github.io/the-honest-inbox/sitemap.xml
