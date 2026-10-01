@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating from Mailchimp to MailerLite (2026): The 7 Traps and the Weekend Checklist | The Honest Inbox</title>
+<meta name="description" content="The Mailchimp-to-MailerLite migration guide for 2026: the unsubscribed-contact billing trap that makes the move worth it, the 7 things that break in transit, and a step-by-step weekend checklist. Facts checked October 1, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Migrating from Mailchimp to MailerLite (2026): The 7 Traps and the Weekend Checklist</h1>
+  <p class="meta">Migration facts checked October 1, 2026 · MailerLite prices checked September 30, 2026 · Mailchimp billing behavior verified against Mailchimp's own help docs</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">The Mailchimp-to-MailerLite move is the most-searched migration in email marketing, and for one specific reason: Mailchimp charges you for contacts who can't receive your emails. Unsubscribed and non-subscribed contacts count toward your Mailchimp plan limit unless you manually archive them — that's straight from Mailchimp's own help documentation, not an accusation. MailerLite bills only for subscribed contacts. So a chunk of every Mailchimp bill is money you can claw back on day one — but only if the migration goes cleanly, and seven specific traps make it go uncleanly. This is the guide to both: the money, and the minefield.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    The migration is worth it for almost everyone paying Mailchimp for a list where 15–40% of contacts are unsubscribed (that dead weight vanishes from your bill the day you switch). Budget a weekend: clean the list before you export, import with MailerLite's direct Mailchimp tool, rebuild your welcome series from scratch (automations do not transfer), verify your domain with fresh SPF/DKIM records, warm up with your engaged segment first, and keep Mailchimp running one overlapping billing cycle as insurance. The single most common failure is importing the entire audience including unsubscribed contacts — repeating your worst billing mistake on a new platform.
+  </div>
+
+  <h2>The money: what you're actually paying Mailchimp for</h2>
+  <p>Do this math before anything else, because it's the whole case for moving. Mailchimp's billing counts your <em>total audience</em>: subscribed contacts plus unsubscribed plus non-subscribed (people who bought or filled out a form without checking the marketing opt-in box). Only "cleaned" contacts (hard bounces, auto-marked) don't count. Verified from Mailchimp's own "About non-subscribed contacts" help article and confirmed by independent audits in September/October 2026.</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>Your Mailchimp audience</th><th>Example</th><th>Mailchimp bills for</th><th>MailerLite bills for</th></tr>
+      <tr><td>Subscribed (can receive email)</td><td>5,000</td><td>5,000</td><td>5,000</td></tr>
+      <tr><td>Unsubscribed (opted out)</td><td>2,000</td><td>2,000</td><td>0 — unsubscribed contacts don't count toward MailerLite's plan limit (per MailerLite's documented billing)</td></tr>
+      <tr><td>Non-subscribed (bought, didn't opt in)</td><td>1,000</td><td>1,000</td><td>0 — same treatment</td></tr>
+      <tr><td><strong>Billable total</strong></td><td><strong>8,000</strong></td><td><strong>8,000</strong></td><td><strong>5,000</strong></td></tr>
+    </table>
+  </div>
+  <p class="table-note">Example uses a hypothetical 5,000-subscribed / 3,000-dead audience to show the mechanism, not real pricing — Mailchimp prices move by plan band, so run your own audience page's numbers. MailerLite's side is simpler: the free plan covers 1,000 subscribers and 12,000 emails a month, and the paid Comfort plan starts at $19/mo at 1,000 subscribers (prices checked September 30, 2026). If your audience page shows a big gap between "subscribed" and "total contacts," that gap is pure savings.</p>
+  <p>The honest caveat: you can reclaim the Mailchimp side without switching at all, just by archiving unsubscribed and non-subscribed contacts (Mailchimp documents this as the official way to lower your bill). Archiving keeps their history and analytics. But archiving is manual upkeep forever, and most people migrate for the whole package anyway — simpler tool, cleaner automation pricing, no four-step automation cap like Mailchimp's Essentials plan (four steps from a single trigger, no branching; the full Journey Builder only arrives on Standard, per a comparison updated October 1, 2026). If you're leaving for the price <em>and</em> the product, the move makes sense. If it's purely the bill, try archiving first — it's free.</p>
+
+  <h2>The 7 traps</h2>
+
+  <h3>Trap 1: Importing everyone, dead weight included</h3>
+  <p>The number-one migration mistake. People export the whole Mailchimp audience and import all of it into MailerLite — unsubscribed, non-subscribed, the lot — and then wonder why the new bill barely changed and the new list performs like the old one. The correct sequence: in Mailchimp, segment by status, and export <em>only subscribed contacts</em> for the import. Take the unsubscribed suppression list as a separate export (Mailchimp lets you export segments), import it into MailerLite as a suppression list, and never email it. You protect your sender reputation, your bill is clean, and you did the list hygiene you should have done years ago. This is the migration's biggest free win — don't skip it.</p>
+
+  <h3>Trap 2: Your automations do not transfer. None of them.</h3>
+  <p>Mailchimp does not export journeys, forms, or landing pages — full stop. They must be rebuilt in MailerLite. (Verified against an open-source Mailchimp migration checklist maintained as of September 2026.) Before you touch anything, inventory every automation in Mailchimp: welcome series, abandoned cart, post-purchase, win-back, re-engagement — screenshot each flow, note each trigger, each delay, each email. The silver lining: most migrations rebuild leaner. That five-email welcome series from 2022 that nobody has opened since 2023? This is the moment to replace it with three tight emails. Rebuild order matters: welcome series first (it's live revenue), then abandoned cart if you're e-commerce, then everything else.</p>
+
+  <h3>Trap 3: Templates, forms, and landing pages get rebuilt too</h3>
+  <p>Same story as automations — design assets don't export cleanly. MailerLite's drag-and-drop editor is genuinely fast, and its template library is solid, but plan an afternoon for the flagship template (your newsletter master) and an hour per form. Don't try to pixel-replicate Mailchimp designs; rebuild them MailerLite-native so they're editable going forward instead of imported HTML you can't touch. Export any must-keep images from Mailchimp's content studio before you cancel — they're yours, but they're easier to grab while the account is alive.</p>
+
+  <h3>Trap 4: The approval and opt-in pause</h3>
+  <p>Two consent mechanics catch people. First, MailerLite reviews new accounts before the first sends — expect an account approval step, and don't plan your migration weekend to end with a same-day launch to 20,000 people; send the warmup campaign a few days after the account is approved. Second, decide the import opt-in question deliberately: MailerLite's import flow lets you add contacts as subscribed, and for a properly permissioned Mailchimp list that's correct — these people opted in. But if your Mailchimp list's consent history is murky (old purchased lists, scraped contacts, "everyone who ever emailed us"), importing them as subscribed is a deliverability and legal problem on any platform. When in doubt, import questionable segments as unconfirmed and run a re-permission campaign. That campaign will shrink your list — and that's the point.</p>
+
+  <h3>Trap 5: Your domain authentication starts at zero</h3>
+  <p>SPF and DKIM records authenticate <em>your domain with the sending platform</em> — Mailchimp's records in your DNS do nothing for MailerLite. You must verify your sending domain in MailerLite and add its DNS records before your first real send. This is the step most skipped and most punished: mail from an unauthenticated domain lands in spam and tanks the reputation you brought over. Verify the domain, wait for propagation (up to 48 hours in the worst case, usually minutes), and confirm the green checks in MailerLite's domain settings before importing anything. Test-send to yourself and check the headers.</p>
+
+  <h3>Trap 6: The cutover gap — new subscribers during the move</h3>
+  <p>Your website forms, Shopify checkout, and landing pages keep collecting subscribers during the migration. If you switch the forms to MailerLite on Saturday but finish importing on Sunday, Saturday's signups exist in neither place. The fix: run the import first, keep Mailchimp forms live while you rebuild, and do a second "delta import" of anyone who subscribed during the move before you point the forms at MailerLite. Then — only then — update the website forms. Keep Mailchimp live for one overlapping billing cycle as insurance; canceling early to save $40 while an automation still fires welcome emails from the old platform is the definition of penny-wise.</p>
+
+  <h3>Trap 7: Blasting the full list on day one</h3>
+  <p>Your deliverability reputation partially follows the domain, not the platform — but a fresh sending setup plus a full-list blast to cold contacts is how new MailerLite accounts earn reviews and spam-folder placement. Warm up properly: first campaign goes to your most engaged segment (opened in the last 60 days), then expand outward over the next 2–3 sends. The engaged-first send establishes a healthy open rate on the new infrastructure; the blast-to-everyone opener establishes the opposite. This is also where Trap 1's list cleaning pays off twice — a smaller, engaged list warms up faster and cheaper.</p>
+
+  <h2>The weekend checklist, in order</h2>
+  <ol>
+    <li><strong>Audit Mailchimp.</strong> Note your subscribed vs. total contact counts (the gap is your savings), and screenshot every automation flow, form, and landing page. Export your content-studio images.</li>
+    <li><strong>Clean before you export.</strong> In Mailchimp, segment subscribed / unsubscribed / non-subscribed. Export subscribed contacts as the migration file; export the unsubscribed segment separately as your suppression list.</li>
+    <li><strong>Verify your domain in MailerLite.</strong> Add the SPF/DKIM records, confirm propagation, test-send. Do this before importing anything.</li>
+    <li><strong>Import.</strong> Use MailerLite's direct Mailchimp import (it exists and is the cleanest path — verified in a review updated October 1, 2026) or the cleaned CSV. Subscribed contacts import as subscribed; the suppression list imports as suppressed.</li>
+    <li><strong>Rebuild the welcome series first.</strong> Then abandoned cart (if e-commerce), then the rest. Three tight emails beat five dusty ones.</li>
+    <li><strong>Rebuild forms and landing pages.</strong> Keep them live on Mailchimp until the MailerLite versions are tested.</li>
+    <li><strong>Warm up.</strong> First send to the engaged segment (opened in the last 60 days), expand over 2–3 campaigns.</li>
+    <li><strong>Delta import, then cut over the forms.</strong> Catch the subscribers who signed up during the move, then point website forms at MailerLite.</li>
+    <li><strong>Run parallel one billing cycle.</strong> Watch for any automation you forgot still firing from Mailchimp. Then cancel Mailchimp — and export your full data first, because once the account closes, the archive goes with it.</li>
+  </ol>
+
+  <h2>Who shouldn't migrate</h2>
+  <p>Three honest exceptions. One: if you use Mailchimp's Transactional (formerly Mandrill) for application email, that's a separate product with no MailerLite equivalent — keep Mailchimp for transactional and move marketing email only. Two: if your automations are deeply wired into Mailchimp's Standard-plan Journey Builder with complex branching, the rebuild is real work; price your time against the savings. Three: if your list's consent history is shaky, no platform move fixes that — clean the list or re-permission it first, wherever it lives.</p>
+
+  <h2>Affiliate honesty</h2>
+  <p>We carry an affiliate link for MailerLite (verified program, 30% recurring) and none for Mailchimp (no publisher affiliate program we've verified — that recommendation, such as it is, is uncompensated). That asymmetry is exactly why this page leads with the case for <em>not</em> switching: archive your unsubscribed contacts and keep Mailchimp if the math works. The migration earns us a commission only if you actually move; it earns you the savings either way.</p>
+  <p>
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Start free with MailerLite (1,000 subscribers)</a>
+    <a class="btn-ghost" href="mailerlite-pricing-explained.html">MailerLite pricing, explained</a>
+    <a class="btn-ghost" href="mailchimp-alternatives.html">All Mailchimp alternatives</a>
+  </p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices change — always verify at checkout.</p>
+  </div>
+</footer>
+</body>
+</html>
