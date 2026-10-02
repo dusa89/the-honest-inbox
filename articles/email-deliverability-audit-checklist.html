@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Deliverability Audit Checklist (2026): The Quarterly 2-Hour Routine | The Honest Inbox</title>
+<meta name="description" content="Deliverability decays quietly — engagement drifts, lists rot, DNS breaks silently. The quarterly audit checklist: the 7 checks, scored pass/warn/fail, that catch 90% of drift in about 2 hours, plus the signals that mean you audit early. Deliverability series, part 5 of 5.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>The Deliverability Audit Checklist (2026): The Quarterly 2-Hour Routine</h1>
+  <p class="meta">Deliverability series, part 5 of 5 · Checked against deliverability guidance, October 2026</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Parts 1–4 built your deliverability machine: authentication, warm-up, list pruning, and tracking domains. This part keeps it running. Deliverability doesn't fail all at once — it decays. Engagement drifts down a little each month, a few percent of your list goes stale every quarter (the conventional estimate is 20–30% of email addresses degrading per year — quoted as the industry's conventional range, not a measured fact), and DNS records break silently when somebody changes hosts or rebrands. The senders with great placement and the senders who wake up to a disaster are separated by one thing: a routine. This is that routine — 7 checks, scored pass/warn/fail, about 2 hours, once every 90 days. Run it on schedule and you'll catch every common failure mode before it costs you an inbox.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    <strong>Every 90 days, spend ~2 hours.</strong> Re-verify SPF/DKIM/DMARC (DNS breaks silently), review 90-day engagement trends and spam complaint rates against Gmail's published 0.10% / 0.30% bulk-sender thresholds, prune the unengaged segment again, re-check your suppression list and bounce handling, confirm your tracking domain still resolves, confirm your unsubscribe path still works (one click, required by the Gmail/Yahoo bulk-sender rules since February 2024), and re-check that your plan tier still matches your list size. Score each check pass/warn/fail; anything below warn gets a fix-now or fix-this-week action. Run the same checklist early the moment any signal in the "audit early" section fires.
+  </div>
+
+  <h2>Why deliverability decays (the part nobody tells you)</h2>
+  <p>Deliverability advice is almost always framed as setup: configure these records, warm up this way, then you're done. You're never done, because the inputs all move:</p>
+  <ul>
+    <li><strong>Engagement decays.</strong> Your subscribers' attention doesn't hold still. People who opened everything in month 1 open half of it by month 6. The filters notice before you do — inbox placement is a trailing indicator of engagement trends you've already been living with for weeks.</li>
+    <li><strong>Lists rot.</strong> People change jobs, abandon addresses, and stop reading. The conventional industry estimate — 20–30% of addresses degrading per year — is directionally right even if the exact number varies by industry (labeled as the conventional estimate, not a measured claim). A list you cleaned in January has meaningfully different composition by October.</li>
+    <li><strong>Infrastructure breaks silently.</strong> Somebody changes DNS hosts, a rebrand alters the sending domain, the tool updates its settings — and SPF or DKIM stops passing. Nothing alerts you. You find out months later, in your placement numbers.</li>
+    <li><strong>Tools change.</strong> Plans get repriced, features move tiers, your list outgrows the plan you're on. The tool you chose in part 1–4 of this site may no longer be the cheapest correct answer at your current list size — that's exactly why this site re-checks pricing quarterly.</li>
+  </ul>
+  <p>The audit exists so none of this surprises you. It's scheduled maintenance, like oil changes: boring, cheap, and the difference between a machine that runs and one that dies on a highway.</p>
+
+  <h2>The checklist: 7 checks, scored pass / warn / fail</h2>
+  <p>Work top to bottom. Each check gets a score: <strong>pass</strong> (healthy), <strong>warn</strong> (degrading — schedule a fix), <strong>fail</strong> (broken now — fix before your next campaign). Keep the score sheet somewhere you'll find it next quarter — the <em>trends</em> across audits matter more than any single score.</p>
+
+  <h3>Check 1 — Authentication still valid (part 2, re-verified)</h3>
+  <p>Send a test campaign to a Gmail address you control. Open it, view the full headers (in Gmail: the three-dot menu → "Show original"), and confirm the SPF, DKIM, and DMARC rows all read <strong>PASS</strong>.</p>
+  <ul>
+    <li><strong>Pass:</strong> PASS/PASS/PASS on a current test send, and your DMARC reports (if you receive them) show aligned mail from your tool.</li>
+    <li><strong>Warn:</strong> authentication passes but you changed DNS hosts, domains, or tools since the last audit and haven't re-verified since the change.</li>
+    <li><strong>Fail:</strong> any row reads FAIL or NONE. Stop and fix before sending another campaign — this is a hard deliverability failure, not a soft one.</li>
+  </ul>
+
+  <h3>Check 2 — Engagement trend over the last 90 days</h3>
+  <p>Pull your tool's reporting for the last 90 days: open rate and click rate, charted by week, across your broadcast campaigns (automations have different baselines — compare them separately). Two caveats from part 3 still apply: Apple Mail Privacy Protection inflates open rates, so treat opens as directional and lean on clicks as your engagement proxy; and compare against your own history, not industry benchmarks — benchmarks lie by averaging wildly different businesses.</p>
+  <ul>
+    <li><strong>Pass:</strong> trend is flat or up versus your last audit, and click rates are stable.</li>
+    <li><strong>Warn:</strong> a slow decline over the quarter — opens or clicks drifting down 10–20% from the last audit. (That percentage is a working rule of thumb, not a standard.) This is the early signal; act on it now while it's cheap to fix.</li>
+    <li><strong>Fail:</strong> a cliff — a sudden step-change down, or a steady quarter-long slide past 25%+. Something structural changed: content, frequency, list composition, or a placement problem masquerading as an engagement problem (see check 3 before diagnosing).</li>
+  </ul>
+
+  <h3>Check 3 — Spam complaint rate against Gmail's published bar</h3>
+  <p>Google's bulk-sender guidelines (in force since February 2024) publish the number: keep spam rates <strong>under 0.10%</strong> and <strong>never reach 0.30%</strong> — at 0.30% you're in Gmail's enforcement zone. This is one of the few hard numbers in all of deliverability, and it's Google's own.</p>
+  <ul>
+    <li><strong>Pass:</strong> complaint rate at or under 0.10% across the quarter, measured where your tool reports it (most tools show this in reporting; Google Postmaster Tools shows it for your domain if you have it set up).</li>
+    <li><strong>Warn:</strong> hovering between 0.10% and 0.20%, or trending upward quarter over quarter. Your content or targeting is drifting toward "reported as spam" territory.</li>
+    <li><strong>Fail:</strong> at or above 0.30% in any recent period, or a spike you can tie to a specific campaign. The campaign that caused it goes in the penalty box: find what was different (a reactivated segment, a subject line that oversold, frequency) and don't repeat it.</li>
+  </ul>
+  <p>If you don't have Postmaster Tools set up for your domain, do it during this audit — it's free, it's Google's own data about your domain's reputation, and it takes about 10 minutes to verify. (Setup values are unique to your account — copy them from Google's console, not from a guide.)</p>
+
+  <h3>Check 4 — List hygiene: prune again, check suppression</h3>
+  <p>Run part 3's engagement-pruning system again — the exact same procedure, one quarter later. Then verify the machinery:</p>
+  <ul>
+    <li><strong>Pass:</strong> the unengaged segment (no opens or clicks in 6+ months — your definition from part 3) was suppressed or re-engaged this quarter, hard bounces are being removed automatically, and your suppression list includes every past unsubscriber and complaint.</li>
+    <li><strong>Warn:</strong> you skipped a pruning cycle, or your unengaged segment is growing faster than last quarter.</li>
+    <li><strong>Fail:</strong> you're still mailing addresses that hard-bounced, or unsubscribes/complaints are landing back in the active list. Both are reputation killers <em>and</em> compliance failures — fix the workflow before the next send.</li>
+  </ul>
+
+  <h3>Check 5 — Tracking domain and sending posture (part 4, re-verified)</h3>
+  <ul>
+    <li><strong>Pass:</strong> your branded tracking domain resolves, links in a test email carry your domain and load over HTTPS with a valid certificate, and you're still correctly on the shared pool (you didn't accidentally buy a dedicated IP at 8,000 emails a month — see part 4's decision tree).</li>
+    <li><strong>Warn:</strong> tracking domain works but you haven't tested it since a tool or DNS change, or your volume has grown enough that the dedicated-IP question deserves a fresh run through the 4-question tree (roughly 100,000+ emails a month — the conventional rule of thumb).</li>
+    <li><strong>Fail:</strong> tracked links throw SSL errors, or your tracking domain no longer resolves. SSL errors on every click are worse for trust than the shared tracking domain ever was — treat as fix-before-next-campaign.</li>
+  </ul>
+
+  <h3>Check 6 — Unsubscribe path and footer compliance</h3>
+  <p>The Gmail/Yahoo bulk-sender rules require <strong>one-click unsubscribe</strong> — the List-Unsubscribe header, honored within 2 days. And the CAN-SPAM Act still requires a <strong>valid physical postal address</strong> in every commercial email. Both get quietly broken by template changes.</p>
+  <ul>
+    <li><strong>Pass:</strong> every active template has a working one-click unsubscribe (click it yourself on a test send — don't assume), the footer carries a real postal address, and the address is still current.</li>
+    <li><strong>Warn:</strong> you've added new templates or automations since the last audit and haven't verified their footers.</li>
+    <li><strong>Fail:</strong> the unsubscribe link is broken, buried, or multi-step where one click is required — or the postal address is missing. These are compliance failures with legal exposure, not just deliverability issues.</li>
+  </ul>
+
+  <h3>Check 7 — Plan tier vs. list size (the money check)</h3>
+  <p>Compare your current subscriber count against your plan tier and the other tools' current pricing. The questions: are you paying for a tier you no longer need, has your list outgrown your tier's send limits, and has a competitor repriced in a way that changes the answer?</p>
+  <ul>
+    <li><strong>Pass:</strong> your tier matches your list size with headroom, and a quick check of this site's pricing guides confirms your tool is still the cheapest correct answer at your size.</li>
+    <li><strong>Warn:</strong> you're within a quarter of outgrowing your tier, or a competitor's pricing moved enough to deserve a real comparison.</li>
+    <li><strong>Fail:</strong> you're overpaying for headroom you don't use, hitting send limits, or counting unsubscribed contacts against your bill on a tool that charges for them — the billing traps this site flags exist, and they compound monthly.</li>
+  </ul>
+
+  <h2>Score it, then act in 3 buckets</h2>
+  <p>Seven checks in, you have a score sheet. Sort the non-passes into three buckets:</p>
+  <ul>
+    <li><strong>Fix now (before the next campaign):</strong> anything scored fail — broken authentication, broken unsubscribe, SSL errors on tracked links, hard bounces in the active list. No campaign goes out over a failing check.</li>
+    <li><strong>Fix this week:</strong> warns with a trend behind them — declining engagement, complaint rates creeping toward 0.20%, a skipped pruning cycle. These are the ones that become fails next quarter if you ignore them.</li>
+    <li><strong>Fix next quarter:</strong> warns with no trend — a single new template whose footer you haven't verified, a plan tier you'll outgrow in 6 months. Note them on the score sheet and re-check next audit.</li>
+  </ul>
+  <p>File the score sheet where you'll find it. Next quarter, the first thing you do is compare: which warns became passes, which became fails, which new warns appeared. The audit compounds — by the third one, you can see your deliverability's entire trajectory on one page.</p>
+
+  <h2>Audit early: the 4 signals that override the calendar</h2>
+  <p>The quarterly cadence assumes nothing is on fire. These signals mean something is, and the audit happens this week:</p>
+  <ol>
+    <li><strong>A spam-complaint spike you can tie to a campaign.</strong> Especially anything touching 0.30% — that's Gmail's enforcement zone, and the campaign is the suspect, not the trend.</li>
+    <li><strong>A sudden step-change in inbox placement or engagement.</strong> Gradual drift is the audit's job; a cliff is an incident. Check checks 1 and 5 first (authentication and tracking domain), then check 4 (did a bad segment get mailed?).</li>
+    <li><strong>A blocklist listing.</strong> Check your sending domain (and your dedicated IP, if you have one) against the major blocklists — free lookup tools exist for this; the conventional one is a multi-list checker like MXToolBox. A listing on a major list means diagnosed work: find the cause (usually a compromised account or a mailed-to dead list), remediate, then request delisting.</li>
+    <li><strong>A tool or DNS change you didn't audit around.</strong> New DNS host, domain rebrand, tool migration, plan change — any of these can silently break checks 1, 5, or 6. Run the affected checks the week of the change, not the quarter after.</li>
+  </ol>
+
+  <h2>The calendar cadence (put it on the calendar, literally)</h2>
+  <p>The audit only works if it happens. Set a recurring 2-hour block every 90 days — and attach this checklist to the event. The realistic per-check budget: authentication 15 minutes, engagement review 20, complaint rates 10, list hygiene 30 (the pruning is the long pole), tracking domain 10, footer compliance 10, plan-vs-price 15, scoring and filing 10. That's ~2 hours. The first audit takes longer because you're building the score sheet; the third one takes 90 minutes because you know where everything is.</p>
+
+  <h2>The 4 mistakes</h2>
+  <p><strong>1. Auditing only when something breaks.</strong> The whole point is catching drift while it's cheap. An audit triggered by a disaster is an incident response, not maintenance — and incidents cost the reputation you've been building.</p>
+  <p><strong>2. Auditing the numbers but not the machinery.</strong> Engagement dashboards are the scoreboard; the machinery is checks 1, 4, 5, and 6 — authentication, suppression, tracking, unsubscribe. Dashboards can look fine while the machinery quietly breaks. Score both.</p>
+  <p><strong>3. Comparing yourself to benchmarks instead of your own history.</strong> A 22% open rate means nothing without context; a 22% that's falling from 35% means everything. File the score sheets. Your own trendline is the only benchmark that matters.</p>
+  <p><strong>4. Treating the audit as a one-person ritual nobody else knows about.</strong> If a VA, agency, or teammate touches your email program, the audit results need to reach them — the person who changes the DNS host is rarely the person who runs the audit. One shared score sheet prevents "I didn't know the footer changed" disasters.</p>
+
+  <h2>Which tool makes the audit easiest?</h2>
+  <p>Honestly: the audit is tool-agnostic. Every tool on this site reports engagement, manages suppression lists, supports branded tracking domains, and puts unsubscribe controls in templates — the checklist works the same in MailerLite, Kit, GetResponse, Brevo, AWeber, Mailchimp, and ActiveCampaign. Where tools differ is how easy they make <em>fixing</em> what the audit finds: segmentation quality for pruning, automation for re-engagement, and plan pricing when check 7 says you're on the wrong tier. That's what the comparison and pricing guides on this site are for — the audit tells you what to fix; the guides tell you where it's cheapest and easiest to fix it.</p>
+
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">MailerLite — 30% lifetime affiliate program, cheapest serious plans</a>
+  </p>
+  <p>
+    <a class="btn-ghost" data-affiliate="getresponse" href="#affiliate-link-placeholder-getresponse">GetResponse — the all-in-one, 40%+ recurring</a>
+    <a class="btn-ghost" data-affiliate="kit" href="#affiliate-link-placeholder-kit">Kit — creator-first, 30% for 24 months</a>
+  </p>
+
+  <h2>The full series</h2>
+  <ul>
+    <li>Part 1: <a href="email-deliverability-explained-spam.html">Email Deliverability Explained — why emails land in spam and the 6 fixes</a></li>
+    <li>Part 2: <a href="email-authentication-setup-per-tool.html">Setting Up SPF, DKIM &amp; DMARC — the per-tool walkthrough</a></li>
+    <li>Part 3: <a href="email-warmup-list-pruning.html">Email Warm-Up &amp; List Pruning — the reputation you build after authentication</a></li>
+    <li>Part 4: <a href="email-tracking-domains-dedicated-ips.html">Custom Tracking Domains &amp; Dedicated IPs — what they are and when they actually matter</a></li>
+    <li>Part 5: this page — the quarterly audit checklist.</li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices shown were checked October 2026 and change frequently; always confirm at checkout. Some links are affiliate links; see our disclosure. Setup values are unique to your account — always copy them from your tool's dashboard.</p>
+  </div>
+</footer>
+</body>
+</html>
