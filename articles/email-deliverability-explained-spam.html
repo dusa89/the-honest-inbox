@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Deliverability Explained (2026): Why Your Emails Land in Spam — and the 6 Fixes That Actually Work | The Honest Inbox</title>
+<meta name="description" content="Why your email marketing emails go to spam: the four things that decide inbox vs spam, Google and Yahoo's 2024 bulk-sender rules, SPF/DKIM/DMARC in plain English, and six honest fixes — no invented deliverability scores.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Email Deliverability Explained (2026): Why Your Emails Land in Spam — and the 6 Fixes That Actually Work</h1>
+  <p class="meta">Deliverability series, part 1 of 5 · No invented scores: nobody can credibly promise you a percentage, including us</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">The uncomfortable truth first: <strong>no email tool fixes a bad list.</strong> Deliverability is not a feature you buy — it's a reputation you build, and every inbox provider (Gmail, Outlook, Yahoo, Apple) keeps its own scorecard on your sending domain. The good news is the scorecard is simple: authenticate who you are, stop mailing people who don't want you, send to people who engage, and don't look like spam. This guide explains what actually decides inbox versus spam in 2026, the Google and Yahoo rules that have been enforced since February 2024, the three authentication acronyms every sender needs to understand, and the six fixes that genuinely move the needle — plus which of them your email tool helps with and which are entirely on you.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Four things decide whether you reach the inbox: <strong>authentication</strong> (SPF, DKIM, DMARC — non-negotiable since 2024), <strong>list quality</strong> (hard bounces and spam complaints poison your reputation), <strong>engagement</strong> (opens are broken by Apple Mail Privacy Protection; clicks are the real signal), and <strong>content</strong> (phishing-looking links, image-only emails, sketchy tracking domains). Google and Yahoo have enforced bulk-sender rules since February 2024: authenticate everything, keep spam complaint rates under 0.3% (aim under 0.1%), and include one-click unsubscribe. The six fixes, in order of impact: authenticate your domain, stop mailing cold/dead lists, honor engagement (sunset non-openers), fix your tracking domain, warm up properly when switching tools, and monitor Postmaster Tools and your spam-complaint rate. Your email tool handles the plumbing — the reputation is yours.
+  </div>
+
+  <h2>What deliverability actually is (and the number nobody should promise you)</h2>
+  <p>Deliverability is the share of your sent emails that reach the inbox instead of the spam folder or getting blocked outright. There are three separate outcomes every send gets judged on: <strong>delivered</strong> (accepted by the receiving server), <strong>inbox placement</strong> (delivered <em>and</em> put in the inbox rather than spam), and <strong>blocked/bounced</strong> (rejected). Your email tool's dashboard usually shows only the first — which is why a "99% delivery rate" in your dashboard can coexist with half your list never seeing your email. Nobody can give you a single honest deliverability score for a tool, because placement is computed per sender, per domain, per subscriber history — and any review that promises "MailerLite: 96.3% inbox rate" invented that number. If you see one, distrust the source. We don't publish scores; we publish the levers.</p>
+
+  <h2>The four things that decide inbox vs spam</h2>
+
+  <h3>1. Authentication — proving you're really you</h3>
+  <p>SPF, DKIM, and DMARC are the three DNS records that prove your emails actually come from your domain. Before February 2024 this was best practice; for anyone sending bulk mail (roughly 5,000+ emails a day to Gmail or Yahoo addresses, and practically everyone below that too) it's now required. Unauthenticated mail gets rejected or spam-foldered by policy, not by judgment call. The details are below; the takeaway is that a sender without authentication in 2026 has no deliverability problem — they have a deliverability non-starter.</p>
+
+  <h3>2. List quality — bounces and complaints poison everything</h3>
+  <p><strong>Hard bounces</strong> (sent to addresses that don't exist) tell mailbox providers your list hygiene is bad. The common industry rule of thumb: sustained hard-bounce rates above roughly 2% are a red flag — treat that as a guideline, not a published threshold. <strong>Spam complaints</strong> are worse: Google's published bulk-sender guidance says keep reported spam rates <strong>below 0.3%, and ideally below 0.1%</strong>. That is a real published number from Google, and it's strict — at 0.3%, a 1,000-person list means 3 complaints per send puts you at the line. Purchased lists, scraped addresses, and lists you haven't mailed in a year all manufacture bounces and complaints. Every dead address you mail is a vote against your domain.</p>
+
+  <h3>3. Engagement — the inbox providers watch what subscribers do</h3>
+  <p>Gmail and Outlook track whether your subscribers open, click, reply, star, or drag your emails out of spam. A list that ignores you trains the filters to file you away. The critical 2026 caveat: <strong>open rates are inflated by Apple Mail Privacy Protection</strong> (rolled out September 2021), which pre-loads tracking pixels on iPhone, iPad, and Mac users — making an email "opened" whether or not a human saw it. Any marketer judging engagement on opens in 2026 is steering with a broken instrument. Clicks, replies, and "moved out of spam" are the signals that still mean something. (This matters beyond vanity metrics — engagement-based list pruning is fix #3 below.)</p>
+
+  <h3>4. Content and sending patterns — don't look like phishing</h3>
+  <p>Image-only emails with no text, link-shortened URLs, mismatched "from" names, aggressive URL redirect chains, and emails that look like they came from a bank all raise the same flags phishing does. So do patterns: sending 50 emails a month for a year and then blasting 50,000 in a day is the classic compromised-account signature — legitimate senders ramp up gradually (see the warm-up section). Content matters less than authentication and list quality, but it decides the close calls.</p>
+
+  <h2>Google and Yahoo's bulk-sender rules (enforced since February 2024)</h2>
+  <p>In October 2023 Google and Yahoo jointly announced bulk-sender requirements, enforced starting February 2024. They are the closest thing email has to a public scoring rubric, so every sender should know them:</p>
+  <ul>
+    <li><strong>Authenticate:</strong> SPF, DKIM, and a DMARC policy on your sending domain.</li>
+    <li><strong>Spam rates under 0.3%:</strong> keep reported spam below 0.3% of mail sent, ideally below 0.1%. Exceeding 0.3% repeatedly gets you throttled or blocked.</li>
+    <li><strong>One-click unsubscribe:</strong> marketing mail must support one-click unsubscribe via a List-Unsubscribe header, and honor requests within 2 days.</li>
+    <li><strong>Don't impersonate:</strong> don't spoof Gmail "from" headers — send from your own domain.</li>
+  </ul>
+  <p>These rules apply to anyone sending at bulk volumes, but in practice Gmail and Yahoo judge small senders by the same authentication standards. If you send from a free Gmail or Yahoo address through your email tool — a common small-business habit — fix that first: it fails authentication by design and caps your deliverability at whatever the filters' mood is. This is the single most common deliverability self-sabotage we see on small lists.</p>
+
+  <h2>SPF, DKIM, and DMARC in plain English</h2>
+  <p>All three are small text records you add to your domain's DNS settings (wherever you bought the domain — GoDaddy, Cloudflare, Namecheap). Your email tool gives you the exact values; you paste them in once. Here's what each one does, in non-engineer terms:</p>
+  <ul>
+    <li><strong>SPF (Sender Policy Framework):</strong> a public list, published by you, of which servers are allowed to send mail for your domain. If a spammer's server tries to send "from" your domain, receiving servers see it isn't on the list.</li>
+    <li><strong>DKIM (DomainKeys Identified Mail):</strong> a digital signature your email tool attaches to every message, stamped with your domain. It proves the email wasn't altered in transit and really came from an authorized server.</li>
+    <li><strong>DMARC:</strong> your published policy telling receiving servers what to do when SPF or DKIM <em>fail</em> — nothing, quarantine, or reject. Start with a "none" policy (monitor-only) while you verify everything works, then tighten it. DMARC also gets you aggregate reports showing who's sending mail as your domain, which is how you catch spoofing.</li>
+  </ul>
+  <p>The mechanics take about 15 minutes per tool: copy three records from your email tool's domain-authentication page, paste them into your DNS, wait for verification. Every tool we cover walks you through it. (Part 2 of this series is the per-tool setup walkthrough.)</p>
+
+  <h2>The 6 fixes, in order of impact</h2>
+
+  <h3>Fix 1: Authenticate your domain (15 minutes, do this today)</h3>
+  <p>Add SPF, DKIM, and DMARC for the domain you send from, then send a test to a Gmail address and check the headers show all three passing. This is the only fix that is pure upside with zero downside, and it is the prerequisite for everything else.</p>
+
+  <h3>Fix 2: Stop mailing people who never asked (the list audit)</h3>
+  <p>Export your list and remove: purchased or scraped addresses, anything that bounced hard, and anyone who hasn't opened or clicked anything in 6-12 months. Yes, the list shrinks. A 5,000-person list with a 0.4% complaint rate gets throttled; a 2,000-person list with a 0.05% rate reaches inboxes. List size is a vanity metric; complaints per send is the metric that decides your reputation. If you have old addresses you want to keep, run them through a list-cleaning service first — services like this exist specifically to identify dead addresses before you mail them; use any reputable one, we have no affiliate relationship with any of them.</p>
+
+  <h3>Fix 3: Sunset non-engaged subscribers automatically</h3>
+  <p>Build one automation per tool: anyone with no opens or clicks in 6 months gets a short re-engagement sequence (2-3 emails — "do you still want these?"), and anyone who still doesn't engage gets suppressed from regular sends. This is the highest-leverage ongoing habit in email deliverability: it continuously prunes the subscribers who were quietly training Gmail to file you as ignorable. All four of our covered tools can build this automation — on MailerLite it's available from the Comfort tier up; on Kit's free plan there is no automation builder, so this particular fix requires the Creator plan there (our estimate from their published feature limits; verify at checkout).</p>
+
+  <h3>Fix 4: Fix your tracking domain</h3>
+  <p>Your email tool rewrites your links to track clicks — and by default those rewritten links live on the tool's shared domain, which thousands of other senders also use. If a spammer on the same platform gets that shared domain flagged, your links inherit the smell. Every major tool lets you use a custom tracking domain (a subdomain of your own domain, e.g. links.yourdomain.com). Turn it on. It's a small setting with an outsized effect on how "phishing-like" your links look to filters.</p>
+
+  <h3>Fix 5: Warm up properly when switching tools</h3>
+  <p>A new sending setup — new tool, new domain, or new IP — has zero reputation, and zero-reputation senders get treated cautiously. The standard practice: send to your most engaged subscribers first (recent openers and clickers), keep volumes modest for the first 2-4 weeks, and ramp gradually. Our rule of thumb — start at roughly 10-20% of your normal volume in week 1 and double weekly from there, watching bounce and complaint rates, not just opens. Label that what it is: a heuristic, not a published spec. If you're migrating tools, this is the part of the migration that actually protects your list — see our <a href="mailchimp-to-mailerlite-migration.html">Mailchimp → MailerLite</a>, <a href="kit-to-mailerlite-migration.html">Kit → MailerLite</a>, and <a href="activecampaign-to-mailerlite-migration.html">ActiveCampaign → MailerLite</a> migration guides, and treat the warm-up week as part of the migration checklist. (Part 4 of this series is the full warm-up playbook.)</p>
+
+  <h3>Fix 6: Monitor your reputation like a bank balance</h3>
+  <p>Two free dashboards tell you what the mailbox providers think of you: <strong>Google Postmaster Tools</strong> (spam rate, domain reputation, authentication status for your Gmail traffic — free, takes 5 minutes to set up with a verified domain) and your email tool's own bounce/complaint reports. Check them monthly. A rising complaint rate is an early warning — it means something changed (a new signup source, a stale segment reactivated, a subject-line style that's attracting reports) and you should find it before the filters act on it. Inbox-placement test tools also exist (paid services that seed test addresses across providers and report where your mail lands); treat their numbers as directional estimates, not gospel — they test seed addresses, not your actual subscribers.</p>
+
+  <h2>What your email tool actually controls (and what it doesn't)</h2>
+  <p>Honest accounting: the tool owns the <strong>plumbing</strong> — authentication setup flow, bounce handling, unsubscribe management, list-cleaning helpers, automation for sunsetting. You own the <strong>reputation</strong> — list sources, send frequency, content, engagement. A good tool makes the plumbing painless; no tool compensates for a purchased list. With that framing, here's where the four recurring-commission tools we cover stand on the plumbing:</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>Tool</th><th>Domain authentication</th><th>Custom tracking domain</th><th>Automation for sunsetting</th><th>The honest note</th></tr>
+      <tr><td>MailerLite</td><td>Guided SPF/DKIM setup; DMARC via your DNS</td><td>Yes</td><td>Full builder on Comfort ($19/mo at 1k)</td><td>Strict list-approval review before your first send — annoying, but it's the same strictness that keeps their shared sending reputation clean, which benefits you</td></tr>
+      <tr><td>Kit</td><td>Guided setup</td><td>Yes</td><td>None on the free plan — Creator ($39/mo) required</td><td>The free plan's 10,000-subscriber ceiling is generous, but deliverability automation is part of what the Creator tier is actually for</td></tr>
+      <tr><td>GetResponse</td><td>Guided setup</td><td>Yes</td><td>Yes — but Starter ($19/mo) allows only one workflow</td><td>Plans are priced net (tax added at checkout); the automation limit on Starter is the deliverability-relevant catch — one workflow can't run sends, sunsetting, and funnels</td></tr>
+      <tr><td>Brevo</td><td>Guided setup</td><td>Yes</td><td>None on free/Starter — Standard (~$18/mo) required</td><td>Send-based pricing means deliverability hygiene directly controls your bill: every bounced email is money spent to hurt your reputation</td></tr>
+    </table>
+  </div>
+  <p class="table-note">Feature facts from the tools' published plan pages, checked September 30, 2026; verify at checkout. One more plumbing note: at small-business tiers you send from <strong>shared IPs</strong> — your reputation is pooled with other senders on the same platform. That's another reason the strict platforms (MailerLite's approval review) are a feature, not a bug. Dedicated IPs are enterprise add-ons, priced separately — don't buy one expecting better placement; a dedicated IP with a bad list just concentrates the damage.</p>
+
+  <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  <p>
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Try MailerLite free</a>
+  </p>
+  <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  <p>
+    <a class="btn-aff" data-affiliate="kit" href="#affiliate-link-placeholder-kit">Try Kit free</a>
+  </p>
+  <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  <p>
+    <a class="btn-aff" data-affiliate="getresponse" href="#affiliate-link-placeholder-getresponse">Try GetResponse free</a>
+  </p>
+  <!-- AFFILIATE PLACEHOLDER: Brevo — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  <p>
+    <a class="btn-aff" data-affiliate="brevo" href="#affiliate-link-placeholder-brevo">Try Brevo free</a>
+  </p>
+
+  <h2>The three mistakes that undo all of it</h2>
+  <ul>
+    <li><strong>Buying a list "just to test."</strong> There is no clean way to mail addresses that didn't opt in. The bounces and complaints from one purchased-list blast can take months of clean sending to wash out of your reputation.</li>
+    <li><strong>Going dark, then blasting.</strong> Mailing nothing for 8 months and then sending a daily launch sequence is the pattern of a compromised account. If you've been quiet, warm back up with your most engaged segment first.</li>
+    <li><strong>Judging everything on open rates.</strong> Apple Mail Privacy Protection inflated opens starting in 2021. A "45% open rate" that used to mean love now partly means iPhones pre-loading pixels. Optimize for clicks and replies; prune on engagement, not on opens.</li>
+  </ul>
+
+  <p>Next in the series: <strong>part 2</strong> — the DKIM/SPF/DMARC setup walkthrough for each of the four tools, step by step with the exact records to paste.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
