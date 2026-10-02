@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Custom Tracking Domains &amp; Dedicated IPs (2026): What They Are and When They Actually Matter | The Honest Inbox</title>
+<meta name="description" content="Custom (branded) tracking domains: why every bulk sender should set one up, how it interacts with DMARC alignment, and the one-time DNS work. Dedicated IPs: MailerLite's own 50,000-emails-a-week bar, the conventional ~100k/month rule of thumb, typical add-on costs, and why a low-volume sender usually gets WORSE deliverability on a dedicated IP. Deliverability series, part 4 of 5.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Custom Tracking Domains &amp; Dedicated IPs (2026): What They Are and When They Actually Matter</h1>
+  <p class="meta">Deliverability series, part 4 of 5 · Checked against deliverability guidance, October 2026</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Parts 1–3 got you authenticated, warmed up, and pruned — your domain proves who you are, and your engagement proves you send mail people want. This part covers the two most misunderstood levers in deliverability, and they're misunderstood in opposite directions. Custom tracking domains are underused: a free-ish, one-time DNS exercise that almost every bulk sender should do. Dedicated IPs are overused: an expensive upgrade that sales pages dress up as a deliverability booster, but that actively <em>hurts</em> most small senders. This article separates the two, shows what each actually changes, and gives you the decision tree so you stop where you should.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    <strong>Custom tracking domain: yes — do it.</strong> Replace the shared tracking links in your emails (the ones with your tool's domain in them) with a subdomain of your own domain (link.yourdomain.com). It's a one-time DNS record, improves brand trust, feeds your own domain's reputation, and completes DMARC domain alignment. Almost every bulk sender benefits, regardless of volume.<br><br>
+    <strong>Dedicated IP: almost certainly no.</strong> Unless you send roughly 100,000+ emails a month at consistent volume, a dedicated IP gives you <em>worse</em> deliverability than a good shared pool — your thin engagement signals can't build a reputation, and the warm-up is entirely your job (see part 3's template). MailerLite's own recommendation, reported in an October 2026 review, is that dedicated IPs are for accounts sending at least 50,000 emails a week. Typical cost: on the order of $50–150/month as an add-on, or bundled into enterprise tiers — quoted as the conventional industry range, not a price list. Run the 4-question decision tree below before you even ask your tool about one.
+  </div>
+
+  <h2>What a tracking domain actually is</h2>
+  <p>Every email tool rewrites the links in your emails so it can count clicks and opens. By default, those rewritten links carry the <em>tool's</em> domain — something like <em>click.mailerlite.com</em> or <em>em.brevo.com</em> — and the subscriber passes through it on the way to your actual page. A custom (branded) tracking domain changes that: every link in your emails goes through <em>your</em> domain instead, e.g. <em>link.yourdomain.com</em>, which the tool hosts on your behalf with SSL.</p>
+  <p>Nothing about the sending mechanics changes. The same redirect happens; the only difference is whose name is on it.</p>
+
+  <h2>Why a custom tracking domain matters — the 3 reasons</h2>
+  <ol>
+    <li><strong>Brand trust and phishing optics.</strong> Recipients have been trained to hover over links. A link that says "click.mailerlite.com" pointing at your site looks exactly like the mismatch phishing emails use. Your own domain on every link reads as "this mail really is from this company." It's the same instinct that made part 1 tell you to stop sending from Gmail addresses.</li>
+    <li><strong>Your domain builds the reputation.</strong> Inbox providers score link domains as part of the overall domain reputation. On the shared tracking domain, you're pooling your click-reputation with thousands of strangers — including the tool's worst senders. On your own tracking domain, your reputation is built by your mail alone. Good hygiene in, good reputation out.</li>
+    <li><strong>DMARC domain alignment.</strong> DMARC's alignment check compares the domain in the <em>From:</em> address with the domains in the return-path and DKIM signatures. Branded tracking domains let your tool align the DKIM signature with your domain instead of theirs — which is what "domain alignment" means in MailerLite's deliverability setup, and it's part of why Gmail and Yahoo's bulk-sender rules (in force since February 2024) keep nudging senders toward full authentication.</li>
+  </ol>
+
+  <h2>When it matters vs. when it doesn't</h2>
+  <p>Honest answer: the "when it doesn't" list is very short. If you send bulk mail from your own domain — newsletters, automations, broadcasts, anything with more than one link — a branded tracking domain helps and costs nothing recurring. The only senders who can skip it: transactional-only setups sending a trickle of receipts, and free-tier testers who haven't committed to a tool yet. If you're reading a 5-part deliverability series, you're past both of those.</p>
+
+  <h2>How to set it up (the honest one-time DNS exercise)</h2>
+  <p>The shape is the same in every tool: you add the tracking domain in the tool's settings, the tool shows you a DNS record to add (usually a CNAME pointing your subdomain at the tool's tracking servers), you add it at your DNS provider, and the tool verifies it and provisions SSL. Copy every value from your tool's dashboard — never from a guide, never from memory.</p>
+  <ul>
+    <li><strong>MailerLite:</strong> look under the <strong>Domains</strong> section in account settings — this is where domain verification and domain alignment (branded tracking links) live. Add the records it shows and let it verify.</li>
+    <li><strong>GetResponse:</strong> the custom-domain controls sit in account/domain settings — GetResponse supports custom domains for tracking links as well as landing pages.</li>
+    <li><strong>Brevo:</strong> tracking-domain configuration lives in the sender/settings area of the account.</li>
+    <li><strong>Mailchimp:</strong> branded (custom) tracking domains are configured under account Settings, in the verified-domains area.</li>
+    <li><strong>Kit:</strong> Kit's custom-domain support is strongest for landing pages and forms — branded click-tracking domain options are thinner than the others on this list; check with their support for your plan before assuming.</li>
+  </ul>
+  <p>After setup, send yourself a test email and hover every link: they should all carry your domain, and they should all load over HTTPS with a valid certificate. If a tracked link lands on an SSL error, your readers' browsers will scream — test before you campaign.</p>
+
+  <h2>What a dedicated IP is</h2>
+  <p>When you send through your tool, your mail leaves from one of the tool's IP addresses. On standard plans, you share that IP with other senders — a <strong>shared pool</strong>. A <strong>dedicated IP</strong> is one address that only you use: its reputation is 100% your behavior, your volume, your mistakes. It sounds like control. In practice, for most senders, it's control over a smaller, weaker signal.</p>
+
+  <h2>The honest math on dedicated IPs</h2>
+  <p>Inbox providers build IP reputation from <em>consistent, engaged volume</em>. A shared pool sends millions of emails a day — it has enormous statistical signal, and the tool's team polices it 24/7. Your dedicated IP, sending 8,000 emails a month, is a whisper by comparison: the filters have almost nothing to judge you on, so they're conservative. That's why the conventional industry rule of thumb is roughly <strong>100,000 emails a month, minimum</strong> before a dedicated IP even enters the conversation — and MailerLite's own bar is higher, at least 50,000 emails a week (~200,000 a month), with their deliverability team assessing your account and handling the IP warm-up for you if approved.</p>
+  <p>On cost: dedicated IPs are typically an add-on on the order of <strong>$50–150/month</strong> (conventional industry range, not a quoted price — check your tool's current pricing), or bundled into enterprise tiers with custom pricing. Brevo sells them as an add-on on higher plans; MailerLite lists "dedicated IP &amp; deliverability consultation" on its Enterprise tier. This is real money for a real downgrade in most small-sender cases.</p>
+
+  <h2>Why low-volume senders lose on a dedicated IP</h2>
+  <p>The same part-3 mechanics apply, but worse:</p>
+  <ul>
+    <li><strong>Thin signal.</strong> 8,000 sends a month is ~260 a day. That can't build a reputation that competes with a shared pool's millions — your IP looks suspiciously quiet to the filters.</li>
+    <li><strong>The warm-up is yours.</strong> A new dedicated IP starts at zero reputation and <em>you</em> must ramp it using part 3's template. Miss a week of sending and the IP cools off; you've lost the ramp you paid for.</li>
+    <li><strong>Zero forgiveness for mistakes.</strong> On a shared pool, one bad campaign (a reactivated cold list, a spam-trap hit) is absorbed by the pool's overall signal. On your dedicated IP, that same campaign is your <em>entire</em> reputation for the month.</li>
+    <li><strong>You don't get a better shared pool to fall back on.</strong> Once you move off the pool, you're committed — migrating back means re-warming whatever you came from.</li>
+  </ul>
+
+  <h2>The 4-question decision tree</h2>
+  <p>Before you ask any tool for a dedicated IP, answer all four. A "no" anywhere means: stay on the shared pool, set up your custom tracking domain, and keep working parts 1–3.</p>
+  <ol>
+    <li><strong>Do you send ~100,000+ emails a month?</strong> If not, your volume cannot sustain an IP reputation. Stop here.</li>
+    <li><strong>Is your volume consistent?</strong> Steady weekly sends, not feast-and-famine launches. An IP that goes dark for three weeks a quarter is worse than the pool.</li>
+    <li><strong>Can you afford a multi-week warm-up with zero tolerance for mistakes?</strong> That's part 3's template, run on your own IP, with no pool absorbing your errors.</li>
+    <li><strong>Is a specific, diagnosed deliverability problem traceable to the shared pool?</strong> Not "inbox placement feels low" — a diagnosed pattern where your engaged segments fail on the shared IP while the tool's other senders pass. The tool's deliverability team has to confirm this; your gut doesn't count.</li>
+  </ol>
+  <p>Real-world answer for the tools we cover: nearly every reader of this series answers no to question 1. That's the correct answer — the shared pool is the better product for you, and it's what you're already paying for.</p>
+
+  <h2>BIMI: the next rung (optional, not required)</h2>
+  <p>One more lever worth knowing about but not worth doing yet: <strong>BIMI</strong> (Brand Indicators for Message Identification) puts your logo next to your emails in supporting inboxes — Gmail supports it. It requires your DMARC policy at enforcement (p=reject or p=quarantine) plus a verified trademark and a logo certificate (the certificate is the paid part). It's a trust signal for established brands, not a deliverability fix: it does nothing for a sender whose engagement is weak. Do parts 1–4 first; revisit BIMI when your brand is the thing that decides opens.</p>
+
+  <h2>The 4 mistakes</h2>
+  <p><strong>1. Buying a dedicated IP at 8,000 emails a month "for deliverability."</strong> The single most common purchase-mistake in deliverability. It's sold as a premium feature, it costs real money, and it reliably lowers inbox placement for small senders. If a salesperson told you otherwise, ask them to show it in your own post-migration placement numbers.</p>
+  <p><strong>2. Setting up the tracking domain but never testing the links.</strong> A misconfigured tracking domain produces SSL errors on every click — which is worse for trust than the shared domain ever was. Test on multiple browsers before you campaign.</p>
+  <p><strong>3. Changing the tracking domain mid-flight.</strong> Your tracking domain accrues its own reputation. Switching it every few months (rebrands, agency hand-offs, tool migrations) resets that clock. If you must change it, treat it like a new sending identity and ramp with your engaged segment first — part 3's template applies.</p>
+  <p><strong>4. Skipping the warm-up on a new dedicated IP.</strong> If you passed the decision tree and actually bought one, the IP is a baby. Ramp it with part 3's schedule before any real volume touches it. The vendor handles some of this at MailerLite's Enterprise tier; everywhere else, it's on you.</p>
+
+  <h2>Which tool makes this easiest?</h2>
+  <p>Honestly: the differences are minor and none of them decide the comparison. Custom tracking domains are a settings-level feature in every tool on this list (except Kit, where they're thinner) — the DNS work is identical regardless of tool. Dedicated IPs all live behind approval gates, enterprise tiers, or add-on pricing — the barrier is commercial, not technical. Choose your tool on pricing, automation, and fit (that's what the rest of this site is for); configure deliverability the same way once you've chosen.</p>
+
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">MailerLite — 30% lifetime affiliate program, cheapest serious plans</a>
+  </p>
+  <p>
+    <a class="btn-ghost" data-affiliate="getresponse" href="#affiliate-link-placeholder-getresponse">GetResponse — the all-in-one, 40%+ recurring</a>
+    <a class="btn-ghost" data-affiliate="kit" href="#affiliate-link-placeholder-kit">Kit — creator-first, 30% for 24 months</a>
+  </p>
+
+  <h2>Keep reading the series</h2>
+  <ul>
+    <li>Part 1: <a href="email-deliverability-explained-spam.html">Email Deliverability Explained — why emails land in spam and the 6 fixes</a></li>
+    <li>Part 2: <a href="email-authentication-setup-per-tool.html">Setting Up SPF, DKIM &amp; DMARC — the per-tool walkthrough</a></li>
+    <li>Part 3: <a href="email-warmup-list-pruning.html">Email Warm-Up &amp; List Pruning — the reputation you build after authentication</a></li>
+    <li>Part 5 (next): the deliverability audit checklist — the quarterly routine.</li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices shown were checked October 2026 and change frequently; always confirm at checkout. Some links are affiliate links; see our disclosure. Setup values are unique to your account — always copy them from your tool's dashboard.</p>
+  </div>
+</footer>
+</body>
+</html>
