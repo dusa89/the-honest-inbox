@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Complete Email Deliverability Guide (2026): All 5 Parts, One Roadmap | The Honest Inbox</title>
+<meta name="description" content="Every email deliverability concept in one roadmap: why emails land in spam, SPF/DKIM/DMARC setup per tool, warm-up and list pruning, tracking domains and dedicated IPs, and the quarterly audit checklist. The full 5-part Honest Inbox series, start to finish.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>The Complete Email Deliverability Guide (2026)</h1>
+  <p class="meta">The 5-part deliverability series, start to finish · Checked against deliverability guidance, October 2026</p>
+
+  <p class="lede">Most deliverability advice is scattered across a hundred vendor blog posts, each one selling you something. This series is the whole picture in one place, in order: why your emails land in spam, how to authenticate your domain on your actual email tool, how to build a reputation once you're authenticated, the infrastructure decisions that matter (and the expensive ones that don't), and the quarterly routine that keeps it all working. Read it straight through once, then use part 5 as your maintenance checklist forever. Every part states what it knows, labels what it doesn't, and points at vendor docs for anything only your account can answer — record values are always per-account, never copied from a blog.</p>
+
+  <h2>The verdict first</h2>
+  <p>Deliverability is not one problem — it's a stack, and each layer depends on the one below. <strong>Authentication</strong> (SPF, DKIM, DMARC) is the price of admission since Google and Yahoo's February 2024 bulk-sender rules: skip it and nothing else matters. <strong>Reputation</strong> (warm-up, engagement, list hygiene) is what the filters actually score: authenticated mail nobody opens still lands in spam. <strong>Infrastructure</strong> (tracking domains, dedicated IPs) is optimization, not rescue: a branded tracking domain is a yes for nearly every bulk sender, a dedicated IP is a no below ~100k/month. <strong>Auditing</strong> is the part everyone skips: deliverability decays silently, so the series ends with the quarterly 2-hour routine that catches the drift. Do the parts in order; each one assumes the previous one is done.</p>
+
+  <h2>Where to start, honestly</h2>
+  <ul>
+    <li><strong>New sender (new tool, new domain, or switching tools):</strong> part 1, then part 2 the same day, then part 3 before your first real send. Part 2's per-tool walkthrough is written for exactly this moment, and part 3's warm-up ramp is what protects you during the switch.</li>
+    <li><strong>Authenticated but landing in spam:</strong> skip to part 3 (warm-up and pruning) — your problem is reputation, not identity — then run part 5's audit to find which check is failing.</li>
+    <li><strong>Established list, things mostly work:</strong> go straight to part 5. Run the quarterly audit, fix what scores warn or fail, and only then decide whether parts 4's infrastructure questions are worth your time.</li>
+  </ul>
+
+  <h2>The five parts</h2>
+
+  <h3>Part 1 — <a href="email-deliverability-explained-spam.html">Email Deliverability Explained: why emails land in spam and the 6 fixes</a></h3>
+  <p>The mental model everything else builds on: authentication, reputation, engagement, and content as the four levers, plus the six fixes in order of impact. Includes the honesty nobody else will print — nobody can credibly promise you a deliverability percentage, including us. ~15 minutes.</p>
+
+  <h3>Part 2 — <a href="email-authentication-setup-per-tool.html">Setting Up SPF, DKIM &amp; DMARC for Your Email Tool</a></h3>
+  <p>The click-by-click setup walkthrough for the seven tools we cover (MailerLite, Kit, GetResponse, AWeber, Brevo, Mailchimp, ActiveCampaign): where to click, the record patterns to expect, how to verify PASS/PASS/PASS in Gmail, and the five mistakes that break authentication even when you followed the steps. The one rule that matters: never copy DKIM values from a blog — they're unique to your account. ~15 minutes per tool plus DNS propagation.</p>
+
+  <h3>Part 3 — <a href="email-warmup-list-pruning.html">Email Warm-Up &amp; List Pruning</a></h3>
+  <p>Authentication proves who you are; this part proves you send mail people want. The conventional warm-up ramp template (explicitly labeled a heuristic, not a published ISP rule), engagement signals during warm-up, the Apple MPP open-tracking caveat, and the 4-step pruning system: define inactive, run the 3-email win-back, suppress don't delete, automate it.</p>
+
+  <h3>Part 4 — <a href="email-tracking-domains-dedicated-ips.html">Custom Tracking Domains &amp; Dedicated IPs</a></h3>
+  <p>The infrastructure verdicts: a branded tracking domain is a yes for nearly every bulk sender (one-time DNS, brand trust, domain reputation, DMARC alignment); a dedicated IP is a no below ~100k/month (with the published bars and typical costs). The 4-question decision tree before you ask your tool about an IP, and BIMI as the optional next rung.</p>
+
+  <h3>Part 5 — <a href="email-deliverability-audit-checklist.html">The Deliverability Audit Checklist: the quarterly 2-hour routine</a></h3>
+  <p>The maintenance layer: 7 checks scored pass/warn/fail (auth re-verify, engagement trends, complaint thresholds, list hygiene, tracking-domain posture, unsubscribe compliance, plan-tier vs list-size money check), 3 action buckets, 4 signals that mean audit early, and the ~2-hour calendar cadence. Run it quarterly; it's the page this series is really about.</p>
+
+  <h2>How this series stays honest</h2>
+  <ul>
+    <li><strong>Dates on everything.</strong> Deliverability rules and tool dashboards change constantly. Each part shows its check date; when a rule changes, the part gets refreshed, not quietly edited.</li>
+    <li><strong>Numbers labeled.</strong> Estimates and industry ranges are stated as estimates. Nobody's account data is invented, and setup values are never printed — they're unique to your account.</li>
+    <li><strong>No affiliate pressure.</strong> Some links on this site are affiliate links (see our <a href="../disclosure.html">disclosure</a>), but the series never ranks tools by commission. The order of operations here is technical, not commercial.</li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices shown were checked October 2026 and change frequently; always confirm at checkout. Some links are affiliate links; see our disclosure. Setup values are unique to your account — always copy them from your tool's dashboard.</p>
+  </div>
+</footer>
+</body>
+</html>
