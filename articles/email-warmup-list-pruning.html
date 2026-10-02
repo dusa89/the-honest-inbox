@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Email Warm-Up &amp; List Pruning (2026): Warm-Up Schedules and Engagement-Based Pruning | The Honest Inbox</title>
+<meta name="description" content="How to warm up a new sending domain without triggering spam filters, and the engagement-based pruning system that keeps your list healthy: conventional warm-up schedules, sunset policies, the 3-email win-back, Apple MPP's effect on opens, and the 5 mistakes that undo your authentication work. Deliverability series, part 3 of 5.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Email Warm-Up &amp; List Pruning (2026): The Reputation You Build After Authentication</h1>
+  <p class="meta">Deliverability series, part 3 of 5 · Checked against deliverability guidance, October 2026</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Part 2 got your domain authenticated — SPF, DKIM, and DMARC all passing. That proves you <em>are</em> who you say you are. This part is about proving you send mail people <em>want</em>. Inbox providers score every sender on reputation, and reputation comes from two inputs: how your volume ramps (warm-up) and what fraction of recipients engage with what you send (list hygiene). Skip both and even perfect authentication lands in spam — the filters see a domain with no history, no engagement, and a sudden blast, and they treat it exactly like every spammer they've ever met.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Never send your full volume on day one from a new domain or a reactivated list. Ramp over roughly 4–6 weeks on a schedule your engagement can sustain — volume earns trust only when engagement follows. Then protect that trust with an engagement-based pruning system: define "inactive" (conventional starting point: no click in 6–12 months, with opens unreliable since Apple's Mail Privacy Protection), run a 3-email win-back on inactives, and suppress — never hard-delete — everyone who doesn't re-engage. Numbers below are conventional practice templates, not published ISP rules: Google and Yahoo publish no official warm-up schedule, so treat these as starting points and adjust to your own engagement data.
+  </div>
+
+  <h2>When warm-up matters (and when it doesn't)</h2>
+  <p>Warm-up is not a universal ritual. It matters in exactly four situations:</p>
+  <ol>
+    <li><strong>New sending domain or new email tool.</strong> Even if the domain is old, the first time it sends bulk mail through your tool it has zero reputation history. Gmail builds that history from your mail — give it time.</li>
+    <li><strong>New dedicated IP.</strong> Shared IPs (what most small plans use) arrive pre-warmed by the tool's other senders. If you upgrade to a dedicated IP, you start at zero — and that IP is <em>yours</em> alone, so its reputation is 100% your behavior.</li>
+    <li><strong>Reactivated cold list.</strong> A list you haven't mailed in 12+ months is a cold list. Blasting 50,000 year-old addresses at once is the fastest known way to burn a new domain's reputation.</li>
+    <li><strong>Sudden volume spikes.</strong> Going from 2,000 to 50,000 sends overnight for a launch or holiday push looks like a hijacked account. Ramping toward the spike over a couple of weeks looks like growth.</li>
+  </ol>
+  <p>If none of these apply — steady list, steady volume, steady tool — you don't need a warm-up schedule. You need the pruning half of this article.</p>
+
+  <h2>The conventional warm-up template</h2>
+  <p>There is no official Google or Yahoo document that says "send exactly N emails on day D." The schedules below are the conventional templates used across deliverability guides — a starting point, not a specification. The load-bearing principle: <strong>increase volume only as fast as engagement supports.</strong> If opens and clicks hold steady at 500/day, 1,000/day is safe. If engagement craters at 2,000/day, you found your ceiling — hold, fix the list, then resume.</p>
+  <p>A standard new-domain ramp (daily send targets, 4–6 weeks):</p>
+  <ul>
+    <li><strong>Week 1:</strong> 50–100/day — your most engaged segment only (recent buyers, people who opened in the last 30 days).</li>
+    <li><strong>Week 2:</strong> 150–300/day — same audience type, slightly wider.</li>
+    <li><strong>Week 3:</strong> 500–1,000/day — fold in the 90-day engaged.</li>
+    <li><strong>Week 4:</strong> 1,500–3,000/day — add the 6-month engaged.</li>
+    <li><strong>Weeks 5–6:</strong> ramp to your full list, adding older segments last.</li>
+  </ul>
+  <p>For a <strong>reactivated cold list</strong>, the template is different: don't ramp to the whole list — segment by recency and throttle the risky part. Mail your 90-day engaged at normal cadence, and put the 6–12 month segment through a slow trickle (a few hundred per day) <em>after</em> the fresh segment has built 2–3 weeks of reputation. The 12+ month segment gets the win-back treatment from the pruning section below, not a warm-up — most of those addresses are dead.</p>
+
+  <h2>What "good engagement" looks like during warm-up</h2>
+  <p>The ramp is only working if the engagement underneath it is healthy. During warm-up, watch three things weekly:</p>
+  <ul>
+    <li><strong>Bounces:</strong> keep the bounce rate low (well under 1–2%). A bounce spike means your list data is dirty — scrub before scaling, because bounces feed spam reputation directly.</li>
+    <li><strong>Spam complaints:</strong> stay under roughly 1 in 1,000 sends (0.1%) — Google's bulk-sender guidance flags complaint rates approaching 0.3%. One angry reactivation blast can blow your budget for weeks.</li>
+    <li><strong>Engagement trend:</strong> engagement should be flat or rising as you add segments. If each new, older segment pulls the average down sharply, that segment isn't ready — shrink it or slow down.</li>
+  </ul>
+  <p>Conventional signals that you're ramping too fast: spam complaints climbing, delivery rates dropping on the newest segment, or your tool warning you about reputation. The fix is never "send more to push through" — it's always slow down and prune.</p>
+
+  <h2>Pruning: why removing subscribers raises revenue</h2>
+  <p>Inbox providers don't rank your mail by how many people <em>could</em> open it — they rank it by how many <em>do</em>. A 20,000-subscriber list where 3,000 people engage mails like a 3,000-subscriber list with 17,000 anchors dragging it down. Every unengaged contact is a recipient who received your mail and ignored it — and the filters count that. Pruning raises the engagement fraction, and the engagement fraction is what decides inbox vs. spam. The conventional starting definition of "inactive": <strong>no click in 6–12 months</strong>. We say click, not open, for a reason.</p>
+
+  <h2>The Apple Mail Privacy Protection caveat</h2>
+  <p>Since iOS 15 (2021), Apple Mail preloads tracking pixels privately — opens from Apple Mail users are unreliable as engagement signals. If your audience is iPhone-heavy, <strong>define engagement on clicks, not opens</strong>, or your pruning system will suppress people who are happily reading everything. The conventional rule of thumb: if a contact opens but hasn't clicked in 12 months, treat them as light-engaged, not inactive; if they've done neither, they're inactive.</p>
+
+  <h2>The 4-step engagement pruning system</h2>
+  <ol>
+    <li><strong>Define inactive.</strong> Conventional starting point: no click in 6–12 months (opens unreliable — see above). Set this as a segment in your tool. Review the threshold quarterly against your actual sending cadence — a weekly newsletter and a quarterly product launch need different definitions.</li>
+    <li><strong>Run the 3-email win-back.</strong> Before suppressing anyone, try to win them back. The conventional sequence: email 1 — "We miss you" (plain, no tricks); email 2 — your best content or a genuine offer; email 3 — "Stay or go?" with a clear unsubscribe link. Space them 5–7 days apart. Industry convention treats ~5–10% re-engagement as a win-back that worked — anything it recovers is a subscriber you didn't pay to acquire.</li>
+    <li><strong>Suppress, don't delete.</strong> Non-responders go on a suppression list — excluded from all campaigns but kept in the account. Hard-deleting has two costs: you lose the record (and re-importing them later reintroduces the rot), and if they ever sign up again you're starting from scratch. Most tools handle suppression as a one-click list action or an automation rule.</li>
+    <li><strong>Automate it.</strong> This should not be a quarterly chore you remember. Every tool we cover supports some form of automation: a tag or segment that updates when a contact hasn't clicked in N days, feeding a win-back workflow, feeding a suppression action. Build it once — part 2 of our automation playbooks shows where these triggers live in each tool.</li>
+  </ol>
+
+  <h2>The 5 mistakes that undo your authentication work</h2>
+  <p><strong>1. Blasting the full list on day one.</strong> The single most common warm-up failure. A new domain sending 30,000 emails on its first day is indistinguishable from a spammer's burn account. The filters don't know you're legitimate yet — you have to show them, in small, engaged batches.</p>
+  <p><strong>2. Reactivating a cold list at full speed.</strong> Same failure, older addresses. Addresses you haven't mailed in 18 months include dead inboxes, recycled addresses, and spam traps. Trickle them through a re-engagement sequence at a few hundred per day, and accept that 30–60% will never engage.</p>
+  <p><strong>3. Never pruning.</strong> The list grows, engagement decays, inbox placement decays with it — slowly enough that nobody notices until a campaign flops. Pruning is maintenance, like changing oil: boring, periodic, load-bearing.</p>
+  <p><strong>4. Hard-deleting instead of suppressing.</strong> Deleting inactives destroys your only record of them. When a "new" signup arrives and matches an old deleted address, you've got no history. Suppression keeps the record and keeps them out of campaigns — the best of both.</p>
+  <p><strong>5. Warming up with bad data.</strong> Warm-up schedules assume engaged, real recipients. Running a ramp on a purchased list, a scraped list, or a list full of role addresses (info@, sales@) produces engagement numbers that lie to the filters in the wrong direction. Scrub first, warm second — see our <a href="email-deliverability-explained-spam.html">part 1</a> on list quality.</p>
+
+  <h2>Which tool makes this easiest?</h2>
+  <p>Honestly: pruning automation quality varies more than authentication did. The things to check in your tool: whether engagement-based segmentation can run on clicks (not just opens, per the Apple caveat), whether win-back workflows can trigger automatically on engagement decay, and whether suppression is a one-click action. These are configuration, not pricing tiers — the seven tools we cover all support the basics; the differences are in how many clicks it takes. The pruning system above is tool-agnostic by design: define the segment, build the workflow, set the rule, forget it.</p>
+
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">MailerLite — 30% lifetime affiliate program, cheapest serious plans</a>
+  </p>
+  <p>
+    <a class="btn-ghost" data-affiliate="getresponse" href="#affiliate-link-placeholder-getresponse">GetResponse — the all-in-one, 40%+ recurring</a>
+    <a class="btn-ghost" data-affiliate="kit" href="#affiliate-link-placeholder-kit">Kit — creator-first, 30% for 24 months</a>
+  </p>
+
+  <h2>Keep reading the series</h2>
+  <ul>
+    <li>Part 1: <a href="email-deliverability-explained-spam.html">Email Deliverability Explained — why emails land in spam and the 6 fixes</a></li>
+    <li>Part 2: <a href="email-authentication-setup-per-tool.html">Setting Up SPF, DKIM &amp; DMARC — the per-tool walkthrough</a></li>
+    <li>Part 4 (next): tracking domains, dedicated IPs, and when they actually matter.</li>
+    <li>Part 5: the deliverability audit checklist — the quarterly routine.</li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices shown were checked October 2026 and change frequently; always confirm at checkout. Some links are affiliate links; see our disclosure. Setup values are unique to your account — always copy them from your tool's dashboard.</p>
+  </div>
+</footer>
+</body>
+</html>
