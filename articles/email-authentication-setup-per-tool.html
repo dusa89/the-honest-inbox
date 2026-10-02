@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Setting Up SPF, DKIM &amp; DMARC for Your Email Tool (2026): The Per-Tool Walkthrough | The Honest Inbox</title>
+<meta name="description" content="Exactly how to set up SPF, DKIM, and DMARC for MailerLite, Kit, GetResponse, AWeber, Brevo, Mailchimp, and ActiveCampaign: where to click, what each DNS record looks like, how to verify it's working, and the mistakes that break authentication. Deliverability series, part 2 of 5.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Setting Up SPF, DKIM &amp; DMARC for Your Email Tool (2026): The Per-Tool Walkthrough</h1>
+  <p class="meta">Deliverability series, part 2 of 5 · Setup date-checked against each tool's help docs, October 2026</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Part 1 of this series explained <em>why</em> authentication matters: since February 2024, Google and Yahoo enforce SPF, DKIM, and DMARC on bulk senders, and unauthenticated mail gets spam-foldered or rejected by policy. This is the <em>how</em> — the click-by-click walkthrough for the seven tools we cover, each one's exact record pattern, how to verify everything is passing, and the five mistakes that break authentication even when you followed the steps. Set aside about 15 minutes per tool, plus DNS propagation time. Read the three rules at the top before you touch your DNS — rule 1 alone prevents most of the breakage we describe below.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Every tool gives you two or three DNS records to paste into your domain's DNS settings: an SPF record (or SPF include) authorizing their servers, a DKIM record proving their signatures, and optionally a DMARC policy you publish yourself. The recipe is identical across all seven tools below — copy the exact values from your account's domain-authentication page, paste them into your DNS host (Cloudflare, GoDaddy, Namecheap), wait for verification, then send a test to Gmail and confirm SPF, DKIM, and DMARC all show PASS. The record <em>formats</em> shown here are the documented patterns for each tool; the <em>values</em> are unique to your account and must come from your dashboard — never copy values from any blog post, including this one. Publish DMARC at <code>p=none</code> first, watch a week of reports, then tighten.
+  </div>
+
+  <h2>The three rules (read first)</h2>
+  <ol>
+    <li><strong>Copy values from your account, not from the internet.</strong> Every walkthrough below describes the <em>pattern</em> of each tool's records — how many records, what type (TXT or CNAME), and where to find them in the dashboard. The DKIM keys and hostnames are unique to your account and your domain. If you paste someone else's key, verification fails and authentication does nothing.</li>
+    <li><strong>One change at a time.</strong> Add SPF, verify it. Add DKIM, verify it. Add DMARC last. If all three fail at once you learn nothing; if one fails you know exactly which.</li>
+    <li><strong>Give DNS time.</strong> DNS changes can take anywhere from a few minutes to roughly 48 hours to propagate, depending on the record's TTL and your DNS host's caching. If verification fails immediately, wait an hour and retry before assuming you did something wrong.</li>
+  </ol>
+
+  <h2>The universal recipe (all 7 tools, same skeleton)</h2>
+  <ol>
+    <li>Log in to your email tool and find its domain-authentication page (exact locations per tool below).</li>
+    <li>Add your sending domain. The tool generates your unique records.</li>
+    <li>Log in to your DNS host — wherever you bought the domain (Cloudflare, GoDaddy, Namecheap, Squarespace).</li>
+    <li>Add each record exactly as shown: type (TXT or CNAME), host/name, and value. Don't "improve" the formatting.</li>
+    <li>Back in the email tool, click verify. If it passes, you're authenticated for SPF and DKIM.</li>
+    <li>Publish a DMARC record separately (details below).</li>
+    <li>Send a test email to a Gmail address, open it, click the three dots → "Show original", and confirm <strong>SPF: PASS, DKIM: PASS, DMARC: PASS</strong>.</li>
+  </ol>
+
+  <h2>MailerLite</h2>
+  <p><strong>Where to click:</strong> Settings → Domains. Add your domain and MailerLite shows you the records.</p>
+  <p><strong>What you'll add:</strong> a TXT record for DKIM (MailerLite issues a key for your domain — copy the whole value), and an SPF record authorizing MailerLite's servers. If your domain already has an SPF record (it often does from Google Workspace or your web host), don't create a second one — <em>merge</em> the MailerLite include into your existing SPF record. One domain, one SPF record, always.</p>
+  <p><strong>Watch for:</strong> MailerLite also verifies a DMARC record is present and will warn you if it's missing — they treat the full trio as required, which matches Google's and Yahoo's rules. Free-plan accounts authenticate the same way as paid ones; authentication is not a paid feature.</p>
+
+  <h2>Kit (ConvertKit)</h2>
+  <p><strong>Where to click:</strong> Settings → Email setup (domain authentication). Kit generates the records for your domain.</p>
+  <p><strong>What you'll add:</strong> Kit uses CNAME records for DKIM authentication — typically two CNAME hostnames pointing at Kit's signing infrastructure. The advantage of CNAME-based DKIM: Kit can rotate its signing keys without you touching DNS again. You'll also add SPF authorization for Kit's servers.</p>
+  <p><strong>Watch for:</strong> Kit sends from its own shared infrastructure for many plans; authenticating your domain with their CNAME records is what makes the mail look like it comes from you instead of from Kit's domain. Without it, DMARC alignment fails no matter what else is set up.</p>
+
+  <h2>GetResponse</h2>
+  <p><strong>Where to click:</strong> Account/Profile → Email addresses (or the domain-authentication section of your account settings). Add the domain and GetResponse displays the records.</p>
+  <p><strong>What you'll add:</strong> SPF and DKIM TXT records provided in your account. GetResponse's all-in-one plans (webinars, funnels, Creator and Marketer tiers) authenticate the same way — the sending infrastructure doesn't change with the plan.</p>
+  <p><strong>Watch for:</strong> if you migrated to GetResponse from another tool, remove the old tool's SPF include once you stop sending from it. Leftover includes from dead tools are the #1 cause of the SPF lookup-limit failure described in the troubleshooting section.</p>
+
+  <h2>AWeber</h2>
+  <p><strong>Where to click:</strong> List Options / domain authentication in your account settings. AWeber generates per-domain records.</p>
+  <p><strong>What you'll add:</strong> AWeber issues CNAME records for DKIM (their pattern lets them manage keys on their side) plus SPF authorization for AWeber's sending servers.</p>
+  <p><strong>Watch for:</strong> AWeber's help docs are thorough here because they've been through the 2024 rule change with a large legacy customer base. Follow their exact hostname pattern — AWeber uses distinct subdomains per customer, so the "host" column matters as much as the value.</p>
+
+  <h2>Brevo</h2>
+  <p><strong>Where to click:</strong> Settings → Senders &amp; IP → Domains (domain authentication). Brevo shows the exact records for your domain.</p>
+  <p><strong>What you'll add:</strong> DKIM TXT records (Brevo provides the values for your domain) and an SPF record or include authorizing Brevo's servers.</p>
+  <p><strong>Watch for:</strong> Brevo sells on price, and its cheaper plans share sending IPs — that's fine and normal, but it makes your own domain authentication <em>more</em> important, not less, because your reputation needs to be cleanly separated from other senders on the same IPs.</p>
+
+  <h2>Mailchimp</h2>
+  <p><strong>Where to click:</strong> Settings → Verified domains. Add and verify your domain, then view the authentication records.</p>
+  <p><strong>What you'll add:</strong> Mailchimp uses CNAME records for DKIM authentication. Their SPF handling works through their authenticated-domain setup rather than a single published include string.</p>
+  <p><strong>Watch for:</strong> Mailchimp's free and paid plans authenticate the same way. The classic Mailchimp self-sabotage: sending from a free Gmail address through Mailchimp "just for now" — that fails DMARC alignment by design, and it's the single most common deliverability mistake on small lists (part 1 covers why).</p>
+
+  <h2>ActiveCampaign</h2>
+  <p><strong>Where to click:</strong> Settings → Advanced (domain authentication / whitelabel). ActiveCampaign shows your records after you add the domain.</p>
+  <p><strong>What you'll add:</strong> SPF and DKIM records (TXT format in ActiveCampaign's setup), with the exact values generated for your account.</p>
+  <p><strong>Watch for:</strong> ActiveCampaign users run heavier automation (the tool's whole pitch), which means higher volumes and more behavioral triggers — warm up gradually after authenticating a new domain rather than flipping a big list over in one day. Authentication proves who you are; volume spikes still look like a compromised account (part 1, fix 5).</p>
+
+  <h2>DMARC: the one you publish yourself</h2>
+  <p>Unlike SPF and DKIM — which your email tool gives you — DMARC is a policy <em>you</em> publish on your own domain. The pattern is one TXT record on the hostname <code>_dmarc.yourdomain.com</code>. Start with monitor-only:</p>
+  <pre><code>v=DMARC1; p=none; rua=mailto:you@yourdomain.com</code></pre>
+  <p>What the fields mean: <code>v=DMARC1</code> is the version tag. <code>p=none</code> means "take no action on mail that fails, just report it" — this is the safe starting policy. <code>rua=</code> is where aggregate reports get sent; mailbox providers will email you daily XML summaries showing every server sending mail as your domain, including spoofers you never authorized. (Those reports are machine-readable XML — paste them into a free DMARC report analyzer rather than reading them raw.)</p>
+  <p>After roughly a week of reports confirms your legitimate mail authenticates and nothing unexpected is sending as your domain, tighten to <code>p=quarantine</code> (failing mail goes to spam), and eventually <code>p=reject</code> (failing mail gets dropped). Google and Yahoo's bulk-sender rules require <em>a</em> DMARC policy to exist — <code>p=none</code> satisfies the requirement while you learn what your reports are telling you.</p>
+
+  <h2>How to verify it's actually working</h2>
+  <ol>
+    <li><strong>The Gmail test:</strong> send yourself an email at a Gmail address from the tool. Open it, click the three dots, choose "Show original". You want three lines: <strong>SPF: PASS</strong>, <strong>DKIM: PASS</strong>, <strong>DMARC: PASS</strong>. If DKIM passes but DMARC fails, the signature's domain doesn't <em>align</em> with your From domain — you authenticated, but not as yourself.</li>
+    <li><strong>Google Admin Toolbox:</strong> Google's free MX/DNS checker (search "Google Admin Toolbox Check MX") will show whether SPF, DKIM, and DMARC records are published and syntactically valid.</li>
+    <li><strong>The tool's own verification:</strong> every dashboard above shows green/verified status. Trust it only after the Gmail test agrees — dashboards verify the records exist, Gmail verifies they <em>work</em>.</li>
+    <li><strong>Google Postmaster Tools:</strong> free, worth registering your domain. It shows your spam-complaint rate — the 0.3% line from part 1 — plus authentication pass rates over time.</li>
+  </ol>
+
+  <h2>The 5 mistakes that break authentication</h2>
+  <p><strong>1. Two SPF records.</strong> DNS allows only one SPF record per domain. Adding your email tool's SPF record alongside the one Google Workspace (or your web host) already created doesn't give you two lists — it invalidates both. Merge: take your existing record and add the tool's include inside it, like <code>v=spf1 include:_spf.google.com include:example.include ... ~all</code> (illustrative — use the real include your tool gives you).</p>
+  <p><strong>2. The SPF 10-lookup limit.</strong> SPF lookups follow includes recursively, and the protocol allows at most 10 DNS lookups. Each tool you add costs lookups; dead tools' includes cost lookups too. A domain authenticating Google Workspace + two email tools + a CRM + an old tool you stopped using in 2023 can blow past 10 silently — and mail starts failing SPF. Audit your includes; remove the dead ones.</p>
+  <p><strong>3. Copying values from a guide.</strong> DKIM keys are per-account. The record in some forum post is someone else's key and will never verify for your domain. This rule is worth repeating because it's the most common breakage of all: <em>your values come from your dashboard.</em></p>
+  <p><strong>4. Wrong record type or hostname.</strong> Pasted a TXT record where the tool gave you a CNAME, or dropped the hostname prefix (the random-looking subdomain before your domain) and put the record on the root. The hostname column is part of the record — a DKIM record for <code>litesrv._domainkey.yourdomain.com</code> placed at <code>yourdomain.com</code> is a different record entirely.</p>
+  <p><strong>5. Impatience.</strong> Adding records, clicking verify, failing, re-adding slightly different records, clicking verify, failing — each edit resets nothing and teaches nothing. Set it once, correctly, then wait up to 48 hours (usually far less — often under an hour on Cloudflare). If it still fails, re-read the values character by character before changing anything.</p>
+
+  <h2>Which tool makes this easiest?</h2>
+  <p>Honestly: they're all comparable in 2026. CNAME-based DKIM (Kit, AWeber, Mailchimp) has a small long-term edge because the tool rotates signing keys without your involvement. The tools that push DMARC verification in their own dashboard (MailerLite does this) save you one round trip. None of this should decide which tool you buy — every tool on this list authenticates fine; what decides deliverability is your list quality and engagement, per part 1. Pick the tool for its price and features (see our <a href="best-email-marketing-software-small-business.html">best email marketing software</a> and <a href="mailerlite-vs-kit.html">MailerLite vs Kit</a> guides), then spend 15 minutes here.</p>
+
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">MailerLite — 30% lifetime affiliate program, cheapest serious plans</a>
+  </p>
+  <p>
+    <a class="btn-ghost" data-affiliate="getresponse" href="#affiliate-link-placeholder-getresponse">GetResponse — the all-in-one, 40%+ recurring</a>
+    <a class="btn-ghost" data-affiliate="kit" href="#affiliate-link-placeholder-kit">Kit — creator-first, 30% for 24 months</a>
+  </p>
+
+  <h2>Keep reading the series</h2>
+  <ul>
+    <li>Part 1: <a href="email-deliverability-explained-spam.html">Email Deliverability Explained — why emails land in spam and the 6 fixes</a></li>
+    <li>Part 3 (next): warm-up schedules and engagement-based list pruning — the reputation you build after authentication.</li>
+    <li>Part 4: tracking domains, dedicated IPs, and when they actually matter.</li>
+    <li>Part 5: the deliverability audit checklist — the quarterly routine.</li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">© 2026 The Honest Inbox. Prices shown were checked October 2026 and change frequently; always confirm at checkout. Some links are affiliate links; see our disclosure. Setup values are unique to your account — always copy them from your tool's dashboard.</p>
+  </div>
+</footer>
+</body>
+</html>
