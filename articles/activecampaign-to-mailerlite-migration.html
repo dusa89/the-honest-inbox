@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating from ActiveCampaign to MailerLite (2026): The 7 Traps and the Weekend Checklist | The Honest Inbox</title>
+<meta name="description" content="The ActiveCampaign-to-MailerLite migration guide for 2026: the $0-savings trap at 1,000 Starter contacts, the real savings at Plus and scale, the CRM you leave behind, the hidden exclusion list you must not, and a step-by-step weekend checklist. Facts checked October 2, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Migrating from ActiveCampaign to MailerLite (2026): The 7 Traps and the Weekend Checklist</h1>
+  <p class="meta">Migration facts checked October 2, 2026 · ActiveCampaign and MailerLite prices checked October 2, 2026</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">The ActiveCampaign-to-MailerLite move is the most asymmetric migration in email marketing: at 5,000 contacts you can cut a Plus bill from $179/mo to $49/mo — a $130/mo save — and MailerLite hands you unlimited automations, landing pages, and 3 user seats for less than ActiveCampaign's single-seat Starter. But this migration has the highest casualty rate of the three guides on this site, for one reason: people migrate <em>features</em>, not bills. If your automations use split testing, conditional content, scoring, goals, or webhooks — or if your pipeline lives in ActiveCampaign's CRM — the money math is the easy part and the feature loss is the trap. This guide is the savings table first, the seven traps second, and the weekend checklist last.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Migrating pays if you are on ActiveCampaign Starter at 2,500+ contacts ($16–$100/mo saved) or on Plus at any size ($40–$130/mo saved), and your automations are welcome sequences, nurture drips, and simple triggered emails. Do NOT migrate at 1,000 contacts on Starter (the bill is $19 on both — zero savings), if your revenue pipeline runs inside ActiveCampaign's CRM (it doesn't migrate — deal notes, owners, and pipeline history stay behind), or if your automations depend on Pro features: split automations, conditional content, attribution, scoring, or webhooks. Budget a weekend: inventory every automation's intended behavior, export Active-only contacts by status, verify the domain in MailerLite early (approval review takes ~a day), rebuild the flows you can actually reproduce, carry your suppressions over manually, and run both tools in parallel before you cancel.
+  </div>
+
+  <h2>The money: steep on Plus, zero at the Starter floor</h2>
+  <p>ActiveCampaign's 2026 monthly-billed prices are the highest baseline of any tool on this site: Starter runs $19 at 1,000 contacts, $49 at 2,500, $99 at 5,000, $189 at 10,000; Plus runs $59, $119, $179, and $239 at the same bands. MailerLite's Comfort plan (the June 2026 rename of Growing Business) is $19 at 1,000 (10,000 emails/mo), $33 at 2,500 (25,000 emails/mo), $49 at 5,000 (50,000 emails/mo), and $89 at 10,000 — every Comfort band sending at roughly 10&times; the subscriber count. Side by side:</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>Contacts</th><th>AC Starter (monthly)</th><th>AC Plus (monthly)</th><th>MailerLite Comfort (monthly)</th><th>You save</th></tr>
+      <tr><td>1,000</td><td>$19</td><td>$59</td><td>$19</td><td>Starter: $0 — Plus: $40/mo</td></tr>
+      <tr><td>2,500</td><td>$49</td><td>$119</td><td>$33</td><td>Starter: $16/mo — Plus: $86/mo</td></tr>
+      <tr><td>5,000</td><td>$99</td><td>$179</td><td>$49</td><td>Starter: $50/mo — Plus: $130/mo</td></tr>
+      <tr><td>10,000</td><td>$189</td><td>$239</td><td>$89</td><td>Starter: $100/mo — Plus: $150/mo</td></tr>
+    </table>
+  </div>
+  <p class="table-note">Monthly billing, verified October 2, 2026 from both pricing pages and corroborating trackers. Annual billing is roughly 20% off ActiveCampaign, 10% off MailerLite — the savings direction holds on either term. Comfort's email allowance is ~10&times; your subscriber tier; heavy senders need Power ($39 at 1k, unlimited sends).</p>
+  <p>The 1,000-contact Starter parity is the first thing to absorb: <strong>$19 on both sides, zero dollars saved.</strong> A Starter account at 1k migrates for the features, not the bill — and the feature trade is genuinely decent: Starter caps every automation at 5 actions with no branching, gives you one user seat, and no landing pages; Comfort at the same $19 gives unlimited-ish automations (50 active), 3 users, and 10 websites/landing pages. But if you wanted a cheaper bill, the 1k Starter move delivers nothing. Starter's savings ignite at 2,500 contacts; Plus's savings ignite immediately.</p>
+  <p>The second money detail most guides bury: <strong>since November 2025, new ActiveCampaign accounts are billed for all contacts — including unsubscribed, bounced, and unconfirmed ones.</strong> (Accounts created before that date are grandfathered to active-only billing.) If you're a post-November-2025 account, your AC bill is counting dead weight MailerLite would never charge for — MailerLite bills active subscribers only. The migration's savings for those accounts are bigger than the table shows, because a 7,000-contact AC bill might be hiding 2,000 dead contacts you're about to stop paying for. Verify which billing model your account is on before you run the comparison.</p>
+
+  <h2>The 7 traps</h2>
+
+  <h3>Trap 1: The CRM and the pipeline die at the border</h3>
+  <p>This is the migration killer, and it's why ActiveCampaign users get burned more than Mailchimp or Kit users: ActiveCampaign is two products — an email platform and a CRM — and MailerLite is one. If your deals, pipelines, stages, owners, and pipeline activity live inside ActiveCampaign, <strong>none of the sales machinery migrates.</strong> Deal exports exclude deal notes, require export permission for every pipeline, and carry no relationships into MailerLite, which has no CRM to receive them. Arrange a separate home for the pipeline (a real CRM, or at minimum a dated archive) before you migrate — or stay. The honest rule: if you close deals inside ActiveCampaign, the $130/mo saving is buying a downgrade. If you use ActiveCampaign as a mail tool with the CRM untouched, carry on.</p>
+
+  <h3>Trap 2: Pro-level automations have no destination</h3>
+  <p>ActiveCampaign exports subscriber data. It does not export automations, sequences, templates, campaigns, forms, landing pages, scoring rules, goals, or site tracking. Everything behavioral is rebuilt by hand. For Starter users this is mostly a welcome-series rebuild — annoying, survivable. For Plus and Pro users this is where the migration silently fails: <strong>split automations, conditional content, attribution, contact/deal scoring, automation goals, webhooks, and multi-user assignments have no MailerLite equivalent.</strong> An exported score is a frozen number, not the rules that computed it. Rebuild from intended behavior, not from screenshots of blocks: for each workflow, write down the entry criteria, every branch, the waits, the exit conditions, and what should happen after a purchase or reply — then decide whether MailerLite's automation builder can reproduce it. If more than a handful of your core flows depend on AC-only logic, you've found the feature loss that erases the bill savings. Decide this on paper before you export a single CSV.</p>
+
+  <h3>Trap 3: The export quirks that corrupt your file</h3>
+  <p>The contact export itself is solid — Contacts &gt; ellipsis (&hellip;) &gt; Export, choose fields (custom fields and the tags column ride along), runs in the background. But ActiveCampaign's export has traps that independent migration guides flag and that first-timers hit:</p>
+  <ul>
+    <li><strong>Contact notes cannot be exported.</strong> Neither can deal notes. If your notes carry sales context, screenshot or archive them separately.</li>
+    <li><strong>Naming the export with special characters (!, #, $) silently produces a text document instead of a CSV.</strong> Use plain names.</li>
+    <li><strong>The download link is valid for 7 days.</strong> Grab the files immediately and keep dated originals.</li>
+    <li><strong>Export Active-only by default.</strong> Per-list exports have a Status dropdown (Active, Unconfirmed, Unsubscribed, Bounced, or Any) — Active is the default. Export the statuses separately and carry unsubscribes, bounces, and complaints over as a suppression register, not as marketable contacts.</li>
+  </ul>
+  <p>And the one that follows you into Trap 6: ActiveCampaign explicitly allows a contact to be <strong>active on a list while sitting on its exclusion list</strong> — spam complaints can land contacts on a hidden internal exclusion list that unsubscribes them from all lists without changing their "Active" status. Your export's statuses are not your permission state. Handle that in Trap 6.</p>
+
+  <h3>Trap 4: In-flight contacts get restarted at step one</h3>
+  <p>This is the revenue trap. When you rebuild automations in MailerLite, the natural move is to re-enroll everyone and let the new flows run from the start. That re-sends offers, reminders, and welcome sequences to contacts who already received them — a refunded-purchase follow-up goes out twice, a 5-email nurture restarts from email 1 for people on email 4. Before you rebuild anything: <strong>record every automation's in-flight contacts — who they are, their last completed action, and their intended next action</strong> — and resume them only through a tested path in the new builder. For each flow, also note the re-entry rules and whether tag changes or imports could accidentally re-enroll people. This is the step migration services do for you; doing it yourself is free, but skipping it is how migrations generate the "I got that email three times" reply thread.</p>
+
+  <h3>Trap 5: Forms, landing pages, integrations, and tracking — the invisible surface</h3>
+  <p>None of it transfers: forms, landing pages (a Plus-only feature on AC — Starter never had them, which means migrating <em>to</em> MailerLite is often a landing-page upgrade), site-tracking scripts, webhooks, Zapier/API connections, and connected accounts. Every live form URL, every embedded form, every integration needs its connection re-pointed and re-authenticated one at a time, and each needs a live-submission test confirming the contact lands in the right group with the right tags exactly once. Replace AC's site-tracking script with MailerLite's tracking where you used behavioral triggers. Move forms one connection at a time during the parallel phase — and keep an explicit log of which system owns each form while both are live, because the cutover gap (subscribers landing in neither tool) is the classic migration leak. Archive your past campaigns, reporting, and attribution too: campaign statistics, open/click history, and attribution definitions are native to ActiveCampaign and cannot be reproduced on the other side.</p>
+
+  <h3>Trap 6: The suppression register is the real migration</h3>
+  <p>Say it plainly: <strong>the contacts import is the easy half; the suppression import is the migration.</strong> Build a suppression register covering unsubscribes, hard bounces, spam complaints, and manual exclusions — with scope and reason — and get it into MailerLite's controls before you enable any sending. The hidden exclusion list from Trap 3 means your "Active" export undercounts your suppressed population; spam-complaint exclusions in particular won't be obvious in the CSV. MailerLite's import lets you add contacts as subscribed — correct for a properly permissioned list, dangerous for murky segments. Import questionable segments as unconfirmed and run a re-permission campaign; it will shrink your list, and that's the point. Test with synthetic unsubscribe and bounce records first. And never re-mail suppressed contacts to "test the move" — a complaint on a fresh sending setup is the fastest route to a MailerLite review and spam-folder placement.</p>
+
+  <h3>Trap 7: Approval pause, domain auth from zero, and the warm-up</h3>
+  <p>Three MailerLite-side mechanics, all familiar from the sibling guides. First: MailerLite reviews new accounts before first sends — expect the approval step and up to about a day of waiting, so open the account <em>before</em> migration weekend. Second: SPF and DKIM authenticate your domain <em>with the sending platform</em> — ActiveCampaign's DNS records do nothing for MailerLite. Verify your domain in MailerLite, add the fresh records, confirm the green checks, and test-send. Your reputation partially follows the domain, not the platform — but a fresh sending setup plus a full-list blast to cold contacts is how new accounts earn spam-folder placement. Third: warm up on the engaged segment — first campaign to contacts who opened in the last 60 days, expand over 2–3 sends. Keep ActiveCampaign live for one overlapping billing cycle as insurance (one extra month of AC is cheaper than a dead cutover), do a delta export of anyone who subscribed during the move, then cancel — only after a full export, because once the account closes, the archive goes with it.</p>
+
+  <h2>The weekend checklist, in order</h2>
+  <ol>
+    <li><strong>Inventory everything, assign owners.</strong> Every automation, template, campaign, form, landing page, integration, webhook, tracking script, custom field, saved segment, and — if applicable — every deal pipeline. Decide what has a destination and what gets archived.</li>
+    <li><strong>Settle the feature question on paper.</strong> List your Pro-level features: split automations, conditional content, attribution, scoring, goals, webhooks, CRM pipelines. If core revenue depends on them, stop — don't migrate. If they're decorative, proceed.</li>
+    <li><strong>Run the money math on your account's real billing model.</strong> Post-Nov-2025 account billed for all contacts? Your savings are bigger than the table. 1,000 contacts on Starter? The bill is $19 both ways — migrate for features, not savings.</li>
+    <li><strong>Record in-flight automation positions.</strong> For every live automation: who is in it, last completed action, intended next action. This is the anti-double-send step.</li>
+    <li><strong>Open the MailerLite account early.</strong> Approval review takes up to ~a day. Verify your sending domain and add the fresh SPF/DKIM records before anything else.</li>
+    <li><strong>Export ActiveCampaign, status by status.</strong> Contacts &gt; &hellip; &gt; Export — plain export name, no special characters. Grab the files within 7 days. Keep Active-only contacts separate from unsubscribes/bounces/complaints; build the suppression register.</li>
+    <li><strong>Import with sending disabled.</strong> Start with a small batch including synthetic unsubscribe/bounce records. Verify tag mapping, custom-field mapping, and that suppressions actually suppress. Only then import the rest.</li>
+    <li><strong>Rebuild the welcome sequence first,</strong> from intended behavior — entry, waits, branches, exits. Then the rest of the flows you decided MailerLite can reproduce. Rebuild forms and landing pages, re-authenticate integrations one at a time, live-test each form submission.</li>
+    <li><strong>Warm up on the engaged segment.</strong> First send to openers from the last 60 days; expand over 2–3 campaigns. No day-one full-list blasts.</li>
+    <li><strong>Delta export, cut over the forms, run parallel.</strong> Catch subscribers who signed up during the move, move each form connection one at a time, keep ActiveCampaign live one billing cycle, then cancel — after a final full export.</li>
+  </ol>
+
+  <h2>Who shouldn't migrate</h2>
+  <p>Five honest exceptions. One: <strong>CRM users</strong> — if deals and pipelines live in ActiveCampaign, the migration deletes your sales operation; the $130/mo is buying a downgrade. Two: <strong>Pro-feature automation users</strong> — split automations, conditional content, attribution, scoring, webhooks; MailerLite has no equivalents and rebuilding is surrender, not migration. Three: <strong>1,000-contact Starter accounts chasing savings</strong> — the bill is $19 on both sides; migrate for the automation headroom, not the money. Four: <strong>teams that need multiple seats on a budget with advanced reporting</strong> — Comfort's 3 seats beat Starter's 1, but if your reporting depends on AC's attribution (a Pro feature), price the feature loss. Five: <strong>SMS/WhatsApp senders</strong> — ActiveCampaign's SMS and WhatsApp are paid add-on channels on the same platform; MailerLite has no native equivalent at the same depth, so a multi-channel setup fragments.</p>
+
+  <h2>Affiliate honesty</h2>
+  <p>We carry affiliate placeholders for MailerLite (verified program, 30% lifetime) and for ActiveCampaign (verified program) — one for each direction this page can send you. That symmetry is exactly why the stay-on-ActiveCampaign section above is long: this article recommends MailerLite for most non-CRM Starter and Plus users, and that recommendation is affiliated, but the five don't-migrate cases are real, and the CRM trap costs ActiveCampaign-bound readers nothing to hear. The migration earns us a commission only if you actually move; it earns you the savings either way.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: ActiveCampaign — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Start free with MailerLite (250 subscribers)</a>
+    <a class="btn-ghost" data-affiliate="activecampaign" href="#affiliate-link-placeholder-activecampaign">Staying on ActiveCampaign? See current plans</a>
+  </p>
+
+  <h2>Keep reading</h2>
+  <p>The full price context is in <a href="mailerlite-vs-activecampaign.html">MailerLite vs ActiveCampaign: the price curves nobody charts</a>, <a href="activecampaign-alternatives.html">ActiveCampaign alternatives</a> (six exits matched to your reason for leaving), and <a href="mailerlite-pricing-explained.html">MailerLite pricing explained</a>. The sibling guides are <a href="mailchimp-to-mailerlite-migration.html">Migrating from Mailchimp to MailerLite</a> and <a href="kit-to-mailerlite-migration.html">Migrating from Kit to MailerLite</a>.</p>
+
+  <p class="meta">Migration mechanics verified October 2, 2026 (ActiveCampaign help-center export flows, including status-filtered list exports, export naming constraints, the 7-day download window, and exclusion-list behavior). Prices checked October 2, 2026 from both official pricing pages and corroborating trackers. Prices change frequently — verify at checkout.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
