@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kit (ConvertKit) Integrations in 2026: Native vs Zapier — When to Pay for Both | The Honest Inbox</title>
+<meta name="description" content="Kit's native integrations are creator-first — but the course platforms, checkouts, and calendars you actually use often aren't native. This guide covers what's built in, what the Kit Zapier app supports, the task math that decides whether Zapier stays free, and when Make or n8n beats it. Checked October 2, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Kit (ConvertKit) Integrations in 2026: Native vs Zapier — When to Pay for Both</h1>
+  <p class="meta">Integration facts checked October 2, 2026 (Zapier app directory, Kit WordPress plugin listing, third-party reviews) · Zapier pricing checked October 2, 2026 (third-party roundups; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Creators run Kit at the center of a stack: a course platform, a checkout, a calendar, a form tool, a community. The question is always the same — "Does Kit talk to my [Teachable / Kajabi / Calendly / Typeform]?" Sometimes yes, natively, for free. Sometimes the answer is a Zapier bridge, and the bridge has a meter on it. This guide maps what Kit covers natively (the free path), what its Zapier app actually supports (per Zapier's current app directory), five real creator Zaps with honest per-month task math, and the point where you should price Make or n8n instead of reflexively paying Zapier.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Wire up Kit's native integrations first — the WordPress plugin family (with WooCommerce, Elementor, Gravity Forms, and WishList Member add-ons), Shopify, Squarespace, Teachable, Thinkific, Memberful, and Stripe through Kit Commerce are included in your plan and cost zero tasks. Use Zapier only for apps with no native path (Kajabi, Gumroad, Calendly, Typeform, Circle, Facebook lead ads). And count tasks before you build: a trigger is free, every action step is one task — a 2-action Zap firing 150 times a month is 300 tasks, which kills Zapier's free 100-task plan and lands you on Starter at $19.99/mo billed annually ($29.99 monthly). Past ~750 tasks/month, stop and price Make (~$9–10/mo for ~10,000 operations, per 2026 third-party roundups — verify live) or n8n before paying Zapier Professional.
+  </div>
+
+  <h2>What "native" covers (the free path)</h2>
+  <p>Kit's native bench is unmistakably creator-first. The pieces a creator stacks around Kit are mostly covered:</p>
+  <ul>
+    <li><strong>WordPress (the big one):</strong> the Kit for WordPress plugin embeds forms, landing pages, and broadcasts in posts and pages, and ships first-party add-ons for WooCommerce (subscribe, tag, and enroll at checkout; order data into Kit), Gravity Forms, Contact Form 7, Elementor, and WishList Member (subscribe/unsubscribe/tag by membership level).</li>
+    <li><strong>Storefronts:</strong> Shopify and Squarespace connect natively — customers and purchase data flow into Kit without a middle layer.</li>
+    <li><strong>Course platforms:</strong> Teachable and Thinkific are native integrations — enrollments, completions, and progress events feed Kit's tagging and automations directly.</li>
+    <li><strong>Memberships:</strong> Memberful connects natively — new orders and subscription events land in Kit with tags you can trigger on.</li>
+    <li><strong>Checkout without a store:</strong> Kit Commerce lets you sell digital products and subscriptions straight from Kit (3.5% platform fee plus processor fees — see our <a href="kit-pricing-explained.html">Kit pricing explainer</a>). If your whole product is a PDF or a paid newsletter, this can delete the checkout app from your stack entirely.</li>
+  </ul>
+  <p>The honest limitation mirrors MailerLite's: native integrations mostly push contacts and events <em>into</em> Kit. They don't reach back out to your other tools, and they don't cover the apps Kit never built for. If your course platform is Kajabi, your checkout is Gumroad, your scheduling is Calendly, or your lead capture is Typeform — that's the Zapier side. And even where a native integration exists, check what it syncs: "Shopify is native" means customer and order data flows in; it does not mean Kit drives your Shopify workflows.</p>
+
+  <h2>What the Kit Zapier app actually supports</h2>
+  <p>The Kit app on Zapier (per Zapier's current app directory, checked October 2026):</p>
+  <p><strong>Triggers (the events that start a Zap):</strong></p>
+  <ul>
+    <li><strong>New Subscriber</strong> — fires when a subscriber is confirmed in the account (after any double opt-in); instant</li>
+    <li><strong>New Purchase</strong> — fires when a purchase hits the account; instant — this is the trigger Kit Commerce sellers pair with fulfillment tools</li>
+    <li><strong>New Sequence Subscriber</strong> — fires when someone is added to a sequence; instant</li>
+    <li><strong>New Form Submission</strong> — new form submissions from Kit forms</li>
+    <li><strong>Tag Added / Tag Removed</strong> — tag changes on a subscriber — the richest automation surface in Kit, because tags are Kit's segmentation language</li>
+  </ul>
+  <p><strong>Actions (what the Zap does inside Kit):</strong></p>
+  <ul>
+    <li><strong>Add Subscriber to Form</strong> — the workhorse: funnel checkouts, webinar signups, form fills all land here</li>
+    <li><strong>Add Subscriber to Sequence</strong> — route buyers and leads into nurture/launch sequences</li>
+    <li><strong>Add Tag to Subscriber</strong> — apply tags that trigger Kit's internal automations — this is the action that makes Kit's tagging system reachable from the outside</li>
+  </ul>
+  <p>The popular pairings on Zapier's Kit page tell you what creators actually bridge: Typeform, Stripe, Calendly, Gumroad, Kajabi, Teachable, Thinkific, Circle, Shopify, Facebook Lead Ads, Squarespace Forms, Google Sheets. Read that list carefully — half of it (Teachable, Thinkific, Shopify) is <em>also</em> available natively. The apps that are Zapier-only in practice: Kajabi, Gumroad, Calendly, Typeform, Circle, Facebook Lead Ads.</p>
+
+  <h2>The task math (same meter as before)</h2>
+  <p>Zapier's billing unit is the <strong>task</strong>: one successful action step. Per multiple 2026 pricing roundups of Zapier's current plans (verify on zapier.com before you pay):</p>
+  <ul>
+    <li>Triggers never count. Failed/errored action steps don't count. Filters that don't fire don't count.</li>
+    <li>Every action step that runs counts as one task. A 2-action Zap running 150 times = 300 tasks.</li>
+    <li><strong>Free:</strong> $0, 100 tasks/month, single-step Zaps only (trigger + one action), 15-minute check intervals on polled triggers. <em>Estimate, verified via third-party roundups Oct 2026 — verify live.</em></li>
+    <li><strong>Starter:</strong> $19.99/mo billed annually ($29.99 month-to-month), 750 tasks/month, multi-step Zaps unlocked. <em>Same source class — verify live.</em></li>
+    <li><strong>Professional:</strong> ~$49/mo, 2,000 tasks/month, paths and custom logic.</li>
+  </ul>
+  <p>The creator-specific trap: <strong>every sale is task volume, and launches are spikes.</strong> A steady 40 Kajabi sales a month at 2 tasks each is 80 tasks — free. A launch week with 400 sales is 800 tasks in seven days, and Zapier counts the month, not the average. Plan for launch-month peaks, not typical months.</p>
+
+  <h2>Five Zaps creators actually use (with honest task math)</h2>
+
+  <h3>1. Kajabi / checkout purchase → Kit tag + sequence (the launch Zap)</h3>
+  <p><strong>Setup:</strong> trigger: New Purchase in the checkout; action 1: Add Subscriber to Form in Kit; action 2: Add Tag to Subscriber (e.g. "buyer-launch-2026"). The tag fires Kit's internal post-purchase automation. <strong>Task cost:</strong> 2 tasks per sale. At 100 launch-week sales = 200 tasks — over free for the month, onto Starter. <strong>Honest note:</strong> if you're on Kit Commerce instead, New Purchase is a native Kit trigger and this whole Zap may be redundant — sell through Kit Commerce and the purchase event is already inside your account. Check this before paying Zapier for what you already own.</p>
+
+  <h3>2. Typeform quiz/lead magnet → Kit sequence (the list-builder Zap)</h3>
+  <p><strong>Setup:</strong> trigger: New Typeform Submission; action: Add Subscriber to Sequence in Kit (welcome + nurture). <strong>Task cost:</strong> 1 task per submission. At 60 submissions/month = 60 tasks — safely free. <strong>Honest note:</strong> Typeform is the classic Zapier-only app here; there's no native Typeform path into Kit. One action step, low volume — this is exactly the Zap that lives comfortably on the free plan.</p>
+
+  <h3>3. Calendly booked → Kit sequence (the coach's Zap)</h3>
+  <p><strong>Setup:</strong> trigger: Invitee Created in Calendly; action 1: Add Subscriber to Form; action 2: Add Subscriber to Sequence (pre-call nurture + reminders). <strong>Task cost:</strong> 2 tasks per booking. At 30 calls/month = 60 tasks — free. <strong>Honest note:</strong> Zapier's Calendly trigger is polled on lower tiers — check the delay window if you're relying on this for same-day reminders. And if you sell calls, consider whether Kit Commerce could replace the booking checkout entirely.</p>
+
+  <h3>4. Tag added in Kit → grant access elsewhere (the fulfillment Zap)</h3>
+  <p><strong>Setup:</strong> trigger: Tag Added in Kit; action: grant access in Kajabi (or add to a course platform, enroll in a community like Circle). <strong>Task cost:</strong> 1 task per tagged buyer. <strong>Honest note:</strong> this is the reverse direction — Kit as the trigger, pushing events <em>out</em> to tools that aren't native. Kit's Tag Added trigger is the single most useful Zapier trigger in the Kit app because tags are how Kit thinks.</p>
+
+  <h3>5. New Kit subscriber → Google Sheet / Slack log (the bookkeeping Zap)</h3>
+  <p><strong>Setup:</strong> trigger: New Subscriber; action: Add Row to Google Sheets. <strong>Task cost:</strong> 1 task per subscriber. At 100 new subs/month = 100 tasks — exactly at the free limit, and it shares the limit with your other Zaps. <strong>Honest note:</strong> pure logging. Nice on free; the first thing to delete when you're counting tasks, and never worth paying for alone.</p>
+
+  <h2>The decision rule: native first, Zap second, pay third</h2>
+  <ol>
+    <li><strong>Check native first.</strong> Teachable, Thinkific, Shopify, WooCommerce (via the WordPress plugin family), Squarespace, and Memberful are native — don't pay Zapier to re-create a sync you already have. Kit Commerce can additionally delete your checkout app for simple digital products.</li>
+    <li><strong>Run Zapier free for bridges.</strong> 100 tasks/month covers 2–3 single-step Zaps at newsletter scale. Kit's instant triggers (New Subscriber, New Purchase, Tag Added) make the free tier genuinely responsive for the events that matter.</li>
+    <li><strong>Budget for launch spikes, not averages.</strong> If one launch month can push you past 750 tasks, compare Starter's $19.99/mo against Make's ~$9–10/mo for ~10,000 operations (per 2026 third-party roundups — verify live) or n8n's fixed server cost. Make's pricing model is operations-based, which treats a 2-action Zap as roughly the same cost whether it fires 10 or 1,000 times — much kinder to launch spikes than Zapier's per-task meter.</li>
+    <li><strong>Read Zapier's Kit page as a map, not a menu.</strong> Its popular pairings list doubles as the answer to "what do creators wire to Kit" — then cross off everything that's native before you build anything.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>Zapier costs stack on top of Kit costs.</strong> Kit is the premium-priced tool in this niche — a creator on the Creator plan plus Zapier Starter is paying for automation that half the native integrations already do free. The most common waste pattern: paying for a Zap that duplicates a native integration (Teachable/Thinkific/Shopify), and the second most common: paying for a Zap that Kit Commerce would have made unnecessary. Audit before you stack.</p>
+  <p><strong>The free plan's single-step limit bites creators hardest.</strong> Kit's power lives in tag + sequence combinations, and most useful Kit Zaps want two actions (add to form, then tag). Single-step free Zaps force you to choose between capture and tagging — the moment you need both, you're on Starter. That's the real free-plan cliff for Kit users, not the task count.</p>
+  <p><strong>Native syncs need maintenance too.</strong> WordPress plugin updates can break the WooCommerce add-on's checkout tagging, and course-platform API changes can silently pause enrollments — check the integrations page quarterly, same as you'd check Zap history. Silent sync failures are a launch-week disaster.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is Kit's Zapier integration free?</h3>
+  <p>The Kit app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month and single-step Zaps on the free plan, then $19.99/mo (billed annually) for Starter with 750 tasks and multi-step Zaps. Kit charges nothing for the connection.</p>
+
+  <h3>Do I need Zapier if Kit has native integrations?</h3>
+  <p>Not for the creator core: WordPress/WooCommerce (via the plugin family), Shopify, Squarespace, Teachable, Thinkific, and Memberful are all native. You need Zapier for Kajabi, Gumroad, Calendly, Typeform, Circle, Facebook Lead Ads — and for pushing Kit events (tags, purchases) <em>out</em> to any of those tools.</p>
+
+  <h3>What can Kit Commerce replace?</h3>
+  <p>Simple digital-product checkouts: PDFs, templates, paid newsletters, single-course sales. The 3.5% platform fee plus processor fees makes it cheaper than Gumroad-style storefronts for many creators — and because the purchase event lives inside Kit natively, it deletes an entire Zapier workflow from your stack. It does not replace a full storefront (Shopify) or a full course platform (Teachable/Kajabi).</p>
+
+  <h3>What's better than Zapier for Kit at volume?</h3>
+  <p>For launch-spike volume, Make charges per operation (~$9–10/mo for ~10,000 operations per 2026 roundups — verify live) and n8n is a fixed server cost. For coverage and simplicity — and for creators who only ever need 2–3 modest Zaps — Zapier on the free or Starter tier still wins on ease. It's a volume question, not a quality question.</p>
+
+  <p>We carry affiliate placeholders for Kit (verified program, 30% commissions for 24 months) only. Zapier and Make are not in our affiliate bench, so the pricing advice above costs us nothing either way: buy native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier and Make prices in this article come from third-party 2026 roundups — verify on zapier.com and make.com before checkout, because both revise pricing and tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: Kit — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="kit-pricing-explained.html">Kit pricing explained: what you'll actually pay at every list size</a></li>
+    <li><a href="mailerlite-vs-kit.html">MailerLite vs Kit: which is actually cheaper as you grow</a></li>
+    <li><a href="kit-alternatives.html">Best Kit alternatives</a></li>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier (the MailerLite version of this guide)</a></li>
+    <li><a href="best-email-marketing-for-coaches-and-consultants.html">Best email marketing for coaches and consultants</a></li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
