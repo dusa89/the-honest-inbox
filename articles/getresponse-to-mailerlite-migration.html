@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Switch from GetResponse to MailerLite in 2026: The Honest Migration Guide | The Honest Inbox</title>
+<meta name="description" content="Switching from GetResponse to MailerLite? The real math (Starter $19 vs Comfort $19, Marketer $59 vs Power $39), what transfers cleanly, the 6 things that break in transit, and a weekend migration checklist in the right order. Checked October 3, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>How to Switch from GetResponse to MailerLite in 2026: The Honest Migration Guide</h1>
+  <p class="meta">Migration path checked October 3, 2026 (GetResponse contact export flow, MailerLite CSV import) · Pricing from our September 2026 explainers — verify live before you pay · All affiliate claims verified against official program pages</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">GetResponse is the tool people outgrow: you sign up on Starter at $19/month, your list grows, you need one more automation workflow and suddenly Marketer's $59 is the only door. MailerLite is the tool people land on — same email quality, half the platform, half the bill for many lists. The migration itself is a weekend job, but only if you move in the right order and know what doesn't survive the trip. This guide covers the real money math at 1k, 2.5k, and 5k contacts, exactly what transfers and what dies, and a checklist that keeps your automations running while you move.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    The money case is real but smaller than you'd think at the low end: at 1,000 contacts, GetResponse Starter ($19/mo) and MailerLite Comfort ($19/mo) cost the same — the savings start when you need automation. A Marketer user at $59/mo drops to Power at $39/mo ($240/year saved); at 5,000 contacts, Marketer's $114/mo becomes Power's $69/mo ($540/year saved). Contacts, tags (mapped to groups), and custom fields transfer cleanly via CSV. Automations, webinars, conversion funnels, and landing pages do not — budget 4–8 hours of rebuild time for a moderately automated account. Don't migrate if GetResponse's built-in webinars or conversion funnels are your engine: MailerLite has neither, and no migration fixes that.
+  </div>
+
+  <h2>The money math (why people actually switch)</h2>
+  <p>Monthly billing, prices from our September 2026 explainers — confirm on the vendors' pricing pages before you pay. MailerLite prices by subscriber; GetResponse by contact.</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>List size</th><th>GetResponse Starter</th><th>MailerLite Comfort</th><th>GetResponse Marketer</th><th>MailerLite Power</th></tr>
+      <tr><td>1,000</td><td>$19/mo</td><td>$19/mo</td><td>$59/mo</td><td>$39/mo</td></tr>
+      <tr><td>2,500</td><td>$29/mo</td><td>$33/mo</td><td>$79/mo</td><td>$49/mo</td></tr>
+      <tr><td>5,000</td><td>$54/mo</td><td>$49/mo</td><td>$114/mo</td><td>$69/mo</td></tr>
+    </table>
+  </div>
+  <p>Read the table honestly: if you're on Starter and stay on Starter, MailerLite Comfort is the same price at 1,000 and slightly <em>more</em> at 2,500 — the switch isn't a discount, it's a lateral move you'd make for the simpler interface or the free plan (MailerLite's free plan covers 250 subscribers and 2,500 emails/month; GetResponse's free plan covers 500 contacts and 2,500 emails/month). The real savings hit Marketer users: $59 → $39 at 1,000 contacts, $114 → $69 at 5,000. That $20–$45/month difference is $240–$540 a year — and Marketer is where GetResponse pushes you the moment you want more than one automation workflow.</p>
+  <p>The honest catch: a Starter user who moves to MailerLite and discovers they need <em>Power's</em> unlimited sends (Comfort caps sends at roughly 10&times; your subscriber count per month) lands at $25–$39/mo — which can cost more than the Starter plan they left. Map your actual sends per month before you pick the tier. Our full price curves: <a href="getresponse-pricing-explained.html">GetResponse pricing</a> and <a href="mailerlite-pricing-explained.html">MailerLite pricing</a>.</p>
+
+  <h2>What transfers cleanly</h2>
+  <ul>
+    <li><strong>Contacts.</strong> Export from GetResponse: Tools → Contacts → Search Contacts → Advanced Search → select your list(s) → the vertical-ellipsis menu → Export → name the file, pick CSV, Export New File, then Download. Import into MailerLite: Subscribers → Add subscribers → Import CSV/TXT → upload, map columns, assign a group. Counts should match exactly — if they don't, you exported a filtered view. <em>Verify live; UI paths drift.</em></li>
+    <li><strong>Tags.</strong> GetResponse's tags map to MailerLite groups (or fields). Import the tag column, then build one MailerLite group per tag. This is the fiddliest honest work in the migration: a contact with three tags needs three group assignments. Do it in the import mapping, not by hand afterward.</li>
+    <li><strong>Custom fields.</strong> Name, company, phone, and custom fields export as CSV columns and import into MailerLite fields one-to-one. Check field names after import — "Phone2" style columns from old lists are where junk data hides.</li>
+    <li><strong>Suppression and unsubscribe lists.</strong> Export bounces, unsubscribes, and spam complaints too, and import them into MailerLite's suppression list before your first send. Skipping this is how migrations end with a deliverability problem in week one.</li>
+    <li><strong>Forms and embedded codes.</strong> These don't transfer, but they're a 10-minute swap: MailerLite generates new embed codes for every form type. Replace them site-wide in one pass — old GetResponse forms will keep capturing into the old account, which is the #1 silent list-split after a migration.</li>
+  </ul>
+
+  <h2>The 6 things that break in transit (budget for all of them)</h2>
+  <h3>1. Automation workflows — all of them</h3>
+  <p>There is no export for automation logic. Every GetResponse workflow must be rebuilt in MailerLite's automation builder by hand. GetResponse's Starter plan allows exactly one workflow, so most Starter migrators are rebuilding one thing. Marketer users with 10–20 workflows are rebuilding a small machine — photograph every workflow's trigger, steps, delays, and conditions <em>before</em> you touch the contacts export. Estimate: 30–60 minutes per moderately complex workflow to rebuild and test.</p>
+  <h3>2. Webinars — gone entirely</h3>
+  <p>GetResponse has built-in webinar hosting on Marketer and above. MailerLite has no webinar product. If your funnel is "webinar → replay sequence → offer," you now need a separate webinar tool (Zoom, WebinarJam, or similar) and a MailerLite sequence to replace the follow-up. This is the single most common migration regret — people discover it <em>after</em> cancelling. If webinars are your engine, this migration is probably wrong for you.</p>
+  <h3>3. Conversion funnels</h3>
+  <p>GetResponse's funnel builder (lead magnet funnels, sales funnels, webinar funnels) has no MailerLite equivalent. You can approximate them with MailerLite landing pages + automations + your own checkout, but the pre-built funnel templates and their conversion tracking do not transfer. Budget a rebuild weekend, or keep GetResponse for funnels and move only email — two-tool setups are a legitimate answer.</p>
+  <h3>4. Landing pages</h3>
+  <p>GetResponse landing pages don't export to MailerLite. MailerLite's landing page builder is genuinely good, but you're recreating every page: copy, images, forms, SEO settings, and — critically — the URL. If your ads or lead magnets point at GetResponse-hosted pages, re-point or 301 the URLs as part of the move.</p>
+  <h3>5. Contact scoring and behavioral triggers</h3>
+  <p>GetResponse Marketer's contact scoring (lead grades based on engagement) has no direct MailerLite equivalent — MailerLite segments on opens, clicks, and tags, not composite scores. If you route sales calls off a score threshold, rebuild the logic as tag-based segments and accept a coarser version.</p>
+  <h3>6. Domain authentication</h3>
+  <p>Your SPF/DKIM records were set for GetResponse's sending servers. MailerLite sends from its own servers — you must re-verify your sending domain in MailerLite (add their DNS records) <em>before</em> your first real send. Skip this and your first campaigns land in spam folders, and you'll blame the new tool for an old DNS problem.</p>
+
+  <h2>The weekend checklist (in this order)</h2>
+  <ol>
+    <li><strong>Document the automation brain.</strong> Screenshot every live workflow's full logic. Export any reports you care about (campaign performance history does not transfer).</li>
+    <li><strong>Export everything.</strong> Contacts (all lists), tags, custom fields, suppression/unsubscribe lists. Verify counts against GetResponse's dashboard numbers.</li>
+    <li><strong>Set up MailerLite first, send later.</strong> Create the account, verify your sending domain (DNS records), build your groups from the tag map.</li>
+    <li><strong>Import and reconcile.</strong> CSV import, column mapping, count reconciliation. Then import the suppression lists — before any test send.</li>
+    <li><strong>Rebuild the critical automations first.</strong> Welcome sequence, then abandoned cart/browse, then the rest. Test each with your own email before any real subscriber flows through.</li>
+    <li><strong>Swap the forms and pages.</strong> Replace GetResponse embeds site-wide; rebuild landing pages and re-point URLs.</li>
+    <li><strong>Parallel-run for 2 weeks.</strong> Keep GetResponse live with its automations running until MailerLite has processed two full cycles of your main sequences. Two tools billing for one month is the cheapest insurance in this whole process.</li>
+    <li><strong>Cancel GetResponse.</strong> Only after the parallel run is clean. Export one final backup on cancellation day.</li>
+  </ol>
+
+  <h2>When you should NOT migrate</h2>
+  <p>Honesty goes both ways. Stay on GetResponse if: built-in webinars are part of your funnel (no replacement in MailerLite); your conversion funnels are built and converting (rebuilding them is weeks of work for zero gain); you use contact scoring to route sales; or you're on Starter and happy — at 1,000 contacts the price is identical, so a migration buys you nothing but work. GetResponse's 40%-for-12-months affiliate program exists because the tool retains well — it's a genuinely good product for the all-in-one buyer. MailerLite wins for the sender who wants simple, cheap, and fast. That's the real trade-off, and our <a href="getresponse-vs-mailerlite.html">GetResponse vs MailerLite head-to-head</a> covers it in depth.</p>
+
+  <h2>FAQ</h2>
+  <h3>Does MailerLite import from GetResponse automatically?</h3>
+  <p>There is no one-click "import my GetResponse account" button as of October 2026 — the path is CSV export from GetResponse and CSV import into MailerLite. Both sides of that path are verified above. The import itself takes minutes; the automation rebuild is the real work.</p>
+  <h3>Will my automations transfer?</h3>
+  <p>No. No export format carries automation logic between any two email tools. Rebuild every workflow in MailerLite's builder — which is simpler than GetResponse's, so most workflows come back shorter than they left.</p>
+  <h3>Can I keep my GetResponse landing page URLs?</h3>
+  <p>GetResponse-hosted pages live on their domain or your connected custom domain. Rebuild the pages in MailerLite and re-point; if ad campaigns or printed materials reference the old URLs, set up 301 redirects or keep those specific pages alive during the transition.</p>
+  <h3>How long does the migration take?</h3>
+  <p>The contact move: under an hour. A full migration for a moderately automated account (5–10 workflows, a handful of landing pages, form swaps): one focused weekend, 6–10 hours. The parallel-run period adds 2 weeks of calendar time but almost no work — that's the point.</p>
+  <h3>Is there a free way to do this?</h3>
+  <p>Yes, mostly: both tools have free plans, the CSV export/import costs nothing, and rebuilding workflows is your time, not money. The one cost trap: running both paid plans during the parallel period. If you're on GetResponse Starter ($19) and start MailerLite Comfort ($19), the overlap month costs $38 — worth it for the insurance, but don't let it become a habit.</p>
+
+  <h2>The honest bottom line</h2>
+  <p>This is the migration worth doing for exactly one buyer: the GetResponse Marketer user paying $59–$114/month for automation features they've outgrown or never fully used, who would be perfectly happy on MailerLite Power at $39–$69/month. The savings are $240–$540 a year, the weekend cost is real but bounded, and MailerLite's builder is the easier of the two to live with day to day. For everyone else — the happy Starter user, the webinar funnel operator, the contact-scoring sales team — the honest answer is to stay put.</p>
+  <p>We carry an affiliate placeholder for MailerLite (verified program: 30% recurring commissions for the life of the referral) only. GetResponse (verified: 40% recurring for 12 months on the Bronze tier) is the tool you'd be leaving — the pricing above comes from our own September 2026 explainers, and neither price nor the savings math changes if you sign up through our link or not. Verify both pricing pages live before you pay; both vendors revise tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="getresponse-vs-mailerlite.html">GetResponse vs MailerLite: the full head-to-head</a></li>
+    <li><a href="getresponse-pricing-explained.html">GetResponse pricing: is Starter, Marketer, or Creator worth it?</a></li>
+    <li><a href="mailerlite-pricing-explained.html">MailerLite pricing: free plan limits and the real price at every list size</a></li>
+    <li><a href="mailchimp-to-mailerlite-migration.html">How to switch from Mailchimp to MailerLite</a></li>
+    <li><a href="kit-to-mailerlite-migration.html">How to switch from Kit to MailerLite</a></li>
+    <li><a href="activecampaign-to-mailerlite-migration.html">How to switch from ActiveCampaign to MailerLite</a></li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
