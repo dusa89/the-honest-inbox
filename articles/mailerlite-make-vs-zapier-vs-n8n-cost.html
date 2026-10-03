@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MailerLite + Make vs Zapier vs n8n (2026): The Real Cost of Automating Your List | The Honest Inbox</title>
+<meta name="description" content="Zapier, Make, and n8n all wire MailerLite to the rest of your stack — but they meter your work three different ways, and at real volume the bills differ by 10x. Four real scenarios priced on all three, plus the billing-unit trick that decides everything. Checked October 2, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>MailerLite + Make vs Zapier vs n8n (2026): The Real Cost of Automating Your List</h1>
+  <p class="meta">Platform pricing checked October 2, 2026 (third-party 2026 pricing roundups; vendor billing changed mid-2026 — verify live on make.com, n8n.io, and zapier.com before checkout) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Every MailerLite integrations guide, including our two, ends with the same sentence: "if Zapier gets expensive, price Make or n8n." This is that sentence, done properly. The three platforms all connect MailerLite to the apps native integrations don't cover (lead ads, booking tools, CRMs, course platforms) — and each ships a MailerLite app or node covering the same core moves: new-subscriber triggers, create/update subscriber actions. Check each platform's current app directory for the exact module list; it shifts. What actually separates them is not the MailerLite connection. It's the meter. Zapier charges per action step, Make charges per module step, n8n charges per whole workflow run — and for the same automation at the same volume, the three bills can differ by 10x.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Start inside MailerLite: its built-in automation builder and 125+ native integrations are already in your plan at zero bridge cost. For the workflows that genuinely need a bridge: <strong>Zapier</strong> wins when you need 1–2 simple automations built in 10 minutes and stay under 100 tasks/month (free); <strong>Make</strong> wins the middle — Core is $9/mo for 10,000 operations, and at real small-business volume it undercuts Zapier by 2–3x for the same workflows; <strong>n8n</strong> wins at volume and complexity, because one execution covers the whole workflow no matter how many steps it has — self-hosted is $5–20/mo for the server with unlimited runs, and n8n Cloud starts at €24/mo (billed monthly) for 2,500 executions. The decision is a math problem, not a loyalty question — and the four scenarios below do the math for you.
+  </div>
+
+  <h2>The billing units (the whole article in one table)</h2>
+  <p>Same automation, three meters. Everything below is per 2026 third-party pricing roundups — verify live before you pay, because all three revised plans during 2026:</p>
+  <ul>
+    <li><strong>Zapier — the task.</strong> One successful action step = 1 task. Trigger is free. Failed steps and un-fired filters don't count. A 3-action Zap running 100 times = 300 tasks. <em>Roundup prices: Free $0 (100 tasks/mo, single-step Zaps only, 15-min polling), Starter $19.99/mo billed annually ($29.99 month-to-month, 750 tasks), Professional ~$49/mo (2,000 tasks).</em></li>
+    <li><strong>Make — the operation (now "credit").</strong> One module execution = 1 operation; the trigger is free; routers and error-handlers cost nothing; some AI modules cost more. In August 2026 Make switched billing from operations to credits (1 operation ≈ 1 credit by default) — check make.com for the current metering before you budget. Unused credits expire at the end of the billing term. <em>Roundup prices: Free $0 (1,000 credits/mo, 2 active scenarios, 15-min min interval), Core $9/mo (10,000), Pro $16/mo (10,000 + priority execution, full-text log search), Teams $29/mo (10,000 + collaboration).</em></li>
+    <li><strong>n8n — the execution.</strong> One workflow run = 1 execution, regardless of how many nodes it passes through. A 20-node workflow costs exactly as much as a 2-node one. <em>Roundup prices: Community self-hosted free (unlimited executions; you pay the server, ~$5–20/mo VPS or $3.70–7/mo managed); Starter cloud €24/mo monthly (€20 annual, 2,500 executions, 5 concurrent runs); Pro cloud €60/mo monthly (€50 annual, 10,000 executions, 20 concurrent); Business €800/mo (40,000 executions, self-hosted option, SSO, Git). n8n bills in euros — Berlin company, cloud hosted in Frankfurt.</em></li>
+  </ul>
+  <p>The asymmetry to internalize: on Zapier and Make, <strong>longer workflows cost more per run</strong> — every extra step is a task or an operation. On n8n, <strong>workflow length is free</strong> — a 12-node enrichment-and-routing monster costs 1 execution. That single fact is why the verdict flips at complexity, not just volume.</p>
+
+  <h2>Start inside MailerLite (the $0 bridge)</h2>
+  <p>Before comparing platforms: most MailerLite users who pay for a bridge tool don't need one yet. MailerLite's own automation builder (welcome sequences, abandoned-cart via the Shopify/WooCommerce natives, tag-and-segment branching) is included in every plan including free, and the 125+ native integrations cover store, website, and payments without a middle layer. The honest rule from our <a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations guide</a> still holds: bridge only what can't run natively — lead ads, booking tools, CRMs MailerLite never integrated, and the reverse direction (pushing MailerLite events <em>out</em> to Slack, Sheets, or a course platform).</p>
+  <p>One technical honest note: MailerLite's API and webhooks let you skip polling entirely. A Make or n8n webhook trigger fires the instant a subscriber event happens, which beats every free-tier 15-minute poll. If you're already comfortable pasting an API key, the webhook path is free on both platforms and deletes the worst free-tier delay in the stack.</p>
+
+  <h2>Four real scenarios, priced on all three</h2>
+
+  <h3>1. Lead ads → MailerLite + tag + Slack ping (the classic, slightly grown-up)</h3>
+  <p><strong>Setup:</strong> new lead → create/update subscriber in MailerLite → add source tag → ping Slack. <strong>Billing math at 200 leads/month:</strong> Zapier = 3 tasks/lead (trigger free) = 600 tasks — over the 100 free and the Starter 750 cap is uncomfortably close, so realistically Starter $19.99/mo. Make = 3 operations/lead (trigger free) = 600 ops — fits Free's 1,000 credits, but you're spending 1 of your 2 allowed active scenarios on it. n8n = 200 executions — a rounding error on any plan, including a $5 VPS running self-hosted. <strong>At 500 leads/month:</strong> Zapier = 1,500 tasks — past Starter (750), onto Professional ~$49. Make = 1,500 ops — onto Core $9/mo. n8n self-hosted still ≈ $0 beyond the server you already pay for. <strong>Honest note:</strong> this is the single most common paid-bridge automation in the MailerLite world, and the pricing gap opens at the very first step past "hobby volume."</p>
+
+  <h3>2. Shopify order → MailerLite tag + CRM row + sheet log (the store automation)</h3>
+  <p><strong>Setup:</strong> new order → update subscriber in MailerLite (buyer tag) → add CRM row → append to a revenue sheet → send the owner a summary note. <strong>Billing math at 1,000 orders/month:</strong> Zapier = ~4 tasks/order = 4,000 tasks — blows past Professional's 2,000; you're on a higher Zapier tier at well over $49/mo. Make = ~4 ops/order = 4,000 operations — still comfortably inside Core's 10,000 at $9/mo. n8n = 1,000 executions — fits Starter cloud (€24/mo monthly) with 1,500 executions to spare, or self-hosted at zero marginal cost. <strong>Honest note:</strong> stores are where Zapier's task meter bites hardest — order volume is task volume, and "4 steps per order" is a modest workflow. If you're on Shopify with MailerLite, audit this one first; it's usually the single most expensive Zap in the account.</p>
+
+  <h3>3. Quiz/form lead → MailerLite sequence + sheet + owner email (the list-builder)</h3>
+  <p><strong>Setup:</strong> new submission → create subscriber in MailerLite → add to welcome sequence → log to sheet. <strong>Billing math at 100 submissions/month:</strong> Zapier = ~3 tasks/submission = 300 tasks — over the 100 free, onto Starter $19.99/mo for what is essentially a list-builder. Make = ~3 ops/submission = 300 credits — fits Free's 1,000, and this is exactly the kind of automation Free's 2-scenario allowance exists for. n8n self-hosted = 100 executions ≈ $0. <strong>Honest note:</strong> at newsletter scale, Zapier's free tier is genuinely thin — 100 tasks is 2–3 single-step automations and nothing more. If all you run is 1–2 modest bridges, Make's free tier (1,000 ops) is the real free tier of the three — the 2-scenario cap is the actual ceiling, not the operation count.</p>
+
+  <h3>4. Booking → MailerLite + pre-call sequence + reminder check (the coach's stack)</h3>
+  <p><strong>Setup:</strong> new booking → create subscriber → add to pre-call nurture → check 24h before (reminder branch) → post-call tag for review request. This is a 6–8 step workflow with a branch. <strong>The math changes shape here:</strong> on Zapier and Make, every step multiplies the meter — 8 steps × 100 bookings = 800 tasks on Zapier (Starter, $19.99) and 800 ops on Make (still Free at 1,000, scenarios permitting). On n8n, the entire 8-step workflow with branching is <strong>100 executions</strong> — step count is irrelevant. <strong>Honest note:</strong> this is the n8n crossover. The moment your workflows get long or branchy, execution-based billing stops being a coupon and becomes a different pricing philosophy. Rich automation is n8n's home turf.</p>
+
+  <h2>Where each one wins (the decision rules)</h2>
+  <ol>
+    <li><strong>Stay on Zapier when speed beats savings.</strong> 1–2 simple bridges, under 100 tasks/month, and you want it built in 10 minutes with the largest app library (7,000+ vs Make's ~1,500 and n8n's ~400). Zapier is the best-built tool of the three for non-technical users — that's what the premium buys. Just know the free plan's single-step limit means any genuinely useful MailerLite Zap (create + tag) wants a paid tier almost immediately.</li>
+    <li><strong>Switch to Make at the first paid tier.</strong> The head-to-head that matters: Zapier Starter $19.99/mo for 750 tasks vs Make Core $9/mo for 10,000 operations. For typical 2–4 step MailerLite workflows, Core's operation budget covers roughly 10–13x Zapier Starter's task budget at half the price. The catch is real too: Make's learning curve is steeper (budget a few hours), and the free tier's 2-scenario cap means you'll outgrow free on breadth before you outgrow it on volume.</li>
+    <li><strong>Switch to n8n when workflows get long, volume gets serious, or data should stay home.</strong> Execution-based billing is unbeatable for complex workflows; self-hosting (~$5–20/mo server) makes high volume nearly free. Bonus honest reason: subscriber data stays on your infrastructure — if you're in a privacy-sensitive vertical (health, legal, finance-adjacent), that's a real argument, not a technicality.</li>
+    <li><strong>Count your billing unit before you build anything.</strong> Sketch the workflow, count the steps per run, multiply by monthly volume, convert to each platform's unit. Ten minutes of arithmetic beats a year of the wrong subscription. The four scenarios above are the template — plug in your own volumes.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>Make changed its meter in August 2026.</strong> Billing now runs on credits, not operations, and unused credits expire at the end of the term — the old "bank your ops" habits are dead. Router and error-handler modules cost nothing and the trigger is free, which softens real workflows considerably, but extra credit packs run ~$9–11 per 10,000 on paid plans (roundup estimates — verify live). Make revises this regularly; don't budget from a 2025 article.</p>
+  <p><strong>Make's free tier ceiling is scenarios, not operations.</strong> 1,000 ops/month is generous; 2 active scenarios is not. Lead ads + booking + notification = 3 scenarios = paid. Most small businesses hit the scenario cap around the same week they hit the operation cap.</p>
+  <p><strong>n8n self-hosting is "free" the way a free puppy is free.</strong> No license cost, unlimited executions — but you own uptime, updates, backups, and security, at roughly 1–2 hours a month of maintenance (estimate — it varies with how hands-on you are). A dead VPS on launch week is a real failure mode Zapier and Make users never think about. Also read the license: n8n is Sustainable Use License (fair-code, not open-source) — internal business use is fine, reselling it as a service is not.</p>
+  <p><strong>n8n bills in euros and hosts cloud in Frankfurt.</strong> Starter cloud at €24/mo monthly is roughly $26–27 depending on the exchange rate — fine, but budget in euros, not dollars. EU hosting is a GDPR plus for European lists and a latency footnote for US ones.</p>
+  <p><strong>Zapier's free tier is the thinnest of the three.</strong> 100 tasks and single-step-only means the lead-ads → MailerLite + tag workflow (2 actions) can't live on free at any volume. Zapier also polls at 15 minutes on free — a lead that arrives at 2:00 PM gets into MailerLite at 2:15, which is fine for newsletters and bad for "call within 5 minutes" sales workflows. Instant triggers exist on paid tiers and via webhooks.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is Make actually cheaper than Zapier for MailerLite?</h3>
+  <p>At paid volume, yes — usually by 2–3x for the same workflows. Zapier Starter ($19.99/mo billed annually, 750 tasks) vs Make Core ($9/mo, 10,000 operations): a typical 3-step MailerLite workflow consumes one task or one operation per step, so Core's budget stretches roughly 10–13x further at half the price. At true free-tier volume (1–2 tiny automations), Zapier free can still win on simplicity. All prices from 2026 roundups — verify live.</p>
+  <h3>Is n8n really free?</h3>
+  <p>The software is free to self-host with unlimited executions — you pay only for the server ($5–20/mo VPS, or $3.70–7/mo managed). n8n Cloud is not free: Starter is €24/mo monthly (€20 annual) for 2,500 executions, Pro €60/mo (€50 annual) for 10,000. There's a 14-day cloud trial with no card. Self-hosting trades money for responsibility: updates, backups, and uptime are yours.</p>
+  <h3>Which one is easiest for a non-technical MailerLite user?</h3>
+  <p>Zapier, by a clear margin — the linear editor and the 7,000+ app library mean "connect MailerLite to X" usually takes minutes. Make's visual canvas is more powerful (branching, routers, data stores) with a real learning curve — budget a few hours. n8n sits between Make and code: friendly canvas, but self-hosting needs Docker-level comfort, and the 400-ish native integration count means you'll reach for HTTP nodes more often.</p>
+  <h3>Can I avoid all three and just use MailerLite's automations?</h3>
+  <p>For everything that happens inside MailerLite — welcome sequences, abandoned cart (via the Shopify/WooCommerce natives), tag-and-branch nurture — yes, and you should; it's included in your plan. You need a bridge tool only for cross-app work: lead ads, booking tools, CRMs, course platforms, and pushing MailerLite events out to Slack or Sheets. The cheapest automation is the one you never buy.</p>
+  <h3>Do Make and n8n have MailerLite apps?</h3>
+  <p>Yes — both ship MailerLite apps/nodes covering the same core moves as the Zapier app (new-subscriber triggers, create/update subscriber actions). Check each platform's current app directory for the exact module list; integrations shift, and all three vendors revise them. For anything the app doesn't expose, MailerLite's API and webhooks are reachable from Make's HTTP modules and n8n's HTTP/code nodes.</p>
+
+  <p>We carry an affiliate placeholder for MailerLite (verified program: 30% recurring commissions, lifetime) and nothing for Zapier, Make, or n8n — none of the three are in our affiliate bench, so the pricing verdict above costs us nothing either way. Pick the meter that fits your volume; the recommendation doesn't change if you click a link, because there isn't one. All third-party prices in this article come from 2026 pricing roundups checked October 2, 2026 — verify on make.com, n8n.io, and zapier.com before checkout, because all three revised plans during 2026.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier — what each actually costs you</a></li>
+    <li><a href="mailerlite-pricing-explained.html">MailerLite pricing explained: what you'll actually pay at every list size</a></li>
+    <li><a href="mailerlite-vs-kit.html">MailerLite vs Kit: which is actually cheaper as you grow</a></li>
+    <li><a href="kit-zapier-integrations-guide.html">Kit integrations: native vs Zapier — when to pay for both</a></li>
+    <li><a href="mailchimp-to-mailerlite-migration.html">Mailchimp to MailerLite migration: what breaks, what transfers, what it costs</a></li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
