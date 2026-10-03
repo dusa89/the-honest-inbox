@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MailerLite Integrations in 2026: Native vs Zapier — What Each Actually Costs You | The Honest Inbox</title>
+<meta name="description" content="MailerLite has 125+ native integrations — but half of what small businesses wire up runs through Zapier. This guide covers what each connection actually does, the task math that decides whether Zapier stays free, and five real Zaps with honest costs. Checked October 2, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>MailerLite Integrations in 2026: Native vs Zapier — What Each Actually Costs You</h1>
+  <p class="meta">Integration facts checked October 2, 2026 · Zapier pricing checked October 2, 2026 (third-party roundups; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">The integration question every MailerLite user asks eventually: "Can MailerLite talk to my [form builder / CRM / calendar / checkout]?" The short answer is almost always yes — twice over. MailerLite ships 125+ native integrations (a 2026 third-party review of the current integrations directory: Shopify, WooCommerce, WordPress, Stripe, Canva among the popular ones), and Zapier connects MailerLite to thousands more apps. But the two paths cost very different things, and the pricing trap sits in Zapier's task counter, not MailerLite's. This guide maps what native covers, what actually needs a Zap, the real per-workflow math, and the five Zaps small businesses actually use — with what each one costs per month at realistic volumes.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Wire up every native MailerLite integration first — they're included in your plan, sync in real time, and handle the big three (store, website, payments) without a middle layer. Use Zapier only for apps with no native connection (your booking tool, your Facebook lead ads, your course platform). And count tasks before you build: a Zap's trigger is free, but every action step is one task — a 3-action Zap firing 100 times a month is 300 tasks, which kills the free 100-task plan and lands you on Starter at $19.99/mo billed annually ($29.99 monthly). Most small businesses run fine on the free Zapier plan with 2–3 single-step Zaps; if you're past ~10 workflows or 750 tasks, stop and price Make or n8n before reflexively paying Zapier.
+  </div>
+
+  <h2>What "native" covers (the free path)</h2>
+  <p>Mailer's own integrations directory lists 125+ connections — CMS and e-commerce platforms, form builders, payment processors, CRMs, email verification tools, landing page builders. The ones a small business reaches for first are all here: Shopify and WooCommerce (deep: products, orders, abandoned-cart data — see our <a href="best-email-marketing-for-shopify-stores.html">Shopify integration guide</a>), WordPress (embedded forms and pop-ups), Stripe (payment-triggered automations), Canva (design assets straight into campaigns), and Facebook lead ads via the standard form-submission path. Native integrations are included in every plan including free, set up in a few clicks with an API key or OAuth, and move data continuously rather than on a 15-minute poll.</p>
+  <p>The honest limitation: native integrations mostly push contacts and events <em>into</em> MailerLite. They do not reach back out to your other tools. If you need MailerLite activity to drive something else — a Slack ping when a high-value subscriber joins, a CRM row updated when someone completes an automation — that's the Zapier side.</p>
+
+  <h2>What the Zapier connection actually supports</h2>
+  <p>The MailerLite app on Zapier exposes these real triggers and actions (per Zapier's current app directory):</p>
+  <p><strong>Triggers (the events that start a Zap):</strong></p>
+  <ul>
+    <li><strong>Subscriber Added To Group</strong> — fires when someone lands in a group</li>
+    <li><strong>Subscriber Created</strong> — new subscriber anywhere in the account</li>
+    <li><strong>Subscriber Unsubscribed</strong> — catch-and-route cleanup</li>
+    <li><strong>Campaign Sent</strong> — post-send bookkeeping (Slack alerts, calendar notes)</li>
+    <li><strong>Subscriber Clicked Campaign Link</strong> — instant trigger; this is how you route engaged clickers elsewhere</li>
+    <li><strong>Subscriber Completed Automation</strong> — handoff point when a nurture sequence ends</li>
+    <li><strong>Spam Complaint / Subscriber Bounced</strong> — hygiene and alerting</li>
+  </ul>
+  <p><strong>Actions (what the Zap does inside MailerLite):</strong></p>
+  <ul>
+    <li><strong>Create or Update Subscriber</strong> — the workhorse; form fills, purchases, bookings all land here</li>
+    <li><strong>Add Subscriber to a Group</strong> — route by source</li>
+    <li><strong>Find a Subscriber</strong> — the lookup step for multi-step Zaps</li>
+  </ul>
+  <p>So the full wiring in both directions exists. The question is never "can it" — it's "at what volume does the task meter make this stupid."</p>
+
+  <h2>The task math (the part nobody explains)</h2>
+  <p>Zapier's billing unit is the <strong>task</strong>: one successful action step. Critical details (per multiple 2026 pricing roundups of Zapier's current plans; verify on zapier.com before you pay):</p>
+  <ul>
+    <li>Triggers never count. Filters that don't fire don't count. Failed/errored action steps don't count.</li>
+    <li>Every action step that runs counts as one task. A 3-action Zap running 100 times = 300 tasks.</li>
+    <li><strong>Free:</strong> $0, 100 tasks/month, single-step Zaps only (trigger + one action), 15-minute check intervals. <em>Estimate, verified via third-party roundups Oct 2026 — verify live.</em></li>
+    <li><strong>Starter:</strong> $19.99/mo billed annually ($29.99 month-to-month), 750 tasks/month, multi-step Zaps unlocked. <em>Same source class — verify live.</em></li>
+    <li><strong>Professional:</strong> ~$49/mo, 2,000 tasks/month, paths and custom logic.</li>
+  </ul>
+  <p>The trap: <strong>lead volume is task volume</strong>. A Facebook lead-ads → MailerLite Zap with two action steps (create subscriber + add to group) at 150 leads/month is 300 tasks — you're on Starter before you ever build a second Zap. Ten such workflows and you're flirting with Professional. Zapier is brilliant at low volume and expensive at scale; that is the whole story.</p>
+
+  <h2>Five Zaps small businesses actually use (with honest task math)</h2>
+
+  <h3>1. Facebook/Instagram lead ads → MailerLite (the classic)</h3>
+  <p><strong>Setup:</strong> trigger: New Lead in Meta Lead Ads; action 1: Create or Update Subscriber in MailerLite; action 2: Add Subscriber to a source-labeled group. <strong>Task cost:</strong> 2 tasks per lead. At 100 leads/month = 200 tasks — over free, onto Starter. <strong>Honest note:</strong> this is the single most common MailerLite Zap, and it's the one that eats the free plan fastest. If leads exceed ~150/month, consider a native lead-ads form connector or Make before paying Zapier $240/year for it.</p>
+
+  <h3>2. Website form → MailerLite → Slack alert (the notification Zap)</h3>
+  <p><strong>Setup:</strong> trigger: New Submission (Typeform/WPForms/etc.); action 1: Create or Update Subscriber; action 2: Send Channel Message in Slack for quote requests or high-intent forms. <strong>Task cost:</strong> 2 tasks per submission. At 30 submissions/month = 60 tasks — safely free. <strong>Honest note:</strong> the Slack step is optional fluff for most businesses; if you're under the free limit, keep it. If you're not, it's the first step to delete.</p>
+
+  <h3>3. New purchase (Stripe/checkout without a native MailerLite app) → buyer sequence</h3>
+  <p><strong>Setup:</strong> trigger: New Payment; action: Create or Update Subscriber + add to "Customers" group, which starts a post-purchase automation. <strong>Task cost:</strong> 1–2 tasks per order. <strong>Honest note:</strong> Stripe is a <em>native</em> MailerLite integration, so check that before building this Zap — many businesses run a Zap for something the native connection already does for free.</p>
+
+  <h3>4. Unsubscribe or bounce → CRM cleanup</h3>
+  <p><strong>Setup:</strong> trigger: Subscriber Unsubscribed (or Subscriber Bounced); action: Update Contact in your CRM or remove from the sales sequence. <strong>Task cost:</strong> 1 task per unsubscribe. Low volume, near-free forever. <strong>Honest note:</strong> this is the highest-value Zap per task on this list — one unsubscribe hitting the CRM prevents sales from calling a bounced contact, and it costs almost nothing.</p>
+
+  <h3>5. Campaign sent → team calendar / reporting log</h3>
+  <p><strong>Setup:</strong> trigger: Campaign Sent; action: create a Google Calendar event or log a row in Sheets. <strong>Task cost:</strong> 1 task per send. At 8 campaigns/month = 8 tasks. <strong>Honest note:</strong> pure bookkeeping. Nice on free; never worth paying for alone.</p>
+
+  <h2>The decision rule: native first, Zap second, pay third</h2>
+  <ol>
+    <li><strong>Check native first.</strong> MailerLite's directory has 125+ integrations; the three you most want (store, website forms, payments) are native and free. Building a Zap for a native integration is the most common waste on this list.</li>
+    <li><strong>Run Zapier free for bridges.</strong> 100 tasks/month covers 2–3 single-step Zaps at newsletter scale (a few dozen form fills, a handful of campaigns logged). Instant triggers for key MailerLite events (link clicks, spam complaints) make the free tier genuinely useful.</li>
+    <li><strong>At 750+ tasks/month, stop and price the alternatives.</strong> Make's Core plan runs ~$9–10/mo for 10,000 operations (per 2026 third-party pricing roundups; verify live), and n8n self-hosted is a fixed server cost — both beat Zapier's $19.99–$49/mo at real small-business volume. Zapier wins on simplicity and app coverage (6,000–7,000+ apps per recent roundups), not on price at scale.</li>
+    <li><strong>Watch the 15-minute poll.</strong> Free and lower Zapier tiers check triggers on a delay; instant triggers (like MailerLite's link-click event) bypass it. For time-sensitive flows (quote-request alerts), verify whether your trigger is instant or polled.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>Zapier costs stack on top of MailerLite costs.</strong> A business on MailerLite Comfort ($19/mo at 1,000 contacts — see our <a href="mailerlite-pricing-explained.html">pricing explainer</a>) plus Zapier Starter ($19.99/mo) is paying $39/month for automation that half the native integrations already do free. Audit before you stack.</p>
+  <p><strong>The native integrations need maintenance too.</strong> API keys expire, Shopify app permissions get revoked by store edits, and native syncs can silently pause — check the integration status page quarterly, same as you'd check Zap history.</p>
+  <p><strong>MailerLite now ships an MCP server</strong> (per a 2026 third-party review of current features) — compatible AI assistants can work with your account data in natural language. It's not a Zapier replacement for event-driven flows, but for ad-hoc analysis ("which segment opened the launch sequence most?") it bypasses both Zapier and the dashboard. Worth knowing; early days.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is MailerLite's Zapier integration free?</h3>
+  <p>The MailerLite app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month on the free plan, then $19.99/mo (billed annually) for Starter with 750 tasks. MailerLite charges nothing for the connection.</p>
+
+  <h3>Do I need Zapier if MailerLite has native integrations?</h3>
+  <p>Probably not for the big three: store (Shopify/WooCommerce), website (WordPress), and payments (Stripe) are all native. You need Zapier for apps MailerLite doesn't cover natively — booking tools, course platforms, most CRMs — or for pushing MailerLite events <em>out</em> to other tools.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a single lead-ads Zap at 100 leads/month is 200 tasks (over free). A form → list → Slack Zap at 30 submissions is 60 tasks (safely free). Most businesses running 2–3 modest Zaps land in the 100–500 tasks/month range — the free-to-Starter boundary. Count your expected actions before building, not after.</p>
+
+  <h3>What's better than Zapier for MailerLite?</h3>
+  <p>For volume, Make charges per operation (~$9–10/mo for 10,000 operations per 2026 roundups — verify live) and n8n is a fixed server cost. For coverage and simplicity, Zapier still leads. The honest answer is a volume question, not a quality question.</p>
+
+  <p>We carry affiliate placeholders for MailerLite (verified program, 30% lifetime commissions — our anchor recommendation for small businesses) only. Zapier is not in our affiliate bench, so the pricing advice above costs us nothing either way: buy native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier prices in this article come from third-party 2026 roundups — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="mailerlite-pricing-explained.html">MailerLite pricing explained: what you'll actually pay at every list size</a></li>
+    <li><a href="mailerlite-vs-kit.html">MailerLite vs Kit: which is actually cheaper as you grow</a></li>
+    <li><a href="mailerlite-alternatives.html">Best MailerLite alternatives</a></li>
+    <li><a href="best-email-marketing-for-shopify-stores.html">Best email marketing for Shopify stores: which native integrations actually work</a></li>
+    <li><a href="email-deliverability-audit-checklist.html">Email deliverability audit checklist</a></li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
