@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to Switch from Flodesk to MailerLite in 2026: The Honest Migration Guide | The Honest Inbox</title>
+<meta name="description" content="Switching from Flodesk to MailerLite? The real math (Lite $25 vs Comfort $19 at 1k, the daily-sender price reversal, the grandfathered-flat-rate trap), what transfers cleanly, the 6 things that break in transit, and a weekend migration checklist in the right order. Checked October 3, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>How to Switch from Flodesk to MailerLite in 2026: The Honest Migration Guide</h1>
+  <p class="meta">Migration path checked October 3, 2026 (Flodesk CSV export flow, MailerLite CSV import) · Pricing from our September–October 2026 verifications — verify live before you pay · All affiliate claims verified against official program pages</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Flodesk is the only email tool people describe as a feeling — they love it. Then they hit the one-workflow wall on Lite, or they joined for the legendary $38 flat-rate unlimited deal that stopped existing in December 2025, or their list grew and the tier math stopped looking gentle. MailerLite is where they land: real automation with conditions and triggers on the cheap plan, the cheapest paid tiers in the category, and a builder that trades template beauty for function. The migration itself is the easiest in this series — Flodesk's workflows are the shallowest of any tool we cover, so there's less to rebuild — but three traps are uniquely Flodesk-shaped: a grandfathered flat rate you'll never get back, a Checkout product with no replacement, and a daily-sender price reversal that makes MailerLite the <em>more</em> expensive option. This guide covers the real money math at 1k, 5k, and 10k subscribers, exactly what transfers and what dies, and a checklist that keeps your list warm while you move.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    The money case is real but small: at 1,000 subscribers, Flodesk Lite ($25/mo) → MailerLite Comfort ($19/mo) saves $72/year; Pro ($28) → Comfort saves $108/year. At 5,000 it's Lite $52 → Comfort $49 ($36/year saved). Nobody migrates from Flodesk for the money — the real reason is automation: Lite gives you one workflow; MailerLite's builder has conditions, splits, and behavioral triggers Flodesk philosophically refuses to build. Three traps decide everything: if your account is grandfathered on the old $38 flat rate, do not migrate — canceling it is irreversible and nothing tiered beats it at scale. If you sell through Flodesk Checkout, MailerLite has no replacement — stay or move to Kit Commerce instead. And daily senders beware: Flodesk paid plans send unlimited emails; Comfort caps sends at 10&times; your subscriber count, and Power ($39/mo at 1k) costs <em>more</em> than the Lite plan you'd leave.
+  </div>
+
+  <h2>The money math (why people actually switch)</h2>
+  <p>Monthly billing. Flodesk figures from the site's October 1 verification pass (December 2025 tier change, grandfathering, Lite/Pro/Everything bands — cross-checked October 3, 2026 against creatormailstack.com's September 25, 2026 pricing-page crawl and engagebay.com's September 2026 breakdown; both agree). MailerLite figures from our September 2026 pricing explainer. Confirm on both vendors' pricing pages before you pay — this category revises tiers regularly.</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>List size</th><th>Flodesk Lite</th><th>Flodesk Pro</th><th>MailerLite Comfort</th><th>MailerLite Power</th></tr>
+      <tr><td>1,000</td><td>$25/mo</td><td>$28/mo</td><td>$19/mo</td><td>$39/mo</td></tr>
+      <tr><td>5,000</td><td>$52/mo</td><td>$59/mo</td><td>$49/mo</td><td>$69/mo</td></tr>
+      <tr><td>10,000</td><td>$72/mo</td><td>$79/mo</td><td>~$79/mo</td><td>—</td></tr>
+    </table>
+  </div>
+  <p>Read the table honestly. The savings are the smallest of any migration in this series: Lite → Comfort saves $72/year at 1k and only $36/year at 5k. At 10k, Lite ($72) vs Comfort (~$79) actually costs you <em>more</em> — the price advantage evaporates as lists grow. And the grandfathered column doesn't appear in the table at all: if your account predates December 2, 2025, you may be paying the old $38/mo flat rate for unlimited subscribers — Comfort at $19 saves you money only until your list passes ~3k, and after that your grandfathered rate is the best deal in the category, period. Nobody migrates from Flodesk for the money. The honest reason is automation depth, which the table doesn't show.</p>
+  <p>The honest trap hidden in the table: Flodesk's paid plans all include <em>unlimited</em> email sends. MailerLite Comfort caps your sends at roughly 10&times; your subscriber count per month. A daily broadcaster at 1,000 subscribers on Comfort gets 10,000 sends/month — about 333/day — which a once-a-day sender blows past in month one. The fix is Power ($39/mo at 1k), which removes the cap entirely — but Power at 1k costs <em>more</em> than the Lite plan ($25) you'd be leaving. Map your sends per month before you pick the tier; for daily senders, this migration is a price increase disguised as a discount. Full curves: <a href="flodesk-vs-mailerlite.html">Flodesk vs MailerLite</a> and <a href="mailerlite-pricing-explained.html">MailerLite pricing</a>.</p>
+
+  <h2>What transfers cleanly</h2>
+  <ul>
+    <li><strong>Subscribers.</strong> Export from Flodesk: Audience → select the subscribers (or a segment) → export as CSV. Import into MailerLite: Subscribers → Add subscribers → Import CSV/TXT → upload, map columns, assign a group. Counts should match exactly — Flodesk bills <em>active</em> subscribers only, so export with the same filter you bill on or the numbers will confuse you. <em>Verify live; UI paths drift.</em></li>
+    <li><strong>Segments.</strong> Flodesk's segments become MailerLite groups. Export one CSV per segment (or export everything with the segment tag column and split in the import mapping), then build one MailerLite group per segment. Flodesk users tend to lean on segments harder than other tools' users lean on tags — this is the fiddliest honest work in the move.</li>
+    <li><strong>Custom fields.</strong> Name, source, and custom fields export as CSV columns and import into MailerLite fields one-to-one. Check field names after import — old list-building artifacts accumulate junk columns ("Source2", "IP") that should be dropped, not migrated.</li>
+    <li><strong>Suppression and unsubscribe lists.</strong> Export unsubscribes and bounces and import them into MailerLite's suppression list before your first send. Skipping this is how migrations end with a deliverability problem in week one — and because Flodesk counts only active subscribers, your suppression data is also your billing-accuracy data.</li>
+    <li><strong>Forms and link-in-bio.</strong> These don't transfer, but the swap is fast: MailerLite generates new embed codes for every form type. Replace Flodesk embeds site-wide in one pass — old forms keep capturing into the old account, the #1 silent list-split after a migration. Rebuild your link-in-bio page wherever you host it; Flodesk's link-in-bio was a free-plan flagship and MailerLite has no equivalent — a simple landing page or your social bio links cover it.</li>
+  </ul>
+
+  <h2>The 6 things that break in transit (budget for all of them)</h2>
+  <h3>1. Automation workflows — all of them, but it's the fastest rebuild in the series</h3>
+  <p>There is no export for workflow logic anywhere in this category. Every Flodesk workflow must be rebuilt in MailerLite's automation builder by hand. The honest upside: Flodesk's workflows are the shallowest we cover — "send this series of emails with time delays," beautifully, and nearly nothing else. Lite users have <em>one</em> workflow by definition. Rebuilding it in MailerLite takes under an hour, and you'll usually come back with something better: MailerLite's builder has conditions, splits, and behavioral triggers ("if they clicked, do X") that Flodesk philosophically refuses to build. Photograph the workflow's steps and delays before you touch the export anyway — shallow doesn't mean documented.</p>
+  <h3>2. Flodesk Checkout — gone, with no replacement</h3>
+  <p>The Everything plan's Checkout (payment pages, subscriptions, payment plans, abandoned-cart automations, processed through Stripe) has no MailerLite equivalent. If you sell digital products, courses, or memberships through Checkout, MailerLite cannot be the destination — your options are staying on Flodesk or moving to Kit's Commerce. This is the single biggest migration regret pattern: sellers discover the Checkout gap <em>after</em> canceling Everything. If Checkout is your store, stop reading and stay put.</p>
+  <h3>3. Template aesthetics — the emotional tax, and the one honest reason to stay</h3>
+  <p>Flodesk has the best-looking email templates in the category; that's not marketing, it's the product's entire thesis. MailerLite's templates are functional and plainer. If your audience buys with their eyes — fashion, wedding, design, photography — and your emails are primarily beautiful broadcasts, this tax is real and recurring: every send is slightly less beautiful than it was. Our Flodesk alternatives guide says it plainly: for aesthetic-first brands with clean lists, the template tax is the smartest money on the page. Don't migrate for $72/year and mourn the templates every Tuesday.</p>
+  <h3>4. Unlimited sends → Comfort's 10&times; send cap</h3>
+  <p>Covered in the money math, but it belongs here too because it <em>feels</em> like a break, not a price: Flodesk paid plans send unlimited emails; Comfort caps at roughly 10&times; your subscriber count per month. The newsletter-a-week sender never notices. The daily sender hits the ceiling mid-month, in the middle of a launch sequence, and discovers the problem at the worst possible moment. Either map your sends or default to Power for the first quarter.</p>
+  <h3>5. Active-subscriber billing dynamics</h3>
+  <p>Flodesk counts only active subscribers — unsubscribes, bounces, and cleaned contacts don't bill. MailerLite prices by subscriber count. A list with poor hygiene that bills cheaply on Flodesk can bill a tier higher on MailerLite for the same humans. Clean the list before the export (it's good hygiene anyway) so you're not paying to migrate dead addresses.</p>
+  <h3>6. Domain authentication</h3>
+  <p>Your SPF/DKIM records were set for Flodesk's sending servers. MailerLite sends from its own servers — re-verify your sending domain in MailerLite (add their DNS records) <em>before</em> your first real send. Skip this and your first campaigns land in spam folders, and you'll blame the new tool for an old DNS problem.</p>
+
+  <h2>The weekend checklist (in this order)</h2>
+  <ol>
+    <li><strong>Check your grandfathering status first.</strong> If your account predates December 2, 2025 and carries the old flat rate, stop and read the "do NOT migrate" section before touching anything. Canceling a grandfathered account is irreversible — no screenshot of your billing page gets it back.</li>
+    <li><strong>Document the workflow(s).</strong> Screenshot every live workflow's full logic — steps, delays, entry conditions. Export any reports you care about (campaign history does not transfer).</li>
+    <li><strong>Export everything.</strong> Subscribers (all segments, with segment columns), custom fields, suppression/unsubscribe lists. Verify counts against Flodesk's audience numbers with the active-subscriber filter noted.</li>
+    <li><strong>Set up MailerLite first, send later.</strong> Create the account, verify your sending domain (DNS records), build your groups from the segment map.</li>
+    <li><strong>Import and reconcile.</strong> CSV import, column mapping, count reconciliation. Then import the suppression lists — before any test send.</li>
+    <li><strong>Rebuild the workflows.</strong> Welcome sequence first, then the rest — this is the part where MailerLite's conditions and triggers usually make the rebuilt version better than the original. Test each with your own email before any real subscriber flows through.</li>
+    <li><strong>Swap the forms and link-in-bio.</strong> Replace Flodesk embeds site-wide; rebuild link-in-bio as a simple landing page.</li>
+    <li><strong>Parallel-run for 2 weeks.</strong> Keep Flodesk live until MailerLite has processed two full cycles of your main sequences. Two tools billing for one month is the cheapest insurance in this whole process.</li>
+    <li><strong>Cancel Flodesk.</strong> Only after the parallel run is clean. Export one final backup on cancellation day.</li>
+  </ol>
+
+  <h2>When you should NOT migrate</h2>
+  <p>Honesty goes both ways — and Flodesk has the strongest stay-put cases in this series. <strong>Stay if your account is grandfathered on the old flat rate:</strong> $38/mo unlimited for any list size is a deal that no longer exists for new signups and can never be recovered once canceled — at 10,000 subscribers you'd be trading $38 for tiered pricing near $72–$79. <strong>Stay if you sell through Flodesk Checkout:</strong> MailerLite has no checkout, no subscriptions, no abandoned cart — the Everything plan's commerce stack doesn't transfer and isn't rebuildable. <strong>Stay if your emails are primarily beautiful broadcasts:</strong> the template library is the product; $36–$108/year in savings doesn't buy back the design. <strong>Stay if you blast daily and don't want Power's price:</strong> Comfort's send cap turns your sending habit into a tier problem. Migrate only for the one case that justifies the whole series: you hit Lite's one-workflow wall, you want conditional branching and behavioral triggers, and you're willing to trade template beauty for automation you can actually build on.</p>
+
+  <h2>FAQ</h2>
+  <h3>Does MailerLite import from Flodesk automatically?</h3>
+  <p>There is no one-click "import my Flodesk account" button as of October 2026 — the path is CSV export from Flodesk's Audience screen and CSV import into MailerLite. Both sides of that path are verified above. The import takes minutes; the workflow rebuild is the real work, and Flodesk's are the shallowest in the category, so it's the fastest rebuild of the five migration guides.</p>
+  <h3>Will my templates transfer?</h3>
+  <p>No. Template designs don't export between any two email tools, and Flodesk's are the hardest to give up — they're the product's whole thesis. MailerLite's builder is functional and plainer. Budget for a design downgrade, or don't migrate for it.</p>
+  <h3>Will my automations transfer?</h3>
+  <p>No export format carries automation logic between any two email tools. Rebuild every workflow in MailerLite's builder — which has conditions, splits, and behavioral triggers Flodesk doesn't offer, so most workflows come back more capable than they left. Lite users have at most one workflow to rebuild; Pro users with several should photograph each one's full logic first.</p>
+  <h3>Can I keep Flodesk Checkout?</h3>
+  <p>No — MailerLite has no checkout, subscription, or abandoned-cart product. If Checkout is your store, this is the wrong migration: stay on Flodesk or evaluate Kit's Commerce instead.</p>
+  <h3>How long does the migration take?</h3>
+  <p>The contact move: under an hour. A full migration for a typical Flodesk account (one workflow, form swaps, link-in-bio rebuild): one focused weekend, 4–6 hours — the shortest of our five MailerLite migration guides, because there's simply less automation to rebuild. The parallel-run period adds 2 weeks of calendar time but almost no work.</p>
+  <h3>I'm on the old $38 flat rate — is it really gone?</h3>
+  <p>For new signups, yes: Flodesk retired flat-rate unlimited pricing on December 2, 2025, and every new account is on contact-tiered plans (verified on our site's October 1 pass and cross-checked October 3, 2026). Existing accounts are grandfathered indefinitely — which is exactly why grandfathered users should not migrate. Canceling ends the grandfathering permanently.</p>
+
+  <h2>The honest bottom line</h2>
+  <p>This is the migration worth doing for exactly one buyer: the Flodesk Lite user who hit the one-workflow wall and wants real automation — conditions, splits, behavioral triggers — with a modest $36–$108/year price bonus on top. The weekend cost is the lightest in the series because Flodesk's workflows are the shallowest. For everyone else — the grandfathered flat-rate holder, the Checkout seller, the daily broadcaster, the template-first brand — the honest answer is to stay put, and this guide is worth more as the article that told you that than as the guide you followed.</p>
+  <p>We carry an affiliate placeholder for MailerLite (verified program: 30% recurring commissions for the life of the referral) only. Flodesk is the tool you'd be leaving — the pricing above comes from our own September–October 2026 verification passes, and neither price nor the savings math changes if you sign up through our link or not. Verify both pricing pages live before you pay; Flodesk already rewrote its pricing model once in December 2025, and tiered vendors revise regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="flodesk-vs-mailerlite.html">Flodesk vs MailerLite: the full head-to-head</a></li>
+    <li><a href="flodesk-alternatives.html">Flodesk alternatives: 6 worth switching to (and when to stay)</a></li>
+    <li><a href="mailerlite-pricing-explained.html">MailerLite pricing: free plan limits and the real price at every list size</a></li>
+    <li><a href="mailchimp-to-mailerlite-migration.html">How to switch from Mailchimp to MailerLite</a></li>
+    <li><a href="kit-to-mailerlite-migration.html">How to switch from Kit to MailerLite</a></li>
+    <li><a href="getresponse-to-mailerlite-migration.html">How to switch from GetResponse to MailerLite</a></li>
+    <li><a href="activecampaign-to-mailerlite-migration.html">How to switch from ActiveCampaign to MailerLite</a></li>
+  </ul>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>&copy; 2026 The Honest Inbox · <a href="../about.html">About</a> · <a href="../disclosure.html">Affiliate Disclosure</a></p>
+  </div>
+</footer>
+</body>
+</html>
