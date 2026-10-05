@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ActiveCampaign Integrations in 2026: Native vs Zapier — The Heaviest App in the Family | The Honest Inbox</title>
+<meta name="description" content="ActiveCampaign's Zapier app has 20 triggers and 23 actions — the heaviest of the big email tools, with a full deal pipeline and engagement-event triggers. When to use Zapier, when native wins (Shopify Deep Data, Salesforce two-way), the automation-duplication trap, and five real Zaps. Checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>ActiveCampaign Integrations in 2026: Native vs Zapier — The Heaviest App in the Family</h1>
+  <p class="meta">Integration facts checked October 5, 2026 (ActiveCampaign's own help center + Zapier's ActiveCampaign directory) · Zapier pricing checked October 5, 2026 (seedprod.com 2026 tested guide; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">If AWeber's Zapier app is the thinnest of the family — two triggers, one action — ActiveCampaign's is the heaviest: twenty triggers and twenty-three actions, documented in ActiveCampaign's own help center (updated July 16, 2026). It's the only app in the family with a deal-pipeline surface (Create Deal, Update Deal, Find Deal Owner, custom objects), engagement events as triggers (open, click, bounce, unsubscribe fire Zaps), and the ability to enroll contacts in automations from outside. And yet ActiveCampaign's native bench is also the deepest — Shopify Deep Data, Salesforce two-way sync, WordPress, Calendly. So the question on this tool is upside-down from every other guide: it isn't whether Zapier can do it. It's whether you should, and where the duplicate work lives.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    ActiveCampaign's Zapier app is genuinely enormous — 20 triggers / 23 actions — but its best use is the gaps native can't reach: form/booking/payment sources feeding contacts in, and ActiveCampaign events flowing out (engagement triggers, deal events, the automation webhook). Don't use it for what ActiveCampaign's own automations already do: the "Add Contact to Automation" action makes it dangerously easy to build Zaps that duplicate logic living inside the product. Watch the engagement triggers on big sends — an "open" trigger firing per contact per campaign is the costliest pattern in the family. And treat "Create Campaign" with respect: it creates <em>and sends</em>, which makes it the one action here that can embarrass you in front of your whole list.
+  </div>
+
+  <h2>What "native" covers (the deep bench)</h2>
+  <p>ActiveCampaign's native integration list is the longest in this family, and it skews toward the revenue side of a business. The headliners, verified October 2026:</p>
+  <ul>
+    <li><strong>Shopify Deep Data</strong> — a direct integration built by ActiveCampaign (available on Marketing Plus, Professional, and Enterprise per their help center, May 2026). Order, product, and browse data flow in natively for purchase-behavior segmentation.</li>
+    <li><strong>Salesforce</strong> — native two-way sync of leads, contacts, and Person Accounts on Professional and Enterprise plans, with email engagement (opens, clicks, form submissions) visible to sales reps. Batch sync ~10-11 minutes (ZoomInfo's Aug 2026 integration guide) — not instant, but ownerless.</li>
+    <li><strong>WordPress, WooCommerce, BigCommerce</strong> — forms and commerce without a middleman. WordPress is the single highest-rated integration in ActiveCampaign's reviewer base (4.8 per GetApp's 2,568 verified reviews, Aug 2026).</li>
+    <li><strong>Calendly, Slack, Zendesk, Wix</strong> — booking, alerts, support, site-builder paths, all native.</li>
+  </ul>
+  <p>Reviewer data backs the pattern: across GetApp's verified base, the most-cited ActiveCampaign integrations are Zapier, WordPress, and Calendly — the connector, the website, and the calendar. That ordering is honest about the real shape of an ActiveCampaign stack: the product connects deeply to a few revenue tools, and Zapier handles the long tail.</p>
+
+  <h2>What the Zapier connection actually supports (all of it)</h2>
+  <p>Here is ActiveCampaign's Zapier app surface, from ActiveCampaign's own help-center table (updated July 16, 2026), cross-checked against Zapier's directory:</p>
+  <p><strong>Triggers — the contact events:</strong> New or Updated Contact, Updated Contact, New Contact Added to List, Tag Added or Removed from Contact, New Contact Note, New Contact Task.</p>
+  <p><strong>Triggers — the engagement events (the unique part):</strong> New Campaign Open (once per contact per campaign), New Campaign Link Click (once per unique link), New Campaign Bounce, New Campaign Unsubscribe, New Campaign Starts Sending. No other tool in this family's Zapier app lets campaign engagement <em>start</em> automations. This is the follow-up engine: a click on the pricing link in Tuesday's campaign can trigger a sales task on Wednesday.</p>
+  <p><strong>Triggers — the pipeline events:</strong> New Deal Added or Updated, New Deal Task, Deal Task Completed, New Deal Note, New or Updated Account, New or Updated Custom Object Record, Custom Object Record Deleted. Plus the escape hatch: New Automation Webhook, which fires when an automation inside ActiveCampaign runs a webhook action — the product's own door out to Zapier (labeled Instant on Zapier's directory).</p>
+  <p><strong>Actions — the contact surface:</strong> Create or Update Contact, Add Contact to Automation, Remove Contact from Automation, Subscribe or Unsubscribe Contact from List, Add/Remove Tag from Contact, Add Contact Note, Create Contact Task, Find Contact.</p>
+  <p><strong>Actions — the pipeline surface (nobody else in the family has this):</strong> Create Deal, Update Deal, Find Deal, Find Deal Owner, Add Note to Deal, Create Deal Task, Add Secondary Contact to Deal, Create Account, Update Account, Find Account, Create or Update a Custom Object Record.</p>
+  <p><strong>Actions — the foot-gun:</strong> Create Campaign, which creates <em>and sends</em> a new campaign. A Zap that fires this is a Zap that can email your entire list. Name it before you build it.</p>
+  <p>Three observations. First: the trigger set is so rich that the "automation webhook" trigger is nearly redundant — except it isn't, because it carries whatever data your automation computed, not just the raw event. Second: the action list has real search steps (Find Contact, Find Deal, Find Deal Owner), which means find-first-then-write flows — the thing AWeber's app can't do — are normal here. Third: engagement triggers and deal triggers are where the task meter explodes, which brings us to the math.</p>
+
+  <h2>The task math (the biggest meter in the family)</h2>
+  <ol>
+    <li><strong>The trigger is free.</strong> Every action step costs one task.</li>
+    <li><strong>Free plan: 100 tasks/month.</strong> Starter: $19.99/mo billed annually, 750 tasks. (seedprod.com's 2026 tested guide; verify on zapier.com before checkout — Zapier revises tiers.)</li>
+    <li><strong>Engagement triggers are the costliest pattern in this guide series.</strong> A "New Campaign Open" Zap fires once per contact per campaign. A 10,000-contact campaign with a 40% open rate is 4,000 trigger events — and each event with one action step is 4,000 tasks. That single campaign is five times the Starter plan. Only build engagement-triggered Zaps behind a filter (e.g., only fires for the VIP segment) or with the meter fully understood.</li>
+    <li><strong>The contact-inbound math is gentler.</strong> A 2-step Zap (trigger + Create or Update Contact) firing 100 times a month = 100 tasks — exactly the free ceiling. Add a filter or formatter step and 50 fires burns the free plan. Polling delay is the hidden tax: Zapier polls most app triggers on a cycle (up to ~15 minutes on the free tier); the webhook-based triggers are instant, the rest you should design as if they're the slower one.</li>
+  </ol>
+  <p>The worked example: a Calendly → ActiveCampaign Zap (new invitee → Create or Update Contact with a "booked-call" tag = 1 task per invitee). At 60 bookings/month: 60 tasks — free plan survives. At 200 bookings/month: 200 tasks — $19.99/mo billed annually. And the honest check: ActiveCampaign has native Calendly coverage, so this Zap only earns its keep if the tag-routing logic (source tags, custom fields) genuinely exceeds what native passes. Count expected actions before building, not after.</p>
+
+  <h2>Five Zaps ActiveCampaign users actually run (with honest task math)</h2>
+  <p><strong>1. Facebook Lead Ads → Add/update ActiveCampaign contacts.</strong> On Zapier's own top-pairings list for this app. New lead-ad submissions become contacts with source tags — the classic paid-traffic intake. Two steps, 1 task per lead. At 100 leads/month: exactly the free ceiling; at 500: you're on Starter and should price the per-lead cost honestly.</p>
+  <p><strong>2. Calendly new invitee → Add/update contact.</strong> Bookings land in ActiveCampaign tagged by event type, so the pre-call sequence and the post-call follow-up key off the same record. Two steps. Native Calendly exists — the Zap earns its keep only on routing logic native doesn't carry.</p>
+  <p><strong>3. Stripe new payment → Add/update contact.</strong> Buyers enter the CRM tagged as customers, not prospects — the "welcome, here's your login" and the "first-week check-in" automations key off the tag. Two steps, low volume, high value. One of the cleanest revenue-handoff Zaps in the family.</p>
+  <p><strong>4. Teachable new student → ActiveCampaign.</strong> Students become contacts tagged by course — the course-completion nudges and the next-course offers write themselves. Same shape as Stripe: purchase event in, tagged contact out.</p>
+  <p><strong>5. New AC list contact → Google Ads customer list (the outward direction).</strong> Contacts added to a list flow into Google Ads for remarketing audiences — the outward lane. Two steps, and it shows what Zapier does that ActiveCampaign's own automations can't: push audience segments into the ad platforms.</p>
+
+  <h2>The decision rule: automation inside, bridges outside</h2>
+  <ol>
+    <li><strong>Automation logic lives in ONE place.</strong> The "Add Contact to Automation" action tempts you to run campaign logic from Zapier while ActiveCampaign's own automations run parallel logic inside the product. Pick one home. If the logic is marketing (sequences, scoring, timing), it usually belongs in ActiveCampaign's automations; Zapier should only <em>feed</em> them (contacts, tags, events) — never duplicate them.</li>
+    <li><strong>Native first for revenue tools.</strong> Shopify Deep Data, Salesforce two-way sync, WooCommerce — these exist, they're maintained by the vendors, and they don't consume tasks. Zapier's job is the gaps: the form builders, booking tools, payment processors, and course platforms with no native path.</li>
+    <li><strong>Engagement triggers get a filter or get killed.</strong> Open/click/bounce/unsubscribe triggers are brilliant for follow-up and brutal for task math. A filter (VIP segment only, pricing-link clicks only) is what makes them affordable; an unfiltered engagement Zap on a big list is a bill waiting to happen.</li>
+    <li><strong>Pay third.</strong> Run the task math for 90 days of expected volume. Past ~750 tasks/month, price Make (per-operation) or n8n (fixed server cost) before reflexively paying Zapier — and re-check native coverage quarterly, because ActiveCampaign's directory keeps growing.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>Create Campaign creates <em>and sends</em>.</strong> This is the one action in the family's Zapier apps that can email your whole list by accident. If a Zap fires it, put the Zap behind the strictest filter you have — or don't automate it at all. Test mode exists; use it like your reputation depends on it.</p>
+  <p><strong>The automation-duplication trap is real.</strong> Because Zapier can enroll contacts in automations and tag them, it's easy to build "shadow logic" — half the customer journey in ActiveCampaign's automation builder, half in Zaps, neither visible from the other. Six months later nobody knows why a contact got three welcome emails. Keep the journey in ActiveCampaign; keep Zapier as the intake valve.</p>
+  <p><strong>Engagement triggers fire once per contact per campaign — read that twice.</strong> It means the trigger is well-behaved (no double-fires on the same open), and it means the math in the section above is exact, not estimated. Filter before you scale.</p>
+  <p><strong>The webhook escape hatch cuts both ways.</strong> New Automation Webhook is the most powerful trigger here — any automation can emit anything to Zapier. It's also how teams quietly build automations whose behavior depends on Zaps that depend on automations. Document the chain; when the chain has more than three links, it's a liability wearing a workflow costume.</p>
+  <p><strong>Zapier costs stack on top of ActiveCampaign costs.</strong> ActiveCampaign's tiers scale with contacts — see our <a href="mailerlite-vs-activecampaign.html">ActiveCampaign vs MailerLite</a> breakdown for the tier discussion (pricing itself deliberately not quoted here; it moves). A business on paid ActiveCampaign plus Zapier Starter pays two subscriptions; make sure the Zaps can't be native checkboxes or in-product automations first.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is ActiveCampaign's Zapier integration free?</h3>
+  <p>The ActiveCampaign app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month on the free plan, then $19.99/mo billed annually for Starter with 750 tasks. ActiveCampaign charges nothing for the connection — and on the inbound side, Zapier is competing with native integrations that are free on your plan.</p>
+
+  <h3>Do I need Zapier if ActiveCampaign has native integrations and automations?</h3>
+  <p>Less than the app list suggests, more than zero. Shopify, Salesforce, WordPress, WooCommerce, Calendly — all native. The internal automation builder plus the webhook action covers what would be Zaps on other tools. You need Zapier for the gaps: apps with no native path (many form/booking/payment/course tools), and the outward lanes native can't push (ad-platform audiences, spreadsheets, project tools). Judge each Zap by whether it's intake, enrichment, or outward — and by whether an in-product automation or a native checkbox does it free.</p>
+
+  <h3>Which is better: ActiveCampaign's automations or Zapier?</h3>
+  <p>Different jobs. ActiveCampaign's automation builder is better at marketing logic: multi-branch journeys, scoring, timing, goals, splits — it's purpose-built and it doesn't cost tasks. Zapier is better at crossing app boundaries: getting data <em>into</em> ActiveCampaign from tools it doesn't know, and getting events <em>out</em> to tools it can't reach. The teams that regret their stacks are the ones that built marketing logic in Zapier (opaque, billed per step) or app plumbing in ActiveCampaign (impossible). Match the tool to the job.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a Calendly→ActiveCampaign Zap at 60 bookings/month is 60 tasks (safely free). A popup→ActiveCampaign Zap at 100 leads is 100 tasks (exactly the free ceiling). An engagement-triggered follow-up on a 10,000-contact campaign is thousands of tasks — the family outlier, and the one to filter. Most ActiveCampaign users running 2–3 modest inbound Zaps land in the 100–500 tasks/month range; add one unfiltered engagement trigger and the meter leaves the building.</p>
+
+  <h3>What's better than Zapier for ActiveCampaign?</h3>
+  <p>For marketing logic: ActiveCampaign's own automations (free on your plan, no tasks). For the Zapier-shaped gaps at volume: Make charges per operation and n8n is a fixed server cost (verify live — automation pricing moves). For the truly native jobs: the Shopify Deep Data integration and Salesforce two-way sync on the right plan tiers. The "better than Zapier" conversation on this tool usually ends at "move the logic into the automation builder and keep Zapier as intake" — which is also the cheapest answer.</p>
+
+  <p>We carry an affiliate placeholder for ActiveCampaign (comment-only) — our bench has no verified publisher program for this tool, and Zapier isn't in it, so the pricing advice above costs us nothing either way: buy in-product automations and native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier prices in this article come from 2026 third-party testing — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: ActiveCampaign — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="mailerlite-vs-activecampaign.html">ActiveCampaign vs MailerLite: automation power vs value</a></li>
+    <li><a href="activecampaign-alternatives.html">Best ActiveCampaign alternatives in 2026</a></li>
+    <li><a href="activecampaign-to-mailerlite-migration.html">ActiveCampaign to MailerLite migration: the 7 traps and the weekend checklist</a></li>
+    <li><a href="getresponse-zapier-integrations-guide.html">GetResponse integrations: native vs Zapier</a></li>
+    <li><a href="aweber-zapier-integrations-guide.html">AWeber integrations: native vs Zapier — the thin app</a></li>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier</a></li>
+    <li><a href="kit-zapier-integrations-guide.html">Kit integrations: native vs Zapier</a></li>
+  </ul>
+  <p class="meta">Prices and integration facts checked October 5, 2026. ActiveCampaign trigger/action list from ActiveCampaign's own help center (updated July 16, 2026, crawled October 2026); native-integration details from ActiveCampaign's help center, ZoomInfo (Aug 2026), GetApp (Aug 2026), and Zapier's ActiveCampaign directory (crawled October 5, 2026). Prices change frequently — verify at checkout. Part of our <a href="best-email-marketing-software-small-business.html">best email marketing software for small business</a> guide.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
