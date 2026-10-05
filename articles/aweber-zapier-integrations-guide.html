@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AWeber Integrations in 2026: Native vs Zapier — What the Thin App Means for Your Stack | The Honest Inbox</title>
+<meta name="description" content="AWeber's Zapier app has 2 triggers and 1 action — the thinnest of the big email tools. This guide maps what native covers (WordPress, Shopify, PayPal, Etsy, Calendly), what the one Zapier action can actually do, the task math, and five real Zaps. Checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>AWeber Integrations in 2026: Native vs Zapier — What the Thin App Means for Your Stack</h1>
+  <p class="meta">Integration facts checked October 5, 2026 (Zapier's AWeber app directory + 2026 third-party reviews) · Zapier pricing checked October 5, 2026 (seedprod.com 2026 tested guide; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">AWeber has been around since 1998, and its integration story reads like it: a broad native bench for the classics (WordPress, Shopify, PayPal, Etsy, Facebook, Calendly) paired with the thinnest Zapier app of the major email tools — two triggers, one action. That thinness is the whole story of this guide. On most tools, "native vs Zapier" is a cost question. On AWeber, it's a capability question first: Zapier can add subscribers, move tags, and fire when someone joins a list — and almost nothing else. This guide maps what native covers for free, what the one Zapier action actually does (it's more capable than its name suggests), the task math, and the five Zaps AWeber users actually run.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    For AWeber, go native first — harder than on any tool we've covered — because the Zapier app is genuinely thin: two triggers (New Subscriber, New List) and one action (Create Subscriber). The good news: that single action carries Tags, Status, Add/Remove, and Destination_list fields, so it handles subscribe-plus-tag and list moves in one step. The honest limit: there is no search step, no dedicated update action, and no dedicated unsubscribe action — anything beyond "put this person in AWeber with the right tags" belongs in native integrations or AWeber's API. Run the Zapier task math the same way everywhere (free 100 tasks/month; $19.99/mo billed annually for 750), and audit quarterly for native replacements. If your stack needs deep two-way sync with a CRM, AWeber's Zapier path will disappoint you — check the native directory or a different tool before building a Rube Goldberg machine.
+  </div>
+
+  <h2>What "native" covers (the free path — and it's strong here)</h2>
+  <p>AWeber's native bench is one of the broadest in email marketing — one 2026 review puts the "works with AWeber" universe at 1,000+ integrations once connector paths are counted, and a directory aggregator lists 353 AWeber integrations in 2026 (directory counts differ by methodology, so treat the big numbers as universe, not menu). The native names a small business reaches for first are all real: the official <strong>AWeber for WordPress</strong> plugin, <strong>Shopify</strong>, <strong>PayPal</strong> (including buy-now landing pages), <strong>Etsy</strong>, <strong>Facebook</strong> lead ads, and <strong>Calendly</strong>. Form and commerce builders with direct AWeber connections include WPForms, OptinMonster, RafflePress, MemberPress, Easy Digital Downloads, Formidable Forms, Paperform, Unbounce, SimplyBook.me, and SparkLoop — one tested 2026 WordPress guide covers eight of these working firsthand. AWeber also publishes a full API for anyone with a developer, which skips Zapier entirely.</p>
+  <p>The practical consequence: for the classic small-business stack (WordPress site, Shopify or PayPal checkout, a booking page), you may never need Zapier at all. Native moves the contact <em>into</em> AWeber for free, on your plan, with no task meter. Zapier's job in an AWeber stack is the gaps — the apps with no native connection (Zoom, Patreon, SurveyMonkey, SatisMeter) and pushing AWeber events <em>out</em> (new subscriber → survey tool). Which is exactly why the thinness matters: the gaps you can bridge are narrower here than on MailerLite or GetResponse.</p>
+
+  <h2>What the Zapier connection actually supports (all of it — it's short)</h2>
+  <p>Here is AWeber's entire Zapier app, per Zapier's own app directory and app help pages (October 2026). An integration tracker catalogued the same thing independently 14 days ago, so this isn't a loading error — it's the app:</p>
+  <p><strong>Triggers (the events that start a Zap):</strong></p>
+  <ul>
+    <li><strong>New Subscriber</strong> — fires when a new subscriber is added to a list</li>
+    <li><strong>New List</strong> — fires when a new list is added to an account</li>
+  </ul>
+  <p><strong>Actions (what the Zap does inside AWeber):</strong></p>
+  <ul>
+    <li><strong>Create Subscriber</strong> — creates a subscriber, with fields for Account, List, Email, Name, <strong>Tags</strong>, <strong>Status</strong>, <strong>Add</strong>, <strong>Remove</strong>, and <strong>Destination_list</strong> (per Zapier's own template pages)</li>
+  </ul>
+  <p>Two observations before the math. First: half the trigger list is an admin event. "New List" fires when <em>you</em> create a list — useful for bookkeeping (log every new list to a sheet), but it never does daily customer work. The working trigger set is really one: New Subscriber. Second: the one action is better than it looks. The Tags/Add/Remove/Status/Destination_list fields mean "add this person, tag them, move them between lists" in a single step — that covers the subscribe-and-segment flows most small businesses actually run. What's missing is everything else: no search step (no "find this subscriber first"), no dedicated update, no unsubscribe, no campaign or automation triggers. Don't count the app's thinness as weakness where it isn't — do count it as the boundary.</p>
+
+  <h2>The task math (same meter, thinner temptation)</h2>
+  <ol>
+    <li><strong>The trigger is free.</strong> Every action step costs one task.</li>
+    <li><strong>Free plan: 100 tasks/month.</strong> Starter: $19.99/mo billed annually, 750 tasks. (seedprod.com's 2026 tested guide; verify on zapier.com before checkout — Zapier revises tiers.)</li>
+    <li><strong>A 2-step Zap (trigger + Create Subscriber) firing 100 times a month = 100 tasks.</strong> Exactly the free ceiling. Add a filter or a formatter step and 50 fires burns the free plan.</li>
+    <li><strong>Polling delay is the hidden tax.</strong> Zapier polls most app triggers on a cycle (up to ~15 minutes on the free tier). AWeber's app pages don't publish whether New Subscriber is polling or instant — we won't claim either. Design time-sensitive flows as if it's the slower one; verify in the Zap builder before promising "instant" to a client.</li>
+  </ol>
+  <p>The worked example: a Zoom webinar-registrant → AWeber Zap (trigger + Create Subscriber with tags = 1 task per registrant). At 60 registrants/month: 60 tasks — free plan survives. At 200 registrants/month: 200 tasks — you're paying $19.99/mo billed annually for a bridge Zoom-to-AWeber could also serve via native webinar tools or a simple export. Count expected actions before building, not after.</p>
+
+  <h2>Five Zaps AWeber users actually run (with honest task math)</h2>
+  <p><strong>1. Zoom new webinar registrant → Create Subscriber.</strong> The verified classic — Zapier's own template page for this pair was crawled one day before this article. Trigger: new webinar registrant. Action: Create Subscriber with the webinar name in Tags (your follow-up automation keys off it). Two steps = 1 task per registrant. At 60 registrants/month it sits inside the free plan; at 150+ it doesn't. Honest check first: AWeber runs native webinar integrations too — compare before building.</p>
+  <p><strong>2. Popup lead (Poptin and friends) → Create Subscriber.</strong> Visitors convert on a popup; Zapier lands them in AWeber with Tags carrying the popup's offer code. Two steps, 1 task per lead. The verified template uses Poptin, but the shape is universal: any lead-capture tool without a native AWeber connection. At 100 leads/month: exactly the free ceiling.</p>
+  <p><strong>3. SurveyMonkey new response → Create Subscriber.</strong> Post-survey respondents land in AWeber tagged by survey, so the "thanks for the feedback" sequence writes itself. Two steps. Honest caveat: only build this if you have respondent consent to market — a survey opt-in is not a marketing opt-in in every jurisdiction. Keep the consent checkbox real.</p>
+  <p><strong>4. Patreon new pledge → Create Subscriber.</strong> New patrons join the list tagged as supporters — the "behind the scenes" email flow starts without a manual export. Two steps, low volume, high warmth. The verified template page documents this pair; it's the creator-shaped gap native integrations don't cover.</p>
+  <p><strong>5. New AWeber Subscriber → survey tool (the outward direction).</strong> This one runs <em>out</em> of AWeber: when someone subscribes, Zapier's New Subscriber trigger fires a survey recipient creation (verified with zenloop). Two steps, and it's the honest answer to "can AWeber push events out through Zapier" — yes, through this one trigger, and only through this one trigger. If you need tag-added or click events to leave AWeber, that's the API, not Zapier.</p>
+
+  <h2>The decision rule: native first, Zap second, pay third</h2>
+  <ol>
+    <li><strong>Native first — and mean it.</strong> WordPress, Shopify, PayPal, Etsy, Facebook, Calendly, the form builders — check the native directory before touching Zapier. On AWeber this is more than a cost rule: the Zapier app simply can't do what native can, so every native connection you skip is capability you leave on the table.</li>
+    <li><strong>Zap second.</strong> Zoom, Patreon, SurveyMonkey, SatisMeter, and the long tail of apps with no native path — plus the single outward flow (New Subscriber → your other tools). If the Zap you need isn't "add this person with these tags," stop: you're past the app's edge.</li>
+    <li><strong>Pay third.</strong> Run the task math for 90 days of expected volume. If you're past ~750 tasks/month, price Make (per-operation pricing) or n8n (fixed server cost) before reflexively paying Zapier — and sanity-check whether a native integration appeared for the gap since you last looked.</li>
+    <li><strong>Re-audit quarterly.</strong> Zaps accrete. Every quarter, open the Zap dashboard, kill the ones nobody looks at, and check whether a native integration has since appeared for what remains. AWeber's directory grows; yesterday's Zapier gap is sometimes today's native checkbox.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>The app is the thinnest of the family — plan around it, not through it.</strong> Two triggers, one action. GetResponse gives you six and six; AWeber gives you two and one. That's not a moral failing, it's the boundary of the design space: subscribe, tag, move lists. Anything fancier (find-before-update, unsubscribe syncs, automation-event triggers) lives in native integrations or the API. Knowing the boundary before you build is the whole game.</p>
+  <p><strong>Half the trigger list is an admin event.</strong> New List fires when <em>you</em> build something, not when a customer acts — bookkeeping, not contact work. Don't count trigger-list length as power; the working list is one trigger long.</p>
+  <p><strong>No search step means no find-first flows.</strong> The Create Subscriber action can't look a subscriber up before writing. Dedupe and "update if exists" logic that other tools do with a search-then-write pair isn't available here — lean on the action's upsert behavior and keep the fields clean at the source.</p>
+  <p><strong>The outward direction is a single lane.</strong> New Subscriber is the only event that leaves AWeber through Zapier. Tag-applied, link-clicked, purchase-made — none of these are Zapier triggers. If your stack needs AWeber behavior to drive other tools, that's webhooks/API work, and it's worth saying plainly rather than discovering it at build time.</p>
+  <p><strong>Zapier costs stack on top of AWeber costs.</strong> AWeber keeps a free tier (per 2026 directories), and paid tiers scale with list size — see our <a href="aweber-vs-getresponse.html">AWeber vs GetResponse</a> breakdown for the tier discussion. A business on paid AWeber plus Zapier Starter pays two subscriptions; make sure the Zaps you're paying for can't be native checkboxes first.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is AWeber's Zapier integration free?</h3>
+  <p>The AWeber app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month on the free plan, then $19.99/mo billed annually for Starter with 750 tasks. AWeber charges nothing for the connection — and its own free tier exists separately.</p>
+
+  <h3>Do I need Zapier if AWeber has native integrations?</h3>
+  <p>Less often than on most tools. WordPress, Shopify, PayPal, Etsy, Facebook, and Calendly are all native, and the tested WordPress bench alone covers forms, popups, giveaways, memberships, and digital products. You need Zapier for apps with no native path (Zoom, Patreon, SurveyMonkey) or the single outward flow (new subscriber → survey/CRM). For AWeber, "native first" is capability advice, not just cost advice.</p>
+
+  <h3>Why is AWeber's Zapier app so limited compared to GetResponse?</h3>
+  <p>We don't know the vendor politics, and we won't speculate. What's verifiable: Zapier's own directory lists 2 triggers and 1 action for AWeber (October 2026), vs 6 triggers and 6 actions for GetResponse. AWeber's integration energy has historically gone into direct native connections (the 2026 reviews count the native universe in the hundreds-to-thousands) and its own API. Judge it by what it does: subscribe-tag-move, reliably — and build the rest native.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a single webinar-registrant Zap at 100 registrants/month is 100 tasks (exactly the free ceiling). A popup → AWeber Zap at 50 leads is 50 tasks (safely free). Most AWeber users running 2–3 modest Zaps land in the 100–500 tasks/month range — the free-to-Starter boundary. Because the app is thin, volume accretes slower here than on tools with richer trigger lists — count your expected actions before building, not after.</p>
+
+  <h3>What's better than Zapier for AWeber?</h3>
+  <p>For volume, Make charges per operation and n8n is a fixed server cost (verify live — automation pricing moves). For coverage, AWeber's native directory plus its API is the real answer: the thin Zapier app means the "better than Zapier" conversation usually ends at "use the native checkbox." For the truly Zapier-shaped gaps, Make/Pabbly often price the same bridge cheaper than Zapier Starter — run your own task math.</p>
+
+  <p>We carry an affiliate placeholder for AWeber (verified 30% recurring program) only. Zapier is not in our affiliate bench, so the pricing advice above costs us nothing either way: buy native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier prices in this article come from 2026 third-party testing — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: AWeber — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="aweber-vs-getresponse.html">AWeber vs GetResponse: the two old guard, compared honestly</a></li>
+    <li><a href="aweber-alternatives.html">Best AWeber alternatives in 2026</a></li>
+    <li><a href="aweber-to-mailerlite-migration.html">AWeber to MailerLite migration: the 7 traps and the weekend checklist</a></li>
+    <li><a href="getresponse-zapier-integrations-guide.html">GetResponse integrations: native vs Zapier</a></li>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier</a></li>
+    <li><a href="kit-zapier-integrations-guide.html">Kit integrations: native vs Zapier</a></li>
+  </ul>
+  <p class="meta">Prices and integration facts checked October 5, 2026. AWeber trigger/action list from Zapier's own app directory and app help pages (crawled October 2026); native-integration categories from 2026 third-party reviews and directories. Prices change frequently — verify at checkout. Part of our <a href="best-email-marketing-software-small-business.html">best email marketing software for small business</a> guide.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
