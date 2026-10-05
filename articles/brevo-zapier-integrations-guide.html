@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brevo Integrations in 2026: Native vs Zapier — The Transactional Double Life | The Honest Inbox</title>
+<meta name="description" content="Brevo's Zapier app has 12 triggers and transactional-email events no other email tool's app can touch — plus CRM pipeline searches (Find Deal, Find Company) and a Send-transactional-email action. When to use Zapier, when native wins (Shopify, WooCommerce), the native-Shopify account split, and five real Zaps. Checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Brevo Integrations in 2026: Native vs Zapier — The Transactional Double Life</h1>
+  <p class="meta">Integration facts checked October 5, 2026 (Zapier's own Brevo help doc + app directory) · Zapier pricing checked October 5, 2026 (seedprod.com 2026 tested guide; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Brevo is the only tool in this family with a transactional double life. Every other tool here is a marketing platform that borrows Zapier for plumbing. Brevo is a marketing platform <em>and</em> a transactional-email/SMS engine (the Sendinblue heritage), with its own SMTP API, native SMS/WhatsApp, and ~140 native integrations (Omnisend's August 2026 marketplace count). That inverts the Zapier question entirely: the marketing side is already covered natively, so Zapier's job on Brevo is narrower — feeding contacts from tools Brevo doesn't know, and working the transactional lane that nobody else's Zapier app can touch. Twelve triggers, a Send-transactional-email action, and CRM pipeline searches (Find Deal, Find Company) that only one other family member has.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Brevo's Zapier app is midweight — 12 triggers, 3 searches, a small action list — but two of its tricks are family exclusives: transactional-email events as <em>triggers</em> (a receipt email's bounce or open can start a Zap), and a <em>Send transactional email</em> action that fires one-to-one mail through Brevo without touching your marketing-automation tiers. Use Zapier for contact intake from non-native tools and for transactional wiring; don't use it for anything Brevo does natively (Shopify orders, WooCommerce, Typeform) or inside its own automations. Watch the transactional triggers on volume — "Transactional Email Delivered" fires on <em>every</em> receipt, and that's the fastest meter in this guide. And one account trap worth knowing: Shopify's native app is for new Brevo accounts; older accounts are still on the legacy integration — check which one you're on before building anything.
+  </div>
+
+  <h2>What "native" covers (the transactional head start)</h2>
+  <p>Brevo's native bench is broad (~140 marketplace integrations, Aug 2026 count) and skews differently from everyone else's because of the transactional heritage. The headliners, verified October 2026:</p>
+  <ul>
+    <li><strong>Shopify — with an account split.</strong> Brevo's native Shopify app covers new accounts; older accounts are on the legacy Shopify integration (Omnisend's Aug 2026 comparison table flags this explicitly). This is the one native integration worth checking your account age for — order and browse data flow natively either way, but if something looks off, the legacy/new-app split is the first suspect.</li>
+    <li><strong>WooCommerce, WordPress, PrestaShop, BigCommerce, Wix</strong> — storefronts and sites without a middleman. The ecommerce plugins carry order/product data for purchase-behavior segmentation.</li>
+    <li><strong>Salesforce, HubSpot, Pipedrive, Zoho CRM</strong> — the CRMs most small businesses actually use, all native. With a native CRM bench this wide, Zapier's CRM job is mostly "the odd one out" (Kommo, systeme.io, a spreadsheet-as-CRM).</li>
+    <li><strong>Google Analytics, Google Ads, Facebook Messenger, Typeform, OptinMonster</strong> — analytics, ads, chat, and forms. The Typeform native path matters: it means the form-to-contact Zap most people build first on other tools is a native checkbox here.</li>
+    <li><strong>The transactional side needs no connector at all.</strong> Brevo's SMTP API, transactional email, and SMS/WhatsApp are product features, not integrations. Receipts, confirmations, and alerts send through Brevo directly — which is exactly why the Zapier app's transactional triggers and send-action are interesting: they're programmatic access to the <em>engine</em>, not the marketing product.</li>
+  </ul>
+  <p>The honest shape of a Brevo stack: native handles the website, the store, the CRM, and the transactional engine. What's left for Zapier is the long tail of apps Brevo doesn't know — the intake layer — plus the transactional events no other integration surface exposes.</p>
+
+  <h2>What the Zapier connection actually supports</h2>
+  <p>Brevo's Zapier app surface, from Zapier's own help doc (updated 215 days ago, checked October 2026) plus the app directory:</p>
+  <p><strong>Triggers — the contact events:</strong> Contact Added, Contact Updated, Contact Subscribed to Specific List(s), Contact Unsubscribed. Note the gap honestly: there is no single "new or updated contact" trigger here (unlike some family members) — intake Zaps either pick "added" or "updated," and migrations that re-sync contacts can double-fire if you use both. One trigger, one contract.</p>
+  <p><strong>Triggers — the marketing-email events:</strong> Marketing Email Delivered, Marketing Email Opened, Link Clicked, Marketing Email Hard Bounced, New Campaign Status. Familiar family territory — the follow-up engine (click the pricing link → create a sales task) with the familiar volume warning below.</p>
+  <p><strong>Triggers — the transactional events (the family exclusive):</strong> Transactional Email Delivered, Transactional Email Opened (labeled Instant in the help doc), Transactional Email Hard Bounced. No other tool in this family's Zapier app lets a <em>receipt email</em> start an automation. A failed delivery confirmation for a paid invoice is now a trigger event — which is either a support-ticket machine or a bill, depending on volume.</p>
+  <p><strong>Searches — the CRM surface:</strong> Find Contact (by email or mobile), Find Deal, Find Company. This is the quiet surprise: the Brevo Sales Platform's pipeline objects are inside the Zapier app. The only other family member with pipeline objects here is ActiveCampaign — and Brevo's version is find-only, not write. Find-first-then-write flows are possible for contacts; for deals and companies, it's find-first-then-route.</p>
+  <p><strong>Actions — the documented core:</strong> Add or Update Contact. That's the whole action list in Zapier's help doc — honest about how thin the write side is.</p>
+  <p><strong>Actions — the directory extras:</strong> Send transactional email, Create note, a CRM-flavored Create person, and a beta API-request action. The one that matters is Send transactional email: a Zap can fire a one-to-one transactional email through Brevo's engine — confirmations, receipts, alerts — without consuming anything from the marketing-automation side (the 2,000-contact cumulative automation ceiling on Free/Starter from our migration guide doesn't touch this lane).</p>
+  <p>Three observations. First: this app is trigger-heavy and action-light — it's built to let Brevo <em>announce</em> things outward more than to let Zapier <em>do</em> things inside. Second: the transactional triggers are the genuinely new capability; everything else is the family's standard intake kit. Third: the beta API-request action is the escape hatch for the write side — raw API calls with Brevo's auth baked in, which means the action list is exactly as big as Brevo's public API when you need it to be.</p>
+
+  <h2>The task math (and the transactional meter)</h2>
+  <ol>
+    <li><strong>The trigger is free.</strong> Every action step costs one task.</li>
+    <li><strong>Free plan: 100 tasks/month.</strong> Starter: $19.99/mo billed annually, 750 tasks. (seedprod.com's 2026 tested guide; verify on zapier.com before checkout — Zapier revises tiers.)</li>
+    <li><strong>Transactional triggers are the fastest meter in this guide series.</strong> "Transactional Email Delivered" fires on <em>every</em> receipt, confirmation, and password reset. A store sending 500 transactional emails a day is 15,000 trigger events a month — with one action step each, that's 15,000 tasks, twenty times the Starter plan. Transactional triggers get a filter (hard bounces and opens on invoice mail only, never raw "delivered") or they don't get built. This is the single most expensive mistake on this app.</li>
+    <li><strong>The contact-inbound math is gentle.</strong> A 2-step Zap (trigger + Add or Update Contact) firing 100 times a month = 100 tasks — exactly the free ceiling. Add a filter or formatter step and 50 fires burns the free plan. Polling delay is the hidden tax: Transactional Email Opened is labeled Instant, but the contact and campaign triggers are polling-cycle — design as if new contacts arrive up to ~15 minutes late on the free tier.</li>
+  </ol>
+  <p>The worked example: a Typeform → Brevo intake Zap (new response → Add or Update Contact = 1 task per response). At 60 responses/month: 60 tasks — free plan survives. At 200: 200 tasks — $19.99/mo billed annually. And the honest check: Typeform is natively integrated, so this Zap only earns its keep for form tools with no native path (a niche booking widget, a custom HTML form). Count expected actions before building, not after — and check the native list first.</p>
+
+  <h2>Five Zaps Brevo users actually run (with honest task math)</h2>
+  <p><strong>1. Niche form tool → Add or Update Contact (the intake Zap).</strong> Not Typeform — that's native. This is the booking widget, the quote calculator, the custom form Brevo doesn't know, feeding contacts in with source tags. Two steps, 1 task per submission. At 100 submissions/month: exactly the free ceiling; at 500: Starter. The rule: if the tool has a native integration, use it — this Zap is only for the ones that don't.</p>
+  <p><strong>2. Google Sheets new row → Add or Update Contact.</strong> The spreadsheet-as-CRM intake: event sign-up sheets, imported prospect lists, partner referrals. Two steps, low volume, and the sheet doubles as an audit trail of what the Zap did. Same math as every intake Zap — 1 task per row.</p>
+  <p><strong>3. New Brevo contact → Kommo / systeme.io sync (the outward lane).</strong> On Zapier's own Brevo directory: contacts added to lists flowing out to Kommo (update-or-create) and systeme.io (add contact with tags). This is the CRM-that-Brevo-doesn't-know pattern — the outward direction native can't push. Two steps per contact; price it against how many contacts actually need to live in both systems.</p>
+  <p><strong>4. Transactional Email Hard Bounced → Slack alert (the invisible-failure Zap).</strong> Failed receipts are the email nobody watches: a bounced invoice-confirmation is a customer who thinks you took their money and vanished. This trigger (filtered to invoice/receipt mail only — never the raw firehose) posts to Slack or creates a task. Volume is tiny, value is enormous — this is the best Zap in the guide and it barely touches the meter.</p>
+  <p><strong>5. Stripe payment → Send transactional email (the receipt Zap).</strong> A purchase fires a transactional email through Brevo's engine — order confirmation, download link, appointment details — without touching the marketing-automation tiers at all. This is the family's cleanest "do it in the transactional lane" pattern: no automation ceiling, no campaign-send accounting. Caveat: it bills against your Brevo transactional quota, so verify your in-account limits before wiring a high-volume store to it.</p>
+
+  <h2>The decision rule: native engine, Zapier edges</h2>
+  <ol>
+    <li><strong>The transactional lane is Brevo's — respect the billing.</strong> Brevo is send-volume-priced (see our <a href="brevo-to-mailerlite-migration.html">Brevo-to-MailerLite migration guide</a> for the inversion math: the migration only pays when send frequency is high relative to list size). Zapier Zaps that trigger sends — especially the transactional send action — add sends to <em>your</em> Brevo bill. Every Zap on this app should pass the test: does it reduce sends, or manufacture them?</li>
+    <li><strong>Native first, always.</strong> Shopify, WooCommerce, Typeform, Salesforce, HubSpot, Pipedrive — these exist, they're maintained, and they don't consume tasks. Zapier's job is the gaps: the form builders, booking tools, and CRMs with no native path, plus the outward lanes native can't push.</li>
+    <li><strong>Transactional triggers get a filter or get killed.</strong> The bounced-receipt alert is brilliant; the unfiltered "every delivered email" trigger is a five-figure task bill wearing a workflow costume. Filter to the mail that matters (invoices, receipts, confirmations) before you ever turn one on.</li>
+    <li><strong>Keep automation logic in Brevo.</strong> The in-product automation builder is where sequences live — not in Zaps that shadow it. Zapier feeds Brevo (contacts, tags, events) and receives Brevo's announcements (triggers, searches); the journey itself stays in one place, where you can see it. (And remember the ceiling: Free/Starter plans cap cumulative automated contacts at 2,000 — don't pay Zapier to feed automations your plan can't run.)</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>The transactional meter is the whole game.</strong> This guide's most important number isn't a price — it's a pattern: transactional triggers fire at email-volume scale, not contact scale. A "Marketing Email Opened" trigger on a 10,000-contact campaign is thousands of tasks; a "Transactional Email Delivered" trigger on a 500-receipts-a-day store is 15,000 a month. The family rule applies double here: filter before you scale, and price the filter as part of the build.</p>
+  <p><strong>No single "new or updated contact" trigger.</strong> The app offers Contact Added and Contact Updated separately. Pick one per Zap and accept its contract — or use both and design for the double-fire on re-syncs. This is a small thing that produces real duplicate-tag messes.</p>
+  <p><strong>The action list is thin by design — the help doc lists one.</strong> "Add or Update Contact" is the documented core; the directory extras (Send transactional email, Create note, Create person, beta API request) exist but the beta API-request action is where the write side gets serious. If a flow needs heavy writing into Brevo, that's a sign to check whether Brevo's own API (or Make/n8n, verified live before buying) is the honest tool — not to force it through one documented action.</p>
+  <p><strong>Check your Shopify integration generation.</strong> New accounts get the native app; older accounts sit on the legacy integration. Same data, different plumbing — and if your order-triggered Zaps behave oddly, the generation split is the first thing to rule out before blaming Zapier.</p>
+  <p><strong>Zapier costs stack on top of Brevo costs.</strong> A business on paid Brevo plus Zapier Starter pays two subscriptions — see our <a href="brevo-vs-mailerlite.html">Brevo vs MailerLite</a> breakdown for the tier discussion (Brevo pricing itself deliberately not quoted here; it moves). Make sure the Zaps can't be native checkboxes or in-product automations first — the cheapest integration on this app is the one you delete.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is Brevo's Zapier integration free?</h3>
+  <p>The Brevo app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month on the free plan, then $19.99/mo billed annually for Starter with 750 tasks. Brevo charges nothing for the connection — but Brevo's own send-volume billing still applies to every email the Zaps cause to send, which is the cost most people forget to model.</p>
+
+  <h3>Do I need Zapier if Brevo already sends transactional email natively?</h3>
+  <p>For the sending itself: no — that's the point of Brevo's double life. You need Zapier for the <em>wiring around</em> the engine: getting data in from tools Brevo doesn't know (the intake layer), pushing contact events out to tools Brevo can't reach (the outward lane), and reacting to transactional events (the bounced-receipt alert) that have no native handler. If the whole flow lives inside Brevo's world — Shopify order in, receipt out — Zapier adds cost and latency for nothing.</p>
+
+  <h3>Can Zapier send transactional emails through Brevo?</h3>
+  <p>Yes — the Send transactional email action exists in the app directory, and it's the cleanest one-to-one sending pattern in the family: confirmations and receipts that bypass the marketing-automation tiers entirely. Two caveats: it bills against your Brevo transactional quota (verify in-account limits before wiring a high-volume store to it), and it needs a properly authenticated sender domain — no verified domain, no sends.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a niche-form → Brevo intake Zap at 60 submissions/month is 60 tasks (safely free). A sheet-import Zap at 100 rows is 100 tasks (exactly the free ceiling). A filtered bounced-receipt alert is a handful of tasks a month. An unfiltered transactional-delivered trigger on a 500-receipts-a-day store is 15,000 tasks — the family outlier, and the one that ends with a billing conversation. Most Brevo users running 2–3 modest intake Zaps land in the 100–500 tasks/month range; the transactional lane is where the meter either stays silent or leaves the building.</p>
+
+  <h3>What's better than Zapier for Brevo?</h3>
+  <p>For intake from the big tools: Brevo's own native integrations (free, ownerless, no tasks) — Shopify, WooCommerce, Typeform, the CRMs. For marketing logic: Brevo's automation builder, not Zaps. For the Zapier-shaped gaps at volume: Make charges per operation and n8n is a fixed server cost (verify live — automation pricing moves). For heavy write-side flows: Brevo's own API through the beta API-request action or a direct integration. The "better than Zapier" conversation on this tool usually ends at "use the native engine and keep Zapier as the intake valve" — which is also the cheapest answer.</p>
+
+  <p>One disclosure worth making twice: our affiliate bench has no verified publisher program for Brevo, so this guide carries no Brevo links at all — the pricing and tool advice above costs us nothing either way. If Brevo opens a publisher program we can verify, we'll re-audit and say so. The Zapier prices in this article come from 2026 third-party testing — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="brevo-vs-mailerlite.html">Brevo vs MailerLite: cheapest serious senders head-to-head</a></li>
+    <li><a href="brevo-alternatives.html">Best Brevo alternatives in 2026</a></li>
+    <li><a href="brevo-to-mailerlite-migration.html">Brevo to MailerLite migration: the 7 traps and the weekend checklist</a></li>
+    <li><a href="getresponse-zapier-integrations-guide.html">GetResponse integrations: native vs Zapier</a></li>
+    <li><a href="aweber-zapier-integrations-guide.html">AWeber integrations: native vs Zapier — the thin app</a></li>
+    <li><a href="activecampaign-zapier-integrations-guide.html">ActiveCampaign integrations: native vs Zapier — the heaviest app</a></li>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier</a></li>
+    <li><a href="kit-zapier-integrations-guide.html">Kit integrations: native vs Zapier</a></li>
+  </ul>
+  <p class="meta">Prices and integration facts checked October 5, 2026. Trigger/search/action list from Zapier's own Brevo help doc (crawled October 2026, last updated 215 days prior); directory extras via the app directory; native-integration count and headliners from Omnisend's Brevo-vs-Klaviyo comparison table (marketplace count, August 2026) and financesonline's 2026 comparisons. Prices change frequently — verify at checkout. Part of our <a href="best-email-marketing-software-small-business.html">best email marketing software for small business</a> guide.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
