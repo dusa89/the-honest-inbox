@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating from AWeber to MailerLite (2026): The 7 Traps and the Weekend Checklist | The Honest Inbox</title>
+<meta name="description" content="The AWeber-to-MailerLite migration guide for 2026: the $26/mo arbitrage at 1,000 contacts, the free-plan downgrade trap, the multi-list duplicate billing trap, the Subscribed-only export rule, and a step-by-step weekend checklist. Facts checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Migrating from AWeber to MailerLite (2026): The 7 Traps and the Weekend Checklist</h1>
+  <p class="meta">Migration facts checked October 5, 2026 &middot; Prices checked September 30 &ndash; October 1, 2026 &middot; Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links &mdash; if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">AWeber is the old guard done right: selling email since 1998, billing that is honest (no dead-contact padding, no surprise cliffs), and phone support on every paid plan. So why would anyone leave? Two reasons, and they are different from the Mailchimp and Kit migrations. The <em>money</em> case is pure plan arbitrage &mdash; AWeber Plus at 1,000 contacts is $45 a month and MailerLite Comfort is $19, and the gap widens as you grow. The <em>feature</em> case is the automation ceiling: AWeber's automation is solid for welcome sequences and drip campaigns and stops there &mdash; no branching logic, no lead scoring &mdash; while MailerLite's builder keeps going. But three traps can erase the win before you start: the free-plan downgrade (AWeber's free tier is <em>more</em> generous than MailerLite's), the multi-list duplicate trap that inflates your MailerLite bill, and the send cap that punishes daily senders. This guide is the money math first, the seven traps second, and the weekend checklist last.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Migrating pays if you are on AWeber Plus ($26/mo saved at 1,000 contacts, ~$41/mo at 5,000) or on Lite with automation ambitions ($25 vs $19 at 1k &mdash; the prize is the builder, not the bill). Do NOT migrate if you are on AWeber's free plan with 500 or fewer subscribers (you are on the most generous free tier in email marketing &mdash; MailerLite's free plan carries half the subscribers), if your sends exceed ~10&times; your list size monthly (Comfort's cap pushes you to Power, where the savings vanish), or if you run multiple AWeber lists you haven't consolidated (importing them raw duplicates subscribers and bills you twice). Budget a weekend: export Subscribed-only per list, dedupe across lists, open the MailerLite account early (approval review takes ~a day), verify domain auth from zero, rebuild the welcome sequence with actual branching, and run both tools in parallel for one billing cycle.
+  </div>
+
+  <h2>The money: plan arbitrage at honest billing, band by band</h2>
+  <p>Unlike the Mailchimp move, nothing here is about clawing back money you were never billed for &mdash; AWeber counts contacts honestly. This is a straight plan-price comparison, monthly billing, verified against both pricing pages:</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>Contacts</th><th>AWeber Plus (monthly)</th><th>MailerLite Comfort (monthly)</th><th>You save</th></tr>
+      <tr><td>1,000</td><td>$45</td><td>$19</td><td>$26/mo ($312/yr)</td></tr>
+      <tr><td>5,000</td><td>~$90 (est.)</td><td>~$49</td><td>~$41/mo (~$492/yr)</td></tr>
+      <tr><td>10,000</td><td>~$135 (est.)</td><td>$69+ (slider)</td><td>run the slider</td></tr>
+    </table>
+  </div>
+  <p class="table-note">Monthly billing. AWeber Plus bands from AWeber's official pricing page (larger-list figures estimated); MailerLite Comfort bands cross-checked after the June 2026 overhaul. At 10,000 contacts the savings direction is clear (Comfort's verified 8k band is $69) but the exact band is above the verified table &mdash; run MailerLite's pricing slider for your number, since Comfort's bands continue to 200,000. The annual-billing wrinkle: AWeber discounts annual harder than MailerLite (~10% on MailerLite). Run your own billing term, not the monthly headline.</p>
+  <p>And the Lite tier truth, because the whole AWeber lineup matters: <strong>AWeber Lite at 1,000 contacts is $25/mo</strong>, only $6 under Comfort's $19. If you are on Lite, the migration is barely a money move &mdash; the reason to go is Trap 2's automation ceiling. Don't book a migration weekend over $6 a month; book it over the branching logic.</p>
+  <p>The sharpest arithmetic in the whole lineup is at the top: a 10,000-contact list costs ~$135/mo on AWeber Plus, and even two or three bands above Comfort's verified $69/8k band it stays well under that. Large-list AWeber Plus users are paying legacy-platform rent on an old-guard list &mdash; and that rent is the single strongest migration signal on this page.</p>
+
+  <h2>The 7 traps</h2>
+
+  <h3>Trap 1: The free-plan downgrade &mdash; AWeber's free tier is the most generous in the category</h3>
+  <p>This is the trap that reverses the entire migration, and it runs the opposite direction from the Mailchimp and Kit guides. AWeber's free plan carries <strong>500 subscribers and 3,000 emails a month at $0</strong> &mdash; more subscribers than MailerLite's free tier (250 / 2,500), and a genuinely usable free plan, not a trial. If your list is 500 subscribers or fewer and you send within 3,000 emails a month, <strong>you are sitting on the best free deal in email marketing and migrating costs you capacity.</strong></p>
+  <p>The one case where a free-plan move still wins: you are outgrowing the free tier's automation. AWeber's free plan includes basic automation, and if your needs stay inside welcome sequences and simple drips, stay. If you have crossed into branching logic and multi-step funnels, the feature gain is the prize &mdash; decide this before you export a single CSV.</p>
+
+  <h3>Trap 2: The Lite question &mdash; don't migrate over $6 a month</h3>
+  <p>AWeber Lite at $25/mo (1k) undercuts Comfort by only ~$6. If you are on Lite, run the honest audit: does your automation fit inside Lite's box (welcome sequences, broadcasts, simple drips &mdash; no branching, no lead scoring)? If yes, the migration saves $72 a year and costs you a weekend. That is a bad trade. The real migration trigger for Lite users is <em>outgrowing</em> the automation ceiling: the moment you need a workflow that branches on behavior, AWeber cannot build it and MailerLite can. Migrate for the builder, not the bill.</p>
+
+  <h3>Trap 3: Multi-list duplicates &mdash; AWeber dedupes inside lists, not across them</h3>
+  <p>This is the AWeber-specific money trap, and it is documented in AWeber's own docs: AWeber automatically deduplicates subscribers <em>within</em> a single list, but a subscriber can exist on <em>multiple</em> lists at once (that is by design &mdash; people sign up for the newsletter list and the course list separately). Now do the migration math: you export three lists, import three CSVs into MailerLite, and the 400 people on all three lists become 1,200 billable contacts. MailerLite bills unique subscribers, so you just triple-paid for your best customers.</p>
+  <p>The fix, before any import: consolidate. Export each list separately (you have to &mdash; AWeber exports per list), then merge the CSVs and dedupe by email address, tagging each contact with its source lists before import. MailerLite tags map cleanly, so "newsletter-list + course-list" becomes two tags on one contact, and your automations target tags instead of lists. Do this on the CSVs, not in MailerLite's UI, where dedupe is tedious.</p>
+
+  <h3>Trap 4: Exporting the wrong subscriber set</h3>
+  <p>AWeber's export is straightforward &mdash; Subscribers tab, Manage Subscribers, the Export CSV button &mdash; but the default view mixes Subscribed, Unsubscribed, and Unconfirmed contacts together. The correct path (verified against AWeber's official docs and a current third-party migration walkthrough, October 2026): open <strong>Subscribers</strong>, use <strong>Manage Subscribers</strong> to build a search, filter the status to <strong>Subscribed</strong>, then export. You want your active, mailable audience &mdash; not the unsubscribed, not the unconfirmed.</p>
+  <p>The good news: AWeber's CSV is generous &mdash; email address, subscription status, signup date, custom fields, tags, and engagement data ride along, so your segmentation survives the trip. Use the engagement columns: the "has not opened in 90 days" slice is your warm-up list's outer boundary, not its core. Importing dead weight into MailerLite costs you free-tier capacity (250 subs on the free plan) and torches deliverability from day one.</p>
+
+  <h3>Trap 5: Automations, sequences, forms, and pages don't transfer</h3>
+  <p>AWeber exports subscriber data &mdash; it does not export campaigns, sequences, automation logic, forms, or landing pages. None of it. Everything behavioral must be rebuilt in MailerLite's automation builder. Before you touch anything, inventory the full AWeber setup: every campaign, every broadcast template worth keeping, every form, every landing page. Screenshot each flow with its triggers, delays, and emails.</p>
+  <p>Rebuild order matters, and here the news is good: this is one migration where the rebuild can be an <em>upgrade</em>. AWeber's automation has no branching logic &mdash; so that welcome sequence that sprays the same five emails at everyone becomes a workflow that splits engaged from unengaged after email two. Two caveats: MailerLite's free plan caps you at 3 automations (count before you start), and Comfort allows up to 3 landing pages &mdash; if AWeber gave you more, consolidating is part of the migration work, not an afterthought.</p>
+
+  <h3>Trap 6: The send-cap math &mdash; AWeber never capped your sends</h3>
+  <p>AWeber's paid plans include unlimited sends &mdash; MailerLite Comfort caps your monthly sends at roughly 10&times; your subscriber count, and this is the trap that quietly zeroes out the savings for the most active senders. The arithmetic:</p>
+  <ul>
+    <li><strong>Weekly sender, 1,000 subs:</strong> ~4.3 emails/month &times; 1,000 = ~4,300 emails. Comfort's 10,000 cap handles it. You save $26/mo. Migration wins.</li>
+    <li><strong>Daily sender, 1,000 subs:</strong> ~30 emails/month &times; 1,000 = ~30,000 emails. Comfort's cap is 10,000. You need <strong>Power at $39/mo</strong> &mdash; nearly what AWeber Plus costs at 1k. You save $6 and did a weekend of migration work for nothing.</li>
+    <li><strong>Automation-heavy funnel:</strong> automated emails count against the cap too &mdash; welcome sequences, drip campaigns, every triggered send. Add automation volume to campaign volume before you decide.</li>
+  </ul>
+  <p>The honest rule: Comfort beats AWeber Plus only while your monthly sends stay under ~10&times; your list size. Run your last three months of AWeber broadcast + automation volume against that ratio. If you're over it, either stay on AWeber or price Power.</p>
+
+  <h3>Trap 7: The approval pause, domain auth from zero, and the cutover gap</h3>
+  <p>Three startup mechanics, shared with every migration in this series. First, MailerLite reviews new accounts before your first sends &mdash; expect an approval step and up to about a day of waiting. Start the MailerLite account <em>before</em> migration weekend, not during it.</p>
+  <p>Second, SPF and DKIM authenticate your domain <em>with the sending platform</em> &mdash; AWeber's records in your DNS do nothing for MailerLite. Verify your sending domain in MailerLite, add its fresh DNS records, confirm the green checks, and test-send before importing anything. This is the most-skipped, most-punished step in any migration.</p>
+  <p>Third, the cutover gap: your website forms keep collecting subscribers during the move. Import first, keep AWeber forms live while you rebuild, do a second "delta import" of anyone who subscribed during the move, <em>then</em> update the website forms. Then warm up properly &mdash; first campaign to your most engaged segment (opened in the last 60 days), expand over 2&ndash;3 sends. Keep AWeber live for one overlapping billing cycle as insurance; export everything before you cancel &mdash; once the account closes, the archive goes with it.</p>
+
+  <h2>The weekend checklist, in order</h2>
+  <ol>
+    <li><strong>Audit AWeber.</strong> List every list, every campaign, every broadcast template worth keeping, every form, every landing page. Screenshot each flow (triggers, delays, emails). Count your lists &mdash; if there is more than one, Trap 3 is your job zero.</li>
+    <li><strong>Settle the free-plan and Lite questions.</strong> On AWeber free with &le;500 subs and &le;3,000 emails/mo? Stop &mdash; don't migrate. On Lite with automations that fit? Don't migrate over $6/mo; migrate only for branching logic.</li>
+    <li><strong>Run the send math.</strong> Add your last three months of broadcasts + automated sends. If monthly sends exceed ~10&times; your list size, price Power, not Comfort &mdash; or stay.</li>
+    <li><strong>Open the MailerLite account early.</strong> Approval review takes up to ~a day. Don't start migration weekend on an unapproved account.</li>
+    <li><strong>Export AWeber, Subscribed only, per list.</strong> Subscribers &gt; Manage Subscribers &gt; filter status "Subscribed" &gt; Export CSV. Tags, custom fields, and engagement data ride along.</li>
+    <li><strong>Dedupe across lists.</strong> Merge the CSVs, dedupe by email, tag each contact with its source lists. One contact, many tags &mdash; never the same email three times.</li>
+    <li><strong>Verify your domain in MailerLite.</strong> Add the fresh SPF/DKIM records, confirm propagation and the green checks, test-send before importing anything.</li>
+    <li><strong>Import.</strong> Map AWeber tags to MailerLite tags. Keep unconfirmed/questionable segments as unconfirmed. Mind the 3-automation cap on free.</li>
+    <li><strong>Rebuild the welcome sequence first &mdash; with branching.</strong> Then the rest of the campaigns. Consolidate landing pages to MailerLite's allowance. Rebuild leaner: that seven-email sequence from 2023 that half your list never finished becomes four tight emails with a behavior split.</li>
+    <li><strong>Delta import, cut over the forms, warm up, run parallel.</strong> Catch the subscribers who signed up during the move, point forms at MailerLite, first send to engaged openers, expand over 2&ndash;3 campaigns, keep AWeber live one billing cycle, then cancel &mdash; after a full export.</li>
+  </ol>
+
+  <h2>Who shouldn't migrate</h2>
+  <p>Five honest exceptions. One: <strong>AWeber free-plan users at or under 500 subscribers</strong> &mdash; you hold the most generous free tier in the category; migrating costs you capacity. Two: <strong>Lite users whose automations fit</strong> &mdash; $6/mo is not worth a migration weekend; migrate only when you outgrow the builder. Three: <strong>daily or high-volume senders</strong> &mdash; Comfort's 10&times; cap forces you to Power at $39, erasing the Plus savings. Four: <strong>nonprofit discount holders</strong> &mdash; AWeber extends the same free-tier deal to 501(c)(3)s; price your nonprofit tier against Comfort before moving, not the public table. Five: <strong>phone-support loyalists</strong> &mdash; AWeber carries live phone support on every paid plan; if that channel matters to you, confirm MailerLite's support coverage at your tier before you switch, because the migration doesn't refund the comfort you leave behind.</p>
+
+  <h2>Affiliate honesty</h2>
+  <p>We carry affiliate placeholders for MailerLite (verified program, 30% lifetime) and for AWeber &mdash; one for each direction this page can send you. That symmetry is exactly why the stay-on-AWeber section above is long: this article recommends MailerLite for most AWeber Plus users, and that recommendation is affiliated, but the five don't-migrate cases are real, and the free-plan and Lite traps cost AWeber-bound readers nothing to hear. The migration earns us a commission only if you actually move; it earns you the savings either way.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <!-- AFFILIATE PLACEHOLDER: AWeber — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Start free with MailerLite (250 subscribers)</a>
+    <a class="btn-ghost" data-affiliate="aweber" href="#affiliate-link-placeholder-aweber">Staying on AWeber? See the free plan</a>
+  </p>
+
+  <h2>Keep reading</h2>
+  <p>The full price context is in <a href="aweber-vs-getresponse.html">AWeber vs GetResponse: the two old guard</a>, <a href="aweber-alternatives.html">AWeber alternatives</a>, and <a href="mailerlite-pricing-explained.html">MailerLite pricing explained</a>. If the migration isn't for you but leaving AWeber still is, <a href="aweber-alternatives.html">AWeber alternatives</a> matches six exits to the reason you're leaving. And if you're coming from the other direction &mdash; Mailchimp's bill, not AWeber's &mdash; the sibling guide is <a href="mailchimp-to-mailerlite-migration.html">Migrating from Mailchimp to MailerLite</a>.</p>
+
+  <p class="meta">Migration mechanics verified October 5, 2026 (AWeber export flow via official docs + current third-party walkthrough; cross-list duplicate behavior per official docs). Prices checked September 30 &ndash; October 1, 2026 from both official pricing pages. Prices change frequently &mdash; verify at checkout.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
