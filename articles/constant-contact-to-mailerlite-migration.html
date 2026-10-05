@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating from Constant Contact to MailerLite (2026): The 7 Traps and the Weekend Checklist | The Honest Inbox</title>
+<meta name="description" content="The Constant Contact-to-MailerLite migration guide for 2026: the contact-cliff pricing, the Lite-vs-Standard automation gating trap, the send-allowance overage math, and a step-by-step weekend checklist. Facts checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Migrating from Constant Contact to MailerLite (2026): The 7 Traps and the Weekend Checklist</h1>
+  <p class="meta">Migration facts checked October 5, 2026 &middot; Constant Contact prices triangulated October 5, 2026 from four independent 2026 pricing writeups (base figures unanimous; one band shows a source range) &middot; MailerLite prices checked September 30 &ndash; October 1, 2026 &middot; Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links &mdash; if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Constant Contact and MailerLite bill the same way — by contact count, not by send volume — so this migration has no pricing-model inversion like the Brevo move. The fight is different, and it is almost entirely on one side: Constant Contact's contact bands climb steeply ($12 to $160-plus as a small list grows), and its plan ladder locks the features that make email work — real automation, no platform branding — behind Standard ($35/mo) or Premium ($80/mo), while MailerLite's Comfort plan ships full automation from $19/mo. If you are on Lite, you are paying for a stripped plan; if you are on Standard or Premium, you are paying for features MailerLite includes at the entry tier. This guide is the money math first, the seven traps second, and the weekend checklist last.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Migrate from Constant Contact to MailerLite if you pay for Standard or Premium (modeled savings of ~$16–$90+/mo across the 1k–$10k list bands below), if you outgrow Lite's missing automation or its platform branding, or if your list is under 250 and you can drop to MailerLite's free plan. Do NOT migrate on Lite-to-Comfort sticker math alone — the honest comparison is Standard-to-Comfort, because Lite vs Comfort is a stripped plan against a full one. Also pause if you use Constant Contact's SMS add-on (MailerLite is email-only — you would need a second vendor) or if your nonprofit already takes Constant Contact's 30% annual-prepay discount (run that number against Comfort before moving). Whatever you do, price the list you will have in 12 months, not the one you have now — Constant Contact's bands punish growth.
+  </div>
+
+  <h2>The money: contact-band billing vs contact-band billing — the cliff table</h2>
+  <p>Both platforms price by contacts, but their bands tell opposite stories about growth. Constant Contact's bands are steep — doubling a small list can quadruple the bill — while MailerLite's bands stay close to flat. The table below compares what most Constant Contact users actually pay (Standard — see Trap 2 for why) against MailerLite Comfort:</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>List size</th><th>Constant Contact Lite (monthly)</th><th>Constant Contact Standard (monthly)</th><th>MailerLite Comfort (monthly)</th><th>Winner</th></tr>
+      <tr><td>1,000 contacts</td><td>$30–$50 (sources differ at this band)</td><td>$55–$75</td><td>$19</td><td><strong>MailerLite by $11–$56/mo</strong></td></tr>
+      <tr><td>2,500 contacts</td><td>$50</td><td>$75</td><td>~$29 (est.)</td><td><strong>MailerLite by ~$46/mo</strong></td></tr>
+      <tr><td>5,000 contacts</td><td>$80</td><td>$110</td><td>~$49</td><td><strong>MailerLite by ~$61/mo</strong></td></tr>
+      <tr><td>10,000 contacts</td><td>$120</td><td>$160</td><td>~$69+ (slider estimate past the verified 8k band)</td><td><strong>MailerLite by ~$91/mo</strong></td></tr>
+    </table>
+  </div>
+  <p class="table-note">Monthly billing. Constant Contact figures from sendx.io's June 2026 pricing-table writeup (verified against constantcontact.com/pricing), cross-checked with omnisend.com (verified June 2026), ecommerceparadise.com (2026 review), and mailsoftly.com (April 2026) — the three base figures ($12/$35/$80 at 500 contacts) are unanimous across all four; the 1k Lite band is stated as a $30–$50 range because the sources disagree there. MailerLite Comfort bands from this site's verified research (8k band verified at $69/mo; 2.5k and 10k are slider estimates, labeled). The pattern, not the pennies, is the point: Standard-vs-Comfort saves grow as the list grows, and they grow fast — the contact cliff (Trap 1) means this table gets worse for Constant Contact every year your list grows.</p>
+  <p>The 15%-annual-prepay lever deserves one line: prepaying 12 months cuts Constant Contact's bill ~15% — at 5,000 contacts that takes Standard from $110 to ~$94/mo, still nearly double Comfort's ~$49. It narrows the gap; it does not close it. And if you are a nonprofit already on the 30%-off annual rate, run <em>that</em> number against Comfort before deciding — at some bands it genuinely changes the verdict.</p>
+
+  <h2>The 7 traps</h2>
+
+  <h3>Trap 1: The contact cliff — Constant Contact's bands punish growth</h3>
+  <p>This is the structural trap, and it is why this migration compounds. On the Lite plan, going from 500 to 1,000 contacts takes the bill from $12 to $30–$50 — up to 4x the price for 2x the contacts. The same shape repeats up the ladder: every band jump is steeper than the contact growth that triggers it. Most migration guides compare the two bills at today's list size. The correct comparison is at the list you will have in 12 months: a shop growing from 2,500 to 5,000 contacts this year goes from $75/mo to $110/mo on Standard without sending a single extra email.</p>
+  <p>So the migration math has a time axis. Run the table above on today's list and on next year's list. If either one favors MailerLite — and at Standard-vs-Comfort it almost always does — migrating earlier saves the difference across every intervening month. Waiting costs the monthly gap, every month, while the cliff only gets steeper.</p>
+
+  <h3>Trap 2: The automation-and-branding gating — compare Standard to Comfort, never Lite to Comfort</h3>
+  <p>The trap inside the money table: Lite is not a real comparison point for Comfort, because Lite is a stripped plan. Lite shows Constant Contact's branding in your emails, ships only basic automation, allows one user, and caps monthly sends at 10x your contacts. Anything a growing business actually does with email — multi-step automations, A/B testing, segmentation, removing the platform's logo — requires Standard at $35/mo (500 contacts) or Premium at $80/mo.</p>
+  <p>So every "Constant Contact is only $12" argument is comparing a plan nobody should be on against MailerLite's full-featured Comfort. The honest comparison is Standard-to-Comfort — $35 vs ~$19 at the entry band, widening to $160 vs ~$69+ at 10k — and that is the migration that wins. If you are currently on Lite, congratulate yourself on the cheap bill, then ask whether the branding and missing automation are already costing you customers; most Lite users who run the honest comparison discover they should have been on Standard all along — at which point the migration pays for itself in a month.</p>
+
+  <h3>Trap 3: The send-allowance overage — 10x/12x/24x caps and the $0.002 drip</h3>
+  <p>Constant Contact rations sends: Lite allows 10x your contact count per month, Standard 12x, Premium 24x — and every email past the allowance costs $0.002. The good news: automated emails (welcome series, abandoned-cart flows) are excluded from the allowance, so the cap only bites campaigns. The bad news: a daily sender on Lite at 500 contacts gets 5,000 sends and pays for the 26,000 that don't fit — at $0.002 each, that is ~$52/mo in silent overage on top of the plan.</p>
+  <p>MailerLite's Comfort cap is ~10x the list size — comparable on paper. The difference is that Constant Contact's allowance is banded to the plan tier while the overage accumulates invisibly; most users discover it on the invoice, not in the dashboard. Before migrating, check your last three invoices for overage lines — if they exist, add them to the "current cost" side of your comparison, because the table above assumes clean plans and your real bill may be higher.</p>
+
+  <h3>Trap 4: No free plan — and the cancel call</h3>
+  <p>Two exit mechanics, both worth planning for. First: Constant Contact removed its permanent free plan in June 2025 — there is only a trial (about 60 days, no credit card) and then you pay. That means there is no free-downgrade path on Constant Contact; the migration's free-tier story is MailerLite's, not theirs. If your list is under 250, MailerLite's free plan (250 subscribers, 2,500 emails/mo, 3 automations) is a genuine $0 destination — the rare migration that goes from a paid plan to a free one.</p>
+  <p>Second: a 2026 review reports that canceling requires calling customer service — there is no self-serve cancel button. Treat this as a scheduling constraint, not a blocker: export everything first (Trap 5), keep the account live one overlapping billing cycle (Trap 7), and make the call after the MailerLite side is sending cleanly. The one thing you must not do is cancel first and discover mid-call that a segment export was missed — once the account closes, the archive goes with it.</p>
+
+  <h3>Trap 5: Exporting the billable slice — contacts, unsubscribed, and the zombie tax</h3>
+  <p>Constant Contact bills on contacts in the account — but its own help answers note that unsubscribed contacts are <em>not</em> counted. That creates the zombie tax: unsubscribed and dead contacts sit in the account unbilled, quietly inflating the export, and if you import all of them into MailerLite you pay band money for contacts who can never receive your emails.</p>
+  <p>The correct move: export only marketable contacts (subscribed/opted-in, not unsubscribed, not bounced-out). Two reasons this matters more here than in other migrations. First, MailerLite reviews new accounts before first sends, and importing dead weight is how you fail that review or tank day-one deliverability. Second, the contact cliff (Trap 1) means every zombie you import pushes you toward the next pricing band — on MailerLite that band jump costs real money per month, forever. Run the export from Constant Contact's contact management with the status filter applied, not from the unfiltered "all contacts" view.</p>
+
+  <h3>Trap 6: The SMS split — and what does not transfer</h3>
+  <p>Constant Contact is more than email: Lite and Standard offer SMS as a $10+/mo add-on, Premium bundles 500 SMS credits a month, and the platform has social posting, landing pages, and event tools. MailerLite is email-only. If any part of your operation runs on Constant Contact's SMS — appointment reminders, flash-sale texts — migrating means buying that channel separately from a dedicated SMS vendor.</p>
+  <p>That second bill reshapes the money math for SMS users: add it to the MailerLite side before comparing. For email-only users this trap is empty — which is most Constant Contact accounts, since the SMS add-on is opt-in. Also on the non-transfer list: automation workflows, forms, landing pages, and templates export as contact data only — rebuild everything in MailerLite. Rebuild order: domain auth first (Trap 7), welcome sequence second, revenue flows third. Screenshot every Constant Contact workflow before you cancel; the builders think in different primitives and a side-by-side screenshot is the only reliable translation layer.</p>
+
+  <h3>Trap 7: The approval pause, domain auth from zero, and the cutover gap</h3>
+  <p>Three startup mechanics, shared with every migration in this series. First, MailerLite reviews new accounts before your first sends — expect an approval step and up to about a day of waiting. Start the MailerLite account <em>before</em> migration weekend, not during it.</p>
+  <p>Second, SPF and DKIM authenticate your domain <em>with the sending platform</em> — Constant Contact's records in your DNS do nothing for MailerLite. Verify your sending domain in MailerLite, add its fresh DNS records, confirm the green checks, and test-send before importing anything. This is the most-skipped, most-punished step in any migration.</p>
+  <p>Third, the cutover gap: your website forms keep collecting subscribers during the move. Import first, keep Constant Contact forms live while you rebuild, do a second "delta import" of anyone who subscribed during the move, <em>then</em> update the website forms. Warm up properly — first campaign to your most engaged segment (opened in the last 60 days), expand over 2–3 sends. Keep Constant Contact live for one overlapping billing cycle as insurance (Trap 4's cancel call happens last); export everything before you make that call.</p>
+
+  <h2>The weekend checklist, in order</h2>
+  <ol>
+    <li><strong>Run the cliff math.</strong> Table above on today's list AND next year's list. Compare Standard-to-Comfort (Trap 2), not Lite-to-Comfort. Check the last three Constant Contact invoices for overage lines (Trap 3) and add them to the current-cost side.</li>
+    <li><strong>Audit SMS and multichannel.</strong> Using Constant Contact's SMS add-on or Premium's bundled SMS? Price a standalone SMS vendor and add it to the MailerLite side — email-only accounts skip this.</li>
+    <li><strong>Settle the free question.</strong> List under 250? MailerLite's free plan is a genuine $0 destination (no free plan exists on Constant Contact since June 2025). Over 250: Comfort.</li>
+    <li><strong>Open the MailerLite account early.</strong> Approval review takes up to ~a day. Don't start migration weekend on an unapproved account.</li>
+    <li><strong>Export Constant Contact, marketable-only.</strong> Filter by subscribed status — leave unsubscribed and bounced contacts behind (Trap 5's zombie tax).</li>
+    <li><strong>Verify your domain in MailerLite.</strong> Fresh SPF/DKIM records, confirmed propagation, test-send before importing anything.</li>
+    <li><strong>Import.</strong> Map Constant Contact fields to MailerLite fields. Keep questionable segments as unconfirmed. Mind the 3-automation cap on free.</li>
+    <li><strong>Rebuild the welcome sequence first.</strong> Then revenue flows. Screenshot every Constant Contact workflow before canceling — the builders think in different primitives.</li>
+    <li><strong>Delta import, cut over the forms, warm up.</strong> Catch the subscribers who signed up during the move, point forms at MailerLite, first send to engaged openers, expand over 2–3 campaigns.</li>
+    <li><strong>Run parallel one cycle, then cancel.</strong> Keep Constant Contact live one billing cycle as insurance, export everything, then make the cancel call (Trap 4) — after a full export, never before.</li>
+  </ol>
+
+  <h2>Who shouldn't migrate</h2>
+  <p>Five honest exceptions. One: <strong>SMS-heavy users</strong> — if Constant Contact's SMS is load-bearing for your operation, the two-vendor replacement bill can erase the email savings; price the pair before moving. Two: <strong>discounted nonprofits</strong> — the 30%-off annual rate genuinely changes some bands; run that number against Comfort first. Three: <strong>event-tool users</strong> — Constant Contact's event management with ticketing and RSVP has no MailerLite equivalent; if it is central to your business, stay. Four: <strong>tiny Lite lists under 500 that will stay tiny</strong> — $12/mo for a list that never grows is the one corner where the cliff never arrives, and the migration effort exceeds the savings for years. Five: <strong>phone-support dependents</strong> — Constant Contact's phone support on every plan is genuinely rare in this price range; if you use it monthly, price the loss of it.</p>
+
+  <h2>Affiliate honesty</h2>
+  <p>We carry affiliate placeholders for both sides of this page: <strong>MailerLite</strong> (verified program, 30% lifetime) and <strong>Constant Contact</strong> (verified program — brand-published on Constant Contact's own site: up to $105 per new paying account, one-time, plus $5 per trial signup, 90-day cookie, paid via affiliate networks). Both placeholders are links-to-be: we hold no live affiliate accounts yet, so neither side pays us anything today.</p>
+  <p>That symmetry is the point. This article recommends MailerLite for most Standard and Premium payers — and says so in the verdict — while the stay-on-Constant-Contact half (SMS users, discounted nonprofits, event-tool users, phone-support dependents) is written just as carefully, because a reader who runs the math and stays is a reader who should use our link too. The migration math does not change based on which link you click; the traps are real either way. When live affiliate accounts exist, both links will be marked — and this section will say exactly that.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Start free with MailerLite (250 subscribers)</a>
+  </p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: Constant Contact — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="constantcontact" href="#affiliate-link-placeholder-constantcontact">Stay with Constant Contact</a>
+  </p>
+
+  <h2>Keep reading</h2>
+  <p>The sibling migration from the other contact-based biller is <a href="mailchimp-to-mailerlite-migration.html">Migrating from Mailchimp to MailerLite</a>, MailerLite's own math is in <a href="mailerlite-pricing-explained.html">MailerLite pricing explained</a>, and the pricing-model inversion version of this guide — sends-billed vs contacts-billed — is <a href="brevo-to-mailerlite-migration.html">Migrating from Brevo to MailerLite</a>. That completes the 8-guide migration series.</p>
+
+  <p class="meta">Migration mechanics verified October 5, 2026. Constant Contact prices triangulated October 5, 2026 from four independent 2026 pricing writeups: base figures ($12/$35/$80 at 500 contacts) unanimous across all four; the 1k Lite band stated as a $30–$50 range because two sources disagree there; all other bands per the June 2026 verified table, cross-checked against the remaining three. MailerLite prices checked September 30 &ndash; October 1, 2026 from this site's verified research. Prices change frequently &mdash; verify at checkout.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
