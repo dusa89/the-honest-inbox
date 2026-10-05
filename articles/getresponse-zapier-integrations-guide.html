@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GetResponse Integrations in 2026: Native vs Zapier — What Each Actually Costs You | The Honest Inbox</title>
+<meta name="description" content="GetResponse ships 65+ native integrations — but half of what small businesses wire up runs through Zapier. This guide covers what each connection actually does, the polling-only catch, the 90-day API key expiry, and five real Zaps with honest task math. Checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>GetResponse Integrations in 2026: Native vs Zapier — What Each Actually Costs You</h1>
+  <p class="meta">Integration facts checked October 5, 2026 (Zapier's GetResponse app directory + 2026 third-party reviews) · Zapier pricing checked October 2, 2026 (third-party roundups; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">The integration question every GetResponse user asks eventually: "Can GetResponse talk to my [form builder / CRM / calendar / checkout]?" The short answer is almost always yes — twice over. GetResponse ships 65+ native integrations (per a 2026 third-party review of the integrations directory), and Zapier connects it to thousands more apps. But the two paths cost very different things, the Zapier trigger list has a polling catch nobody reads, and the task math decides whether Zapier stays free. This guide maps what native covers, what the Zapier connection actually fires on, the real per-workflow math, and the five Zaps small businesses actually use — with what each one costs per month at realistic volumes.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Wire up every native GetResponse integration first — they're included in your plan, and they cover the big three (store, website, payments) without a middle layer. Use Zapier only for apps with no native connection (your booking tool, your Facebook lead ads if you skip the native path, your course platform). And know two things before you build: every GetResponse trigger on Zapier is <em>polling-only</em> (no instant events — time-sensitive flows get a delay), and the API key you connect with expires after 90 days and must be regenerated or the Zap silently breaks. Count tasks before you build: a 2-step Zap firing 100 times a month is 200 tasks, which kills the free 100-task plan and lands you on Starter at $19.99/mo billed annually. Most small businesses run fine on the free Zapier plan with 2–3 simple Zaps; past ~10 workflows or 750 tasks, price Make or n8n before reflexively paying Zapier.
+  </div>
+
+  <h2>What "native" covers (the free path)</h2>
+  <p>A 2026 third-party review counts 65+ native integrations in GetResponse's directory (other directories list higher numbers — methodology differs, so treat "65+" as the conservative figure). The ones a small business reaches for first are all here: e-commerce (Shopify, WooCommerce, Magento, BigCommerce, PrestaShop — deep enough for abandoned-cart and product sync), CRM (Salesforce with bidirectional sync, HubSpot, Zoho CRM), CMS (WordPress, Squarespace, Wix), webinars (built-in webinar hosting plus Zoom and GoToWebinar connections), payments (Stripe, PayPal, Square), social and ads (Facebook Custom Audiences, Google Ads), and analytics (Google Analytics). GetResponse also publishes a full REST API plus webhooks for subscribe/open/click/goal-reached/survey/unsubscribe events — the escape hatch for anyone with a developer, which skips Zapier entirely.</p>
+  <p>The honest limitation: native integrations mostly push contacts and events <em>into</em> GetResponse. They do not reach back out to your other tools. If you need GetResponse activity to drive something else — a Slack ping when a high-value contact lands, a spreadsheet row when someone finishes an autoresponder — that's the Zapier side. And some apps you live in (your booking tool, your course platform, your lead ads) simply have no native path at all.</p>
+
+  <h2>What the Zapier connection actually supports</h2>
+  <p>The GetResponse app on Zapier exposes these real triggers, searches, and actions (per Zapier's current app help page, October 2026):</p>
+  <p><strong>Triggers (the events that start a Zap) — all polling:</strong></p>
+  <ul>
+    <li><strong>New Autoresponder</strong> — fires when a new autoresponder is created</li>
+    <li><strong>New Landing Page</strong> — fires when a new landing page is created</li>
+    <li><strong>New Contact</strong> — fires when a new contact is added to any list</li>
+    <li><strong>New List</strong> — fires when a new list is created</li>
+    <li><strong>New Newsletter</strong> — fires when a new newsletter is created</li>
+    <li><strong>New Form</strong> — fires when a new form is added</li>
+  </ul>
+  <p><strong>Searches (the lookup steps):</strong></p>
+  <ul>
+    <li><strong>Find List</strong> — finds an existing list</li>
+    <li><strong>Find Contact</strong> — finds an existing contact</li>
+  </ul>
+  <p><strong>Actions (what the Zap does inside GetResponse):</strong></p>
+  <ul>
+    <li><strong>Create or Update Contact</strong> — the workhorse; form fills, purchases, bookings all land here</li>
+    <li><strong>Create Newsletter</strong> — draft a send from outside GetResponse</li>
+    <li><strong>Update Contact</strong> — patch fields on an existing contact</li>
+    <li><strong>Create Contact</strong> — adds without the upsert safety</li>
+    <li><strong>Remove Contact</strong> — deletes a contact from a list (hygiene syncs)</li>
+    <li><strong>API Request (Beta)</strong> — raw authenticated API call for anything the listed actions can't do</li>
+  </ul>
+  <p>Read the trigger list twice, because it tells you something important: three of the six triggers fire when <em>you create an asset</em> (a list, a form, a newsletter) — admin events, not customer events. For day-to-day contact work, the list is really one trigger (New Contact) plus the contact actions. That's fine for the Zaps below, but it's why "can it" was never the question — the question is "at what volume does the task meter make this stupid."</p>
+
+  <h2>The task math (the part nobody explains)</h2>
+  <p>Zapier's pricing trap sits in the task counter, not in the app directory. The rules:</p>
+  <ol>
+    <li><strong>The trigger is free.</strong> Every action step costs one task.</li>
+    <li><strong>Free plan: 100 tasks/month.</strong> Starter: $19.99/mo billed annually, 750 tasks. (Third-party 2026 roundups — verify on zapier.com before checkout; Zapier revises tiers.)</li>
+    <li><strong>A 2-step Zap (trigger + 1 action) firing 100 times a month = 100 tasks.</strong> Exactly the free ceiling. Add a second action step (trigger + lookup + write = 2 tasks per fire) and 50 fires burns the free plan.</li>
+    <li><strong>Polling checks don't burn tasks; successful runs do.</strong> But polling means <em>delay</em>: free and lower tiers check triggers on a 15-minute cycle, so a quote-request alert that fires through a polling trigger arrives up to 15 minutes late. For time-sensitive flows, that delay is the real cost of the free tier, not money.</li>
+  </ol>
+  <p>The worked example: a Facebook Lead Ads → GetResponse Zap (trigger + Create or Update Contact = 1 task per lead). At 60 leads/month: 60 tasks — free plan survives. At 200 leads/month: 200 tasks — you're paying $19.99/mo for the privilege of moving data that a native integration would move for $0. Count expected actions before building, not after.</p>
+
+  <h2>Five Zaps small businesses actually use (with honest task math)</h2>
+  <p><strong>1. Facebook Lead Ads → Create or Update Contact.</strong> The classic. Trigger: new lead in your ad form. Action: Create or Update Contact (upsert, so re-clicks don't duplicate). Two steps = 1 task per lead. At 60 leads/month it sits inside the free plan; at 150+ it doesn't. Honest check first: GetResponse has a native lead-ads path too — if it covers your form, skip Zapier entirely.</p>
+  <p><strong>2. Booking tool → Create or Update Contact.</strong> Your calendar app has no native GetResponse connection, so this is the Zapier-shaped gap. Trigger: new booking. Action: Create or Update Contact with the appointment date in a custom field (day-of reminder automations read it inside GetResponse). Two steps. At 30 bookings/month: 30 tasks — safely free.</p>
+  <p><strong>3. Shopify new customer → Create or Update Contact.</strong> Two steps, 1 task per order — but only build this if you need data somewhere the <em>native</em> Shopify integration doesn't put it. The native connection already syncs products, orders, and abandoned-cart data for free, which covers nearly every store. 200 orders/month through the Zap = 200 tasks and a $19.99/mo bill for what native does included. This Zap's honest job is the exception, not the rule.</p>
+  <p><strong>4. New Contact → Slack channel ping.</strong> The internal alert loop: when a high-value contact lands (quote form, webinar registration), the team hears about it in seconds instead of at the next inbox check. Trigger: New Contact with a filter on source. Action: Slack message. Two steps, and polling delay applies — up to 15 minutes on the free tier, so this is a "same morning" alert, not a "same minute" one.</p>
+  <p><strong>5. Unsubscribed in the store → Remove Contact.</strong> Hygiene sync: when a customer opts out in Shopify/WooCommerce, mirror it in GetResponse so a later broadcast doesn't resurrect them. Trigger: tag/opt-out change in the store. Action: Remove Contact from the list. Low volume, high value — the Zap that prevents the complaint.</p>
+
+  <h2>The decision rule: native first, Zap second, pay third</h2>
+  <ol>
+    <li><strong>Native first.</strong> Store, website, payments, lead ads — check the native directory before touching Zapier. Included in your plan, no task meter, no 90-day key expiry.</li>
+    <li><strong>Zap second.</strong> Booking tools, course platforms, and anything with no native connection — plus pushing GetResponse events <em>out</em> to Slack, sheets, and CRMs.</li>
+    <li><strong>Pay third.</strong> Run the task math for 90 days of expected volume. If you're past ~750 tasks/month, price Make (per-operation pricing) or n8n (fixed server cost) before reflexively paying Zapier — the honest answer is a volume question, not a quality question.</li>
+    <li><strong>Re-audit quarterly.</strong> Zaps accrete. Every quarter, open the Zap dashboard, kill the ones nobody looks at, and check whether a native integration has since appeared for what remains.</li>
+  </ol>
+
+  <h2>The honest catches</h2>
+  <p><strong>Every trigger is polling — no instant events.</strong> Per Zapier's own app page, all six GetResponse triggers are polling. GetResponse's sibling tools on Zapier sometimes expose instant events (a clicked link firing in real time); GetResponse lists none. Anything time-sensitive — quote-request alerts, booking confirmations routed through Zapier — inherits the polling delay. Design around it or keep those flows native.</p>
+  <p><strong>Your API key expires after 90 days.</strong> Zapier's help page is explicit: GetResponse API keys must be used within 90 days or they expire and need regeneration. Your Zap works fine in month one, month two — and silently breaks in month three until you reconnect. Put a calendar reminder at day 80. Native integrations don't have this quirk; it's a Zapier-path tax.</p>
+  <p><strong>Zapier costs stack on top of GetResponse costs.</strong> A business on GetResponse Starter plus Zapier Starter pays two subscriptions for automation that half the native integrations already do free — see our <a href="getresponse-pricing-explained.html">GetResponse pricing explainer</a> for current tier math before stacking anything. Audit before you stack.</p>
+  <p><strong>A third of the trigger list is admin events.</strong> New List, New Form, New Newsletter — these fire when <em>you</em> build something, not when a customer acts. They're useful for bookkeeping (log every new form to a sheet) but they don't do daily contact work. Don't count the trigger list's length as its power.</p>
+  <p><strong>The native integrations need maintenance too.</strong> API keys expire, app permissions get revoked by store edits, and native syncs can silently pause — check the integration status page quarterly, same as you'd check Zap history.</p>
+
+  <h2>FAQ</h2>
+  <h3>Is GetResponse's Zapier integration free?</h3>
+  <p>The GetResponse app inside Zapier is free to connect. What costs money is Zapier itself: 100 tasks/month on the free plan, then $19.99/mo (billed annually) for Starter with 750 tasks. GetResponse charges nothing for the connection.</p>
+
+  <h3>Do I need Zapier if GetResponse has native integrations?</h3>
+  <p>Probably not for the big three: store (Shopify/WooCommerce), website (WordPress), and payments (Stripe) are all native. You need Zapier for apps GetResponse doesn't cover natively — booking tools, course platforms, most lead-ad edge cases — or for pushing GetResponse events <em>out</em> to Slack, sheets, and other CRMs.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a single lead-ads Zap at 100 leads/month is 100 tasks (exactly the free ceiling). A booking → contact Zap at 30 bookings is 30 tasks (safely free). Most businesses running 2–3 modest Zaps land in the 100–500 tasks/month range — the free-to-Starter boundary. Count your expected actions before building, not after.</p>
+
+  <h3>What's better than Zapier for GetResponse?</h3>
+  <p>For volume, Make charges per operation (roughly $9–10/mo for 10,000 operations per 2026 roundups — verify live) and n8n is a fixed server cost. For coverage and simplicity, Zapier still leads. And for the truly Zapier-shaped gaps, GetResponse's own REST API plus webhooks skip the middle layer entirely if you have a developer. The honest answer is a volume question, not a quality question.</p>
+
+  <p>We carry an affiliate placeholder for GetResponse (verified program) only. Zapier is not in our affiliate bench, so the pricing advice above costs us nothing either way: buy native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier prices in this article come from third-party 2026 roundups — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: GetResponse — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="getresponse-pricing-explained.html">GetResponse pricing explained: what you'll actually pay at every list size</a></li>
+    <li><a href="getresponse-vs-mailerlite.html">GetResponse vs MailerLite: which is actually cheaper as you grow</a></li>
+    <li><a href="getresponse-alternatives.html">Best GetResponse alternatives</a></li>
+    <li><a href="mailerlite-zapier-integrations-guide.html">MailerLite integrations: native vs Zapier</a></li>
+    <li><a href="kit-zapier-integrations-guide.html">Kit integrations: native vs Zapier</a></li>
+    <li><a href="email-deliverability-audit-checklist.html">Email deliverability audit checklist</a></li>
+  </ul>
+  <p class="meta">Prices and integration facts checked October 5, 2026. GetResponse trigger/action list from Zapier's own app help page (crawled October 2026); native-integration categories from 2026 third-party reviews. Prices change frequently — verify at checkout. Part of our <a href="best-email-marketing-software-small-business.html">best email marketing software for small business</a> guide.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
