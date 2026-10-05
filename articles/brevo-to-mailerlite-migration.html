@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating from Brevo to MailerLite (2026): The 7 Traps and the Weekend Checklist | The Honest Inbox</title>
+<meta name="description" content="The Brevo-to-MailerLite migration guide for 2026: the send-volume vs contact-size pricing inversion, the 2,000-contact automation ceiling, the transactional-SMTP trap, and a step-by-step weekend checklist. Facts checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Migrating from Brevo to MailerLite (2026): The 7 Traps and the Weekend Checklist</h1>
+  <p class="meta">Migration facts checked October 5, 2026 &middot; Brevo prices triangulated October 5, 2026 from three independent September/October 2026 pricing writeups &middot; MailerLite prices checked September 30 &ndash; October 1, 2026 &middot; Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links &mdash; if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Brevo (formerly Sendinblue) and MailerLite look like rivals but bill like opposites: Brevo charges for the <em>emails you send</em>, MailerLite charges for the <em>contacts you keep</em>. That one difference decides whether this migration saves you money, costs you money, or breaks even &mdash; and most migration guides never run the arithmetic. There are two honest reasons to leave Brevo: the automation ceiling (Free and Starter cap automation reach at 2,000 contacts, cumulative, never resetting) and the editor experience. The bill, though, usually goes the wrong direction on a big quiet list. This guide is the money math first, the seven traps second, and the weekend checklist last.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Migrate from Brevo to MailerLite if you hit the automation ceiling (2,000 contacts on Free/Starter — cumulative, never resets), if you send <em>frequently</em> to a <em>small</em> list (daily to 1,000 contacts: Brevo Starter ~$39/mo vs MailerLite Comfort $19/mo — a modeled ~$20/mo savings), or if Brevo's clunkier automation builder is costing you real hours. Do NOT migrate if you send <em>infrequently</em> to a <em>large</em> list (weekly to 10,000 contacts: Brevo Starter ~$39/mo vs MailerLite Comfort ~$69+/mo — Brevo is ~$30/mo cheaper, modeled), if you route order confirmations, receipts, or password resets through Brevo's transactional SMTP (MailerLite is marketing-email only — you would need a second paid tool), or if you sit happily on Brevo's free plan (300 emails/day, up to 100K contacts stored, $0 — MailerLite's free plan carries only 250 subscribers). Whatever you do, run your actual sends-per-month against the inversion table below before you export anything.
+  </div>
+
+  <h2>The money: send-based billing vs contact-based billing — the inversion table</h2>
+  <p>This is the whole migration in one concept. Brevo's price follows <strong>send volume</strong>; MailerLite's follows <strong>list size</strong>. So the winner flips depending on your sends-per-contact ratio:</p>
+  <div class="table-scroll">
+    <table>
+      <tr><th>Your pattern</th><th>Brevo Starter (monthly)</th><th>MailerLite Comfort (monthly)</th><th>Winner</th></tr>
+      <tr><td>1,000 contacts, ~weekly (4k emails/mo)</td><td>$9 (5k tier)</td><td>$19</td><td>Brevo by $10/mo</td></tr>
+      <tr><td>1,000 contacts, daily (~30k emails/mo)</td><td>~$39 (30k tier)</td><td>$19</td><td><strong>MailerLite by ~$20/mo</strong></td></tr>
+      <tr><td>10,000 contacts, weekly (~40k emails/mo)</td><td>~$39 (40k tier)</td><td>~$69+ (10k contacts)</td><td><strong>Brevo by ~$30/mo</strong></td></tr>
+      <tr><td>5,000 contacts, ~monthly (5k emails/mo)</td><td>$9 (5k tier)</td><td>~$49</td><td><strong>Brevo by ~$40/mo</strong></td></tr>
+    </table>
+  </div>
+  <p class="table-note">Monthly billing. Brevo tiers triangulated October 5, 2026 from three independent pricing writeups (checked September 20, 2026, September 2026, September 2026) — exact ladder figures are source-checked; "modeled" savings combine them with your own send pattern. MailerLite Comfort bands from this site's verified research (8k band verified at $69/mo; the 10k figure is the pricing-slider estimate). The pattern, not the pennies, is the point: frequent senders on small lists save on MailerLite; infrequent senders on big lists save on Brevo — and the gap widens as the list grows while the cadence stays fixed.</p>
+  <p>One more wrinkle before the traps: the Brevo <strong>Standard</strong> comparison. If your reason to move is automation, you are probably already on Brevo Standard at $18/mo (5k emails) for the unlimited automation reach — and Comfort is $19/mo at 1k contacts. That is a $1 difference, not a money move. So say it plainly: <strong>this migration is about the automation ceiling and the builder, not the bill.</strong> Anyone who tells you moving from Brevo Standard to MailerLite Comfort "saves money" hasn't run either pricing page.</p>
+
+  <h2>The 7 traps</h2>
+
+  <h3>Trap 1: The pricing inversion — migrate on the wrong ratio and you pay more</h3>
+  <p>The trap that undoes this whole migration is assuming contact-based pricing is always cheaper. It is not. Walk your last 90 days: total emails sent (campaigns + automations + transactional) divided by active contacts, per month. If your ratio is under ~4 sends per contact per month, Brevo's send-volume pricing almost certainly beats MailerLite. Over ~15, MailerLite wins. Between 4 and 15, run the two ladders from the table above — that is the whole decision, and it takes ten minutes.</p>
+  <p>The growth-order trap inside the trap: Brevo's bill grows with <em>activity</em>; MailerLite's grows with <em>audience</em>. A list that doubles while you keep a monthly cadence barely moves Brevo's bill (same emails, more contacts — until the contact storage caps at the selected tier) but doubles MailerLite's. If you are in a list-building phase, price the <em>list you will have in 12 months</em>, not the one you have now.</p>
+
+  <h3>Trap 2: The 2,000-contact automation ceiling — the one real reason to move</h3>
+  <p>On Brevo's Free and Starter plans, active marketing automations stop admitting new contacts once 2,000 unique contacts have entered them — cumulative, per Brevo support, and it never resets. Your welcome series and cart flows keep running for everyone already inside; the people signing up <em>after</em> you hit the cap simply never enter. It is the quietest funnel killer in the migration guides, because the automations look healthy right up until you check the entry log.</p>
+  <p>So the honest migration trigger is measurable: check your automation entry totals in Brevo's automation dashboard. If any core workflow is at or near the 2,000-entry mark and your list is still growing, you have outgrown Starter's automation — and the choice is Brevo Standard ($18/mo, unlimited reach) or MailerLite (no entry cap on paid plans). Run that choice on price and builder preference; Trap 1 decides the money half.</p>
+
+  <h3>Trap 3: The transactional-SMTP split — MailerLite does not do receipts</h3>
+  <p>Brevo is marketing <em>and</em> transactional in one vendor: order confirmations, password resets, booking notifications all ride Brevo's SMTP/API on the same bill. MailerLite is marketing-email only. If any part of your business sends transactional mail through Brevo, migrating means splitting the stack: MailerLite for campaigns plus a transactional sender (Postmark, SMTP2GO, or similar — typically $15–$25/mo at small scale) for the triggered stuff.</p>
+  <p>That second bill erases the migration savings for most small senders. Audit your Brevo account <em>before</em> you start: check the transactional statistics tab and the SMTP logs. If transactional volume is nonzero, either stay on Brevo or price the pair (MailerLite + transactional tool) against Brevo alone — never price MailerLite alone.</p>
+
+  <h3>Trap 4: The free-plan downgrade — Brevo's free tier is the most generous in the category</h3>
+  <p>Brevo's free plan is quietly the best free deal in email marketing: 300 emails a day (~9,000 a month), up to 100,000 contacts stored, CRM included, $0 — with the Brevo logo in the footer. MailerLite's free plan carries 250 subscribers and 2,500 emails a month with 3 automations. If you sit on Brevo's free plan with a big list and a light cadence, <strong>migrating to MailerLite's free plan costs you ~99% of your contact capacity.</strong></p>
+  <p>The one free-to-free case that wins: your list is under 250 and you need the automation builder (Brevo free caps automation reach at the same 2,000-contact ceiling, but for a 250-person list that ceiling is years away). Decide this before you export a single CSV — and if you stay, the branding add-on question is separate from the capacity question.</p>
+
+  <h3>Trap 5: Exporting the wrong subscriber set</h3>
+  <p>Brevo's contacts live in segments, and the export path (Contacts → segment/filter → Export CSV) exports exactly what you filtered — which means the default "all contacts" view mixes subscribed, unsubscribed, and transactional-only contacts together. The correct move: build a segment for marketable contacts only (subscribed/opted-in, not blacklisted, not transactional-only), and export <em>that</em>.</p>
+  <p>Two reasons this matters more here than in other migrations. First, MailerLite reviews new accounts before first sends, and importing dead or unengaged contacts is how you fail that review or tank day-one deliverability. Second, MailerLite bills per contact — every unsubscribed zombie you import costs you band money and gains you nothing. Use Brevo's engagement columns: the "has not opened in 90 days" slice stays behind; it is the outer boundary of your warm-up list, not its core.</p>
+
+  <h3>Trap 6: Automations, templates, webhooks, and transactional code don't transfer</h3>
+  <p>Brevo exports contact data — it does not export automation workflows, transactional email templates, SMTP/API credentials, webhooks, forms, or landing pages. The rebuild list: every marketing automation (welcome, abandoned cart, re-engagement — rebuild against Trap 2's lesson, with entry counts in mind), every form and landing page, and, if Trap 3 applies to you, the transactional migration to the new provider's API/SMTP with fresh DNS records.</p>
+  <p>Rebuild order: domain auth first (see Trap 7), welcome sequence second — it is the one automation that earns back the migration's effort immediately — then revenue flows, then the rest. Screenshot every Brevo workflow before you cancel: triggers, delays, conditions, email content. Brevo's automation builder and MailerLite's think in different primitives; a side-by-side screenshot is the only reliable translation layer.</p>
+
+  <h3>Trap 7: The approval pause, domain auth from zero, and the cutover gap</h3>
+  <p>Three startup mechanics, shared with every migration in this series. First, MailerLite reviews new accounts before your first sends — expect an approval step and up to about a day of waiting. Start the MailerLite account <em>before</em> migration weekend, not during it.</p>
+  <p>Second, SPF and DKIM authenticate your domain <em>with the sending platform</em> — Brevo's records in your DNS do nothing for MailerLite. Verify your sending domain in MailerLite, add its fresh DNS records, confirm the green checks, and test-send before importing anything. This is the most-skipped, most-punished step in any migration — and it matters doubly here because you are moving between two platforms with different deliverability personalities.</p>
+  <p>Third, the cutover gap: your website forms keep collecting subscribers during the move. Import first, keep Brevo forms live while you rebuild, do a second "delta import" of anyone who subscribed during the move, <em>then</em> update the website forms. Warm up properly — first campaign to your most engaged segment (opened in the last 60 days), expand over 2–3 sends. Keep Brevo live for one overlapping billing cycle as insurance; export everything before you cancel — once the account closes, the archive goes with it.</p>
+
+  <h2>The weekend checklist, in order</h2>
+  <ol>
+    <li><strong>Run the inversion math.</strong> Last 90 days: total sends ÷ active contacts per month. Under ~4: Brevo wins the bill — stop here unless Trap 2 applies. Over ~15: MailerLite wins. Between: run both ladders from the table above on the list you will have in 12 months.</li>
+    <li><strong>Audit Brevo's automation ceilings.</strong> Check automation entry totals against the 2,000-contact cap on Free/Starter. If core workflows are near the cap, the migration has a real trigger — and the alternative quote is Brevo Standard ($18/mo), not nothing.</li>
+    <li><strong>Audit transactional.</strong> Check the transactional statistics tab and SMTP logs. Nonzero volume means pricing MailerLite + a transactional sender ($15–$25/mo) against Brevo — never MailerLite alone.</li>
+    <li><strong>Settle the free question.</strong> On Brevo free with a large list and light cadence? Don't migrate to MailerLite free — you lose the contact capacity that makes Brevo free special.</li>
+    <li><strong>Open the MailerLite account early.</strong> Approval review takes up to ~a day. Don't start migration weekend on an unapproved account.</li>
+    <li><strong>Export Brevo, marketable-only.</strong> Build the subscribed/not-blacklisted segment, export the CSV. Engagement data rides along — the 90-day-dead slice stays behind.</li>
+    <li><strong>Verify your domain in MailerLite.</strong> Fresh SPF/DKIM records, confirmed propagation, test-send before importing anything.</li>
+    <li><strong>Import.</strong> Map Brevo attributes to MailerLite fields. Keep unconfirmed/questionable segments as unconfirmed. Mind the 3-automation cap on free.</li>
+    <li><strong>Rebuild the welcome sequence first.</strong> Then revenue flows. Screenshot every Brevo workflow first — the builders think in different primitives.</li>
+    <li><strong>Delta import, cut over the forms, warm up, run parallel.</strong> Catch the subscribers who signed up during the move, point forms at MailerLite, first send to engaged openers, expand over 2–3 campaigns, keep Brevo live one billing cycle, then cancel — after a full export.</li>
+  </ol>
+
+  <h2>Who shouldn't migrate</h2>
+  <p>Five honest exceptions. One: <strong>large quiet lists</strong> — 10,000 contacts mailed weekly is ~$39/mo on Brevo and ~$69+/mo on MailerLite; the inversion punishes you. Two: <strong>transactional senders</strong> — if Brevo handles receipts or resets, the two-tool replacement bill erases the win. Three: <strong>Brevo free-plan users with big lists</strong> — you hold the most generous free tier in the category. Four: <strong>Brevo Standard users who just want cheaper</strong> — $18 vs $19 at 1k contacts is not a money move; migrate for the builder or don't migrate. Five: <strong>multichannel users</strong> — Brevo's SMS, WhatsApp (Professional), and CRM live in one bill; MailerLite is email-only, and rebuilding the multichannel stack piece by piece is a project, not a migration.</p>
+
+  <h2>Affiliate honesty</h2>
+  <p>We carry an affiliate placeholder for MailerLite (verified program, 30% lifetime). <strong>Brevo carries no affiliate placeholder on this page</strong> — we could not verify an affiliate program that pays for this kind of referral, so the stay-on-Brevo half of this guide is uncompensated. That asymmetry is exactly why the don't-migrate section above is long: this article recommends MailerLite for frequent senders on small lists, and that recommendation is affiliated, but the inversion table, the transactional trap, and the free-plan warning cost Brevo-bound readers nothing to hear. The migration earns us a commission only if you actually move; it earns you the savings either way.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: MailerLite — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+    <a class="btn-aff" data-affiliate="mailerlite" href="#affiliate-link-placeholder-mailerlite">Start free with MailerLite (250 subscribers)</a>
+  </p>
+
+  <h2>Keep reading</h2>
+  <p>The full head-to-head is <a href="brevo-vs-mailerlite.html">Brevo vs MailerLite: the cheapest serious senders go head-to-head</a>, the exit options are in <a href="brevo-alternatives.html">Brevo alternatives</a>, and MailerLite's own math is in <a href="mailerlite-pricing-explained.html">MailerLite pricing explained</a>. Coming from the other pricing model — contacts, not sends? The sibling guide is <a href="mailchimp-to-mailerlite-migration.html">Migrating from Mailchimp to MailerLite</a>.</p>
+
+  <p class="meta">Migration mechanics verified October 5, 2026 (Brevo export flow via documented segment/export path; automation ceiling per Brevo support via current third-party reporting). Brevo prices triangulated October 5, 2026 from three independent September/October 2026 pricing writeups (exact ladder figures are source-checked; per-pattern savings are modeled from your own send ratio). MailerLite prices checked September 30 &ndash; October 1, 2026 from official pricing pages. Prices change frequently &mdash; verify at checkout.</p>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
