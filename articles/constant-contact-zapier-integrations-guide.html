@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Constant Contact Integrations in 2026: Native vs Zapier — The 300-App Native Bench | The Honest Inbox</title>
+<meta name="description" content="Constant Contact's Zapier app is the thinnest of the family — but its native bench (300+ integrations, any plan) is the deepest. When to use Zapier, when native wins (Shopify, Eventbrite, the CRMs), the polling-trigger lag, the SMS-consent trap, and five real Zaps with honest task math. Checked October 5, 2026.">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">The Honest <span>Inbox</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Disclosure</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Constant Contact Integrations in 2026: Native vs Zapier — The 300-App Native Bench</h1>
+  <p class="meta">Integration facts checked October 5, 2026 (Constant Contact's own integrations pages + knowledgebase, Zapier's directory and template pages) · Zapier pricing checked October 5, 2026 (seedprod.com 2026 tested guide; verify on zapier.com) · Monthly billing</p>
+
+  <div class="disclosure-box">
+    <strong>Affiliate disclosure</strong>
+    Some links below are affiliate links — if you sign up through them, we may earn a commission at no extra cost to you. Rankings are never for sale. <a href="../disclosure.html">Full policy</a>.
+  </div>
+
+  <p class="lede">Constant Contact is the inversion of this whole guide series. Every other tool here needs Zapier for plumbing — Constant Contact barely does. Its native bench is the deepest in the set (300+ native integrations on any plan, per Constant Contact's own integrations page), covering the website, the store, the CRM, and the bookkeeping. That makes Zapier's job here the thinnest of the five: the long tail of apps Constant Contact doesn't know — forms, sheets, ad leads, niche CRMs — plus a few audience-building loops. If you've been reading this series looking for Zapier-first thinking, this is the entry where the honest advice is native-first discipline: check the bench before you build a Zap, because the Zap you need probably already exists as a checkbox.</p>
+
+  <div class="verdict">
+    <strong class="verdict-label">TL;DR</strong><br>
+    Use native for: the website (Shopify, WooCommerce, Squarespace, Wix, BigCommerce, Magento), ecommerce (Shopify abandoned-cart automation, eBay, ShipStation), CRMs (Salesforce, HubSpot, Zoho), events (Eventbrite), scheduling (Acuity), and bookkeeping (QuickBooks, Xero) — all native, all 300+ on any plan. Use Zapier for: contact intake from the long tail (Squarespace Forms, Unbounce, Typeform, Webflow, Gravity Forms, Google Forms), Facebook Lead Ads, Google Sheets rows, niche CRMs (Follow Up Boss, Close, kvCORE), and the audience loops (new contacts or email opens to Google Ads customer lists). Watch three traps: Constant Contact's Zapier triggers are polling, not instant; "New Email Opened" fires per open, and that's a meter; and the Create-or-Update action's SMS fields carry a consent trap. Five Zaps below with honest task math.
+  </div>
+
+  <h2>What "native" covers (the deepest bench in the set)</h2>
+  <p>Constant Contact's own integrations page states 300+ native integrations available on any plan (checked October 5, 2026). Nobody else in this guide series is in that league. The headliners that make the Zapier question small:</p>
+  <ul>
+    <li><strong>Ecommerce — the full shelf.</strong> Shopify (abandoned-cart automation plus sales tracking back into Constant Contact), eBay, WooCommerce, BigCommerce, Magento, Squarespace, and Wix — plus ShipStation syncing customers into lists. Per Constant Contact's knowledgebase (updated 2 days before writing), the ecommerce bench is native, not Zapier-bridged. The Shopify abandoned-cart flow is the marquee: the single most valuable email automation for a small store, and it's a checkbox, not a Zap.</li>
+    <li><strong>Events and scheduling.</strong> Eventbrite (attendees to lists, natively) and Acuity Scheduling — both native. The "add new event attendees to Constant Contact" Zap that tops Zapier's directory for other tools is a native checkbox here.</li>
+    <li><strong>CRMs and bookkeeping.</strong> Salesforce, HubSpot, and Zoho CRM are native; QuickBooks and Xero connect for customer data. The finance-to-email loop that needs Zapier elsewhere mostly doesn't here.</li>
+    <li><strong>The rest of the stack.</strong> WordPress, Facebook, Office 365, MINDBODY (per a 2026 comparison roundup refreshed ~21 hours before writing).</li>
+  </ul>
+  <p>The honest shape of a Constant Contact stack: native handles the website, the store, the events, the CRM, and the bookkeeping. What's left for Zapier is the intake layer — the apps Constant Contact doesn't know — and the ad-platform audience loops. That's a much smaller job than the other four guides in this series.</p>
+
+  <h2>What the Zapier connection actually supports</h2>
+  <p>Constant Contact's Zapier app surface, from Zapier's own directory and template pages (October 2026). The app is trigger-and-action balanced but shallow — the directory evidence shows these in use:</p>
+  <p><strong>Triggers — the contact events:</strong> New Contact (fires when a new contact is created), Contact Updated (per Zapier's Constant Contact FAQ text). Note the mechanics honestly: Zapier's template pages label Constant Contact triggers as polling, not instant — there's a check-interval delay between the event and the Zap firing. Fine for intake; don't build time-critical alerting on it.</p>
+  <p><strong>Triggers — the engagement events:</strong> New Email Opened. This is the family-standard follow-up fuel (an open becomes a sales task, a CRM note, an ad-audience addition) — and the family-standard meter: it fires per open, not per contact. Ten opens from one prospect is ten tasks. We'll count this properly in the task math.</p>
+  <p><strong>Actions — Add Contact to List:</strong> contact ID plus list, both required. This is the workhorse — every intake Zap ends here. The required list choice is the trap: skip it and the contact exists without a home, which is how "the list stopped growing" mysteries start. Always map the list field explicitly.</p>
+  <p><strong>Actions — Create or Update Contact:</strong> create source plus email required; everything else optional — first/middle/last name, job title, company, home/work/cell/other phones, SMS phone plus SMS consent type, birthday month and day, anniversary, address, tags. The SMS consent type field is the one to read twice: writing an SMS number without mapping consent honestly is a compliance problem wearing an automation costume. If you don't have recorded consent, don't map the SMS fields.</p>
+  <p><strong>Actions — Update Contact:</strong> contact ID plus tags required — the maintenance tool (re-tag on purchase, re-tag on milestone).</p>
+  <p>Three observations. First: no "new or updated contact" combined trigger appears in the directory evidence — intake Zaps pick New Contact or Contact Updated, and migrations that re-sync contacts can double-fire if you use both. One trigger, one contract. Second: the write side is contact-centric; there are no campaign or automation-surface actions here, so "send a campaign from a Zap" is not a thing on this app. Third: the whole app is shallower than the other four in this series — and that's fine, because the native bench carries the weight.</p>
+
+  <h2>The task math (and the polling reality)</h2>
+  <p>Zapier: free 100 tasks/month; Starter $19.99/month billed annually, 750 tasks (seedprod's 2026 tested guide; verify on zapier.com — Zapier revises tiers regularly).</p>
+  <p>Honest ranges for this app, from the mechanics: a single intake Zap at 100 leads/month is 100 tasks (exactly the free ceiling). Add a second Zap that also fires per intake and you're at 200 — Starter. The "New Email Opened" trigger is the expensive one: a campaign with 500 opens is 500 tasks if every open fires a downstream action, which crosses the free tier on one campaign. And the polling mechanics matter for expectations: a form submission at 9:00 becomes a contact at 9:0-something, not 9:00:01. If your sales process needs instant, this trigger class isn't it — use the native form or a direct webhook path instead.</p>
+
+  <h2>Five Zaps that actually earn their place</h2>
+  <p><strong>1. Squarespace Forms → Constant Contact (intake).</strong> New form submission → Create or Update Contact → Add Contact to List. The canonical intake Zap and the most popular Constant Contact template in Zapier's directory. Native exists for many site platforms — but Squarespace Forms is the one where Zapier is the documented path. Cost: one task per submission.</p>
+  <p><strong>2. Facebook Lead Ads → Constant Contact (ad intake).</strong> New lead → Create or Update Contact → Add Contact to List. Lead ads generate volume fast, which is exactly when manual import breaks. Cost: one task per lead — watch the free ceiling during a live campaign month.</p>
+  <p><strong>3. Eventbrite attendees → Constant Contact list (event loop).</strong> Honest note first: Eventbrite is natively integrated, so check the native path before building this. The Zap earns its place only if you need routing the native integration can't do (multi-list splits, conditional tags). Cost: one task per attendee — a 200-person event is 200 tasks in an evening.</p>
+  <p><strong>4. New Constant Contact contacts → Google Ads customer list (audience loop).</strong> The retargeting bridge: new contacts flow into a Google Ads customer list for audience building. This is one of Zapier's most-used Constant Contact templates, and it's the one Zap where Constant Contact is the <em>trigger</em> — feeding the ad platform rather than drinking from it. Cost: one task per contact.</p>
+  <p><strong>5. Unbounce / Webflow / Typeform → Constant Contact (long-tail intake).</strong> Same intake pattern as #1, for landing pages and form tools outside the native bench. The pattern is the point: one intake Zap per source, each ending at Add Contact to List with the list explicitly mapped.</p>
+  <p>Honorable mentions from the directory: Givebutter transactions → contacts (fundraising intake), Square customers → contacts (point-of-sale to list), QuickBooks Online customers → contacts (billing to list), Google Sheets rows → contacts (the spreadsheet-as-database), Close ↔ Constant Contact (create leads from new contacts or email opens — the sales-team bridge).</p>
+
+  <h2>The honest traps</h2>
+  <p><strong>The polling lag.</strong> Constant Contact's Zapier triggers are polling — Zapier checks on a schedule, the event doesn't push. Build "a contact gets the welcome email within the minute" expectations on this and you'll be disappointed. For time-critical flows, Constant Contact's own automations (native, event-driven) are the honest answer — and its automation engine is a checkbox away.</p>
+  <p><strong>The per-open meter.</strong> "New Email Opened" fires per open. Ten opens from one enthusiastic prospect is ten tasks. Always pair engagement triggers with a filter (first open only, or opens on a specific campaign) or the meter runs while you sleep.</p>
+  <p><strong>The list-orphan trap.</strong> Add Contact to List requires the list choice — skip the mapping and contacts land nowhere findable. Every intake Zap's last field check: list mapped, list named, list real.</p>
+  <p><strong>The SMS-consent trap.</strong> The Create-or-Update action exposes SMS phone and SMS consent type. Consent type isn't decoration — writing a number without recorded consent is a compliance exposure. If the source form didn't collect SMS consent, leave both fields empty.</p>
+  <p><strong>The native-first discipline.</strong> With 300+ native integrations, the most common failure on this tool is building a Zap for something that already exists as a checkbox. Before any Zap: search Constant Contact's integrations page. The Zapier job here is the long tail by design — don't pay task-meter rent for a native feature.</p>
+
+  <h2>FAQ</h2>
+  <h3>Do I need Zapier at all with Constant Contact?</h3>
+  <p>Less than with any other tool in this guide series. If your stack is website + store + events + CRM from the native bench, the honest answer is no. You need it for the long tail: forms tools, ad leads, spreadsheets, and niche CRMs Constant Contact doesn't know.</p>
+
+  <h3>How many tasks does a typical small business use?</h3>
+  <p>Honest ranges: a single lead-ads Zap at 100 leads/month is 100 tasks (exactly the free ceiling). An intake Zap plus an audience loop at 100 contacts each is 200 — Starter territory. Engagement-triggered Zaps are the wild card: one 500-open campaign can spend 500 tasks. Count your expected actions before building, not after.</p>
+
+  <h3>What's better than Zapier for Constant Contact?</h3>
+  <p>For volume, Make charges per operation (roughly $9–10/mo for 10,000 operations per 2026 roundups — verify live) and n8n is a fixed server cost. For coverage and simplicity, Zapier still leads. And for anything the native bench covers, the native integration is always cheaper than any middleman — including Zapier.</p>
+
+  <p>We carry an affiliate placeholder for Constant Contact (verified $105 one-time program) only. Zapier is not in our affiliate bench, so the pricing advice above costs us nothing either way: buy native-first discipline, not a Zapier subscription, unless the task math says you need it. The Zapier prices in this article come from third-party 2026 roundups — verify on zapier.com before checkout, because Zapier revises pricing and task tiers regularly.</p>
+  <p>
+    <!-- AFFILIATE PLACEHOLDER: Constant Contact — replace href with Shawn's real affiliate link after program approval. Never ship with # links. -->
+  </p>
+
+  <h2>Keep reading</h2>
+  <ul>
+    <li><a href="constant-contact-alternatives.html">Best Constant Contact alternatives</a></li>
+    <li><a href="constant-contact-to-mailerlite-migration.html">Migrating from Constant Contact to MailerLite: the honest walkthrough</a></li>
+    <li><a href="constant-contact-alternatives.html">Best Constant Contact alternatives</a></li>
+    <li><a href="getresponse-zapier-integrations-guide.html">GetResponse integrations: native vs Zapier</a></li>
+    <li><a href="aweber-zapier-integrations-guide.html">AWeber integrations: native vs Zapier</a></li>
+    <li><a href="activecampaign-zapier-integrations-guide.html">ActiveCampaign integrations: native vs Zapier</a></li>
+    <li><a href="brevo-zapier-integrations-guide.html">Brevo integrations: native vs Zapier</a></li>
+  </ul>
+  <p class="meta">This article completes the integration-guides series (5 of 5): GetResponse, AWeber, ActiveCampaign, Brevo, and Constant Contact — each checked against that tool's own Zapier app surface and native integrations in October 2026.</p>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <nav>
+      <a href="../index.html">Guides</a>
+      <a href="../about.html">About</a>
+      <a href="../disclosure.html">Affiliate Disclosure</a>
+    </nav>
+    <p class="fine">&copy; 2026 The Honest Inbox. Some links are affiliate links; see our disclosure.</p>
+  </div>
+</footer>
+</body>
+</html>
